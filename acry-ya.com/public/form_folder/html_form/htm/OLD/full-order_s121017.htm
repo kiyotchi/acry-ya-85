@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<title>見積依頼シート</title>
+<link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+<script language="JavaScript"><!--
+menuItem = [	["カットのみ","細目仕上","磨き仕上"],
+			["カットのみ","細目仕上"],
+			["カットのみ","細目仕上"] ];
+itemNum = 3;	//　項目数
+function setMenuItem(n)
+{
+	for (i=0; i<itemNum; i++)
+	{
+		document.sendform.端面処理.options[i] = new Option(menuItem[n][i],menuItem[n][i]);
+	}
+}
+
+function engine() {
+ document.sendform.item.value = window.opener.document.en1.item1.value;
+}
+
+
+
+
+
+// --></script>
+
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../js/full-order_s.js"></script>
+<script type="text/javascript" src="../js/input_check.js"></script>
+
+
+
+</head>
+<body bgcolor="#FFFFFF" leftmargin="1" topmargin="1" marginwidth="0" marginheight="0" onload="engine()">
+<table width="765" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="20" align="center" valign="top" background="../../../sheard_item/topix-head.gif" bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <tr>
+  <td align="center" valign="top" bgcolor="#FFFFFF">
+    <form action="/cgibin/clipmail/c1/clipmail.cgi" method="post" enctype="multipart/form-data" name="sendform" id="sendform">
+<input type="hidden" name="need" value="お名前 email お名前(かな) 電話番号 郵便番号 都道府県 住所 ご使用用途 製作数 全体横mm 全体奥行きmm 全体高さmm
+材料 色 厚さ 端面処理 梱包形態 納品方法 入金方法 製作内容の詳細 添付図面の数 ご使用用途 類似見積の有無" />
+<input type="hidden" name="match" value="email email2" />
+<input type="hidden" name="subject" value="見積の依頼（アクリ屋ドットコムホームページより）">
+
+<br>    
+      <table width="700" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#999999" class="caption-12gray">
+        <tr align="center" bgcolor="#999999">
+          <td height="35" colspan="2"><span class="title-11pt-gray"><font color="#FFFFFF">acry-ya.com 見積依頼シート</font></span></td>
+        </tr>
+        <tr align="center" bgcolor="#FFFF99">
+          <td colspan="2">黄色の背景項目は必須入力になります</td>
+        </tr>
+        <tr align="center" bgcolor="#DED8BE">
+          <td colspan="2"><span class="caption-12gray"><strong>お客様情報</strong></span></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■Ｅメール<br>
+    　 アドレス</td>
+          <td><input type="text" name="email"  id="email" size="30" maxlength="50">
+    携帯のアドレスは、なるべくお避け下さい </td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■確認用<span class="caption-12green"></span>Ｅメール<br>
+    　 アドレス<span class="caption-12green"> </span></td>
+          <td><input name="email2" type="text" id="email2" size="30" maxlength="50">
+    同じアドレスをもう一度入力下さい</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■お名前(漢字）</td>
+          <td nowrap><input name="お名前" type="text" id="お名前"  onchange="check_hankaku(this.value)" size="18">
+    （例：山田太郎）　法人の場合はご担当者様名</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■お名前(ひらがな）</td>
+          <td><input type="text" name="お名前(かな)" size="26" onchange="check_hankaku(this.value)">
+    （例：やまだたろう）</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■お客様は</td>
+          <td><select name="個人/法人">
+              <option value="個人様" selected>個人様</option>
+              <option value="法人様">法人様</option>
+            </select>
+    (選択下さい)</td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap>■法人名</td>
+          <td nowrap><input name="法人名" type="text"  onchange="check_hankaku(this.value)" size="32">
+    法人の場合のみ記入（会社名・団体名など）　　 </td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap>■法人名ひらがな </td>
+          <td nowrap><input name="法人名かな" type="text" onChange="check_hankaku(this.value)" size="32">
+    法人の場合のみ記入</td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap>■法人部署名</td>
+          <td nowrap><input name="部署名" type="text" onchange="check_hankaku(this.value)" size="32">
+    法人の場合のみ記入</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■郵便番号</td>
+          <td height="2"><input type="text" name="郵便番号" size="10" maxlength="8"></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■都道府県</td>
+          <td height="0"><select name="都道府県">
+              <option value="" selected>以下から選択
+                <option>北海道
+                <option>青森県
+                <option>岩手県
+                <option>宮城県
+                <option>秋田県
+                <option>山形県
+                <option>福島県
+                <option>茨城県
+                <option>栃木県
+                <option>群馬県
+                <option>埼玉県
+                <option>千葉県
+                <option>東京都
+                <option>神奈川県
+                <option>新潟県
+                <option>富山県
+                <option>石川県
+                <option>福井県
+                <option>山梨県
+                <option>長野県
+                <option>岐阜県
+                <option>静岡県
+                <option>愛知県
+                <option>三重県
+                <option>滋賀県
+                <option>京都府
+                <option>大阪府
+                <option>兵庫県
+                <option>奈良県
+                <option>和歌山県
+                <option>鳥取県
+                <option>島根県
+                <option>岡山県
+                <option>広島県
+                <option>山口県
+                <option>徳島県
+                <option>香川県
+                <option>愛媛県
+                <option>高知県
+                <option>福岡県
+                <option>佐賀県
+                <option>長崎県
+                <option>熊本県
+                <option>大分県
+                <option>宮崎県
+                <option>鹿児島県
+                <option>沖縄県
+                </select>
+          </td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■ご住所</td>
+          <td height="1"><input type="text" name="住所" size="50" onChange="check_hankaku(this.value)">
+    マンション名も省略せずに記入下さい</td>
+        </tr>
+        <tr>
+          <td nowrap bgcolor="#FFFF99">■電話番号<span class="caption-12green"> </span></td>
+          <td bgcolor="#FFFF99"><input type="text" name="電話番号" size="18" value="" maxlength="13">
+          </td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap>■ＦＡＸ</td>
+          <td><input type="text" name="ＦＡＸ" size="18" value="" maxlength="13"></td>
+        </tr>
+        <tr align="center" bgcolor="#DED8BE">
+          <td colspan="2">            <strong>納品先（上記と同じ場合は不要です）</strong></td>
+          </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap>■納品先名</td>
+          <td height="2"><input name="納品先名" type="text" onChange="check_hankaku(this.value)" size="50"></td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td align="left" nowrap>■納品先-郵便番号</td>
+          <td align="left" nowrap><input name="納品先-郵便番号" type="text" id="納品先-郵便番号" size="20" maxlength="32"></td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td align="left">■納品先-都道府県</td>
+          <td align="left" nowrap><select name="納品先-都道府県" id="納品先-都道府県">
+              <option value="" selected>以下から選択
+                <option>北海道
+                <option>青森県
+                <option>岩手県
+                <option>宮城県
+                <option>秋田県
+                <option>山形県
+                <option>福島県
+                <option>茨城県
+                <option>栃木県
+                <option>群馬県
+                <option>埼玉県
+                <option>千葉県
+                <option>東京都
+                <option>神奈川県
+                <option>新潟県
+                <option>富山県
+                <option>石川県
+                <option>福井県
+                <option>山梨県
+                <option>長野県
+                <option>岐阜県
+                <option>静岡県
+                <option>愛知県
+                <option>三重県
+                <option>滋賀県
+                <option>京都府
+                <option>大阪府
+                <option>兵庫県
+                <option>奈良県
+                <option>和歌山県
+                <option>鳥取県
+                <option>島根県
+                <option>岡山県
+                <option>広島県
+                <option>山口県
+                <option>徳島県
+                <option>香川県
+                <option>愛媛県
+                <option>高知県
+                <option>福岡県
+                <option>佐賀県
+                <option>長崎県
+                <option>熊本県
+                <option>大分県
+                <option>宮崎県
+                <option>鹿児島県
+                <option>沖縄県
+                </select>
+          </td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td align="left">■納品先-住所</td>
+          <td align="left" nowrap><input name="納品先-住所" type="text" id="納品先-住所" onchange="check_hankaku(this.value)" size="50" maxlength="32">
+    マンション名も省略せず記入下さい</td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td align="left">■納品先-電話番号</td>
+          <td align="left" nowrap><input name="納品先-電話番号" type="text" id="納品先-電話番号" size="13" maxlength="13"></td>
+        </tr>
+        <tr align="center" bgcolor="#FFFF99">
+          <td height="2" colspan="2" nowrap bgcolor="#DED8BE"><strong>製作内容ほか</strong></td>
+          </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■ご使用用途</td>
+          <td height="2"><input name="ご使用用途" type="text" onchange="check_hankaku(this.value)" size="60"></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■製作数</td>
+          <td height="2"><input name="製作数" type="text" id="製作数" value="" size="25">
+            （例： 20、50、100）<br>              製作数によって価格が変わりますので、希望数量（ロット）を記載下さい。（複数可）</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■全体サイズ</td>
+          <td height="2">横
+            <input name="全体横mm" type="text" id="全体横mm" value="" size="8" maxlength="6">
+            mm　　奥行
+            <input name="全体奥行きmm" type="text" id="2" value="" size="8" maxlength="6">
+            mm　　高さ
+            <input name="全体高さmm" type="text" id="1" value="" size="8" maxlength="6">
+            mm</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■材料</td>
+          <td height="2"><select name="材料" onChange="setMenuItem(this.selectedIndex)">
+            <option value="アクリル" selected>アクリル</option>
+            <option value="ポリカーボネート">ポリカーボネート</option>
+            <option value="その他 ">その他 
+            </select>
+            その他の場合は、製作内容の詳細・図面に明記下さい</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■材料の色<br>　
+            厚さ・端面仕上</td>
+          <td height="2"><select name="色" id="色">
+              <option value="" selected>▼色選択 
+              <option value="クリアー">クリアー 
+              <option value="ブラック">ブラック 
+              <option value="ホワイト">ホワイト 
+              <option value="オパール">オパール 
+              <option value="クリアー両面マット">クリアー両面マット 
+              <option value="ブラック両面マット">ブラック両面マット 
+              <option value="ホワイト両面マット">ホワイト両面マット</option>
+              <option value="グレースモーク">グレースモーク 
+              <option value="ブラウンスモーク">ブラウンスモーク</option>
+              <option value="ピンクエッジ">ピンクエッジ 
+              <option value="ブルーエッジ">ブルーエッジ 
+              <option value="ガラスエッジ">ガラスエッジ 
+              <option value="蛍光ピンクエッジ">蛍光ピンクエッジ 
+              <option value="蛍光オレンジエッジ">蛍光オレンジエッジ 
+              <option value="蛍光バイオレットエッジ">蛍光バイオレットエッジ 
+              <option value="蛍光グリーンエッジ">蛍光グリーンエッジ 
+              <option value="カーマイン">カーマイン 
+              <option value="オレンジ">オレンジ 
+              <option value="スカイブルー">スカイブルー 
+              <option value="レモン">レモン 
+              <option value="ミラー">ミラー 
+              <option value="UVカットクリアー">UVカットクリアー 
+              <option value="UVカットクリアー">集光ピンク 
+              <option value="集光オレンジ">集光オレンジ 
+              <option value="集光グリーン">集光グリーン 
+              <option value="集光レッド">集光レッド 
+              <option value="クリアー耐擦傷">クリアー耐擦傷 
+              <option value="クリアーノングレア">クリアーノングレア 
+              <option value="クリアー帯電防止">クリアー帯電防止
+              <option value="その他 ">その他 
+              </select>　
+            <select name="厚さ" id="厚さ">
+              <option value="" selected>▼厚さ選択 
+              <option value="2mm">2mm</option>
+              <option value="3mm">3mm</option>
+              <option value="4mm">4mm</option>
+              <option value="5mm">5mm</option>
+              <option value="6mm">6mm</option>
+              <option value="8mm">8mm</option>
+              <option value="10mm">10mm</option>
+              <option value="13mm">13mm</option>
+              <option value="15mm">15mm</option>
+              <option value="20mm">20mm</option>
+              <option value="25mm">25mm</option>
+              <option value="30mm">30mm</option>
+              <option value="35mm">35mm</option>
+              <option value="40mm">40mm</option>
+              <option value="45mm">45mm</option>
+              <option value="50mm">50mm</option>
+              <option value="その他">その他</option>
+            </select>　
+            <select name="端面処理" id="端面処理">
+              <option value="切断のみ ">切断のみ 
+              <option value="細目仕上 ">細目仕上 
+              <option value="磨き仕上 ">磨き仕上
+              </select>　
+            <a href="javascript:;" onClick="MM_openBrWindow('/acry-ya_new/html/full_order/htm/full_order_siage.html','','width=740,height=230')"><u class="caption-12orange">端面処理の詳細</u></a><br>
+            該当が無い場合は、その他を選択頂き、製作内容の詳細及び図面で指定下さい</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■梱包形態</td>
+          <td height="2"><select name="梱包形態" id="梱包形態">
+              <option value="" selected>▼梱包方法選択 
+              <option value="特に指定無し">特に指定無し
+              <option value="個別ダンボール梱包">個別ダンボール梱包 
+            </select>　            
+            ご注文金額に関わらず、梱包送料はご負担願います<br>
+            個別ダンボール梱包は簡易梱包ですが費用が加算されます。また化粧包装等の専用箱ではございません。</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■納品方法</td>
+          <td height="2"><select name="納品方法" id="納品方法">
+            <option value="" selected>▼納品方法選択 
+            <option value="運送便">運送便
+            <option value="ご来社引取">ご来社引取
+            </select></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td width="102" nowrap>■購入時の<br>
+            　 ご入金方法</td>
+          <td height="2"><select name="入金方法" id="入金方法">
+              <option value="" selected>▼入金方法選択 </option>
+              <option value="銀行振込（前払い）">銀行振込（前払い）</option>
+              <option value="代金引換(30万円未満）">代金引換(30万円未満）</option>
+              <option value="クレジットカード">クレジットカード</option>
+              <option value="コンビニ決済(30万円未満）">コンビニ決済(30万円未満）</option>
+              <option value="ご来社引取時に現金">ご来社引取時に現金</option>
+            </select></td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap>■予算上限</td>
+          <td height="2"><select name="予算上限" id="予算上限">
+              <option value="" selected>▼予算上限選択 
+              <option value="5,000円">5,000円
+              <option value="1万円">1万円
+              <option value="2万円">2万円
+              <option value="3万円">3万円
+              <option value="5万円">5万円
+              <option value="8万円">8万円
+              <option value="10万円">10万円
+              <option value="15万円">15万円
+              <option value="20万円">20万円
+              <option value="30万円">30万円
+              <option value="50万円">50万円
+              <option value="100万円">100万円
+              <option value="300万円">300万円
+              <option value="500万円">500万円
+              <option value="特になし">特になし
+              </select>
+            これ以上なら検討しない予算上限金額を選択下さい</td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap>■ご希望納期</td>
+          <td height="2"><input name="希望納期" type="text" id="希望納期" value="" size="25"></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap>■類似見積有無</td>
+          <td height="2"><table width="100%"  border="0" cellpadding="3" cellspacing="1" class="caption-12gray">
+            <tr>
+              <td width="47%" nowrap>以前に弊社へ同類のお見積のご依頼はございますでしょうか</td>
+              <td width="53%"><select name="類似見積の有無" id="類似見積の有無">
+                <option value="" selected>▼選択 </option>
+                <option value="以前に同類の見積依頼が有り">はい</option>
+                <option value="以前に同類の見積依頼は無し">いいえ</option>
+              </select></td>
+            </tr>
+            <tr bgcolor="#F0EDE1">
+              <td>上記が「はい」の場合、お分かりになりましたら、その際のお見積番号を記載下さい</td>
+              <td valign="top"><input name="類似見積番号" type="text" id="類似見積番号" value="" size="8" maxlength="8"></td>
+            </tr>
+          </table>
+            </td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+        <td valign="top">■製作内容の詳細<br>
+            （構造・材質等）</td>
+        <td>なるべく詳しく記入下さい。不明な点があると、お見積できない場合があります。
+          <textarea name="製作内容の詳細" cols="70" rows="10" id="製作内容の詳細" style="font-size: 10pt" onchange="check_hankaku(this.value)"></textarea></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td valign="top">■図面の添付</td>
+          <td>※添付書類は「pdf ・ ai（CS5以下) ・ dxf ・ jpg ・ zip ・ lzh」の形式（拡張子）でお願い致します（Macは拡張子を付けて下さい）。<br>
+            <span class="caption-12orange">※ファイルを３つ以上お送り頂く際は、1つのフォルダにまとめた後に圧縮して添付下さい。</span><br>
+            <span class="caption-12orange">※DXFファイルは文字化けになることが多いため、PDFにてお送り頂くと助かります。</span> <br>
+              添付書類１
+              <input type=file name="clip-1" size="15" maxlength="60">
+              <a href="javascript:;" onClick="MM_openBrWindow('../img/cyoukoku/ai-name-caution.gif','','width=636,height=636')"><u class="caption-12orange"><strong>イラストレーターの名入れデータのご注意</strong></u></a><br>
+			  添付書類２
+			  <input type=file name="clip-2" size="15" maxlength="60">
+			  <br>
+			  添付書類３
+			  <input type=file name="clip-3" size="15" maxlength="60">
+			  <br>
+			  
+              合計3MB以内（圧縮可）<br>
+              添付の図面数
+              <select name="添付図面の数" id="添付図面の数">
+                <option value="無し" selected>無し
+                <option value="1">1 
+                <option value="2">2 
+                <option value="3">3 
+                <option value="4">4 
+                <option value="5">5 
+                <option value="6">6 
+                <option value="7">7 
+                <option value="FAXで送る">FAXで送る 
+              </select></td>
+          </tr>
+        <tr align="center">
+          <td nowrap bgcolor="#FFFFFF">お客様情報の保存</td>
+          <td align="left" bgcolor="#FFFFFF"><p>入力した情報（お名前・Eメール・住所・電話番号）を保存し、再入力が不要になります。<br>
+                  <input type="checkbox" name="お客様情報" value="保存" id="f_cookie">
+                  <strong>チェックで保存</strong>　※複数人で１台のパソコンを使う場合はチェックしないことをお勧めします。</p></td>
+        </tr>
+        <tr align="center">
+          <td colspan="2" bgcolor="#FFFFFF"><input name="item" type="hidden"><input type="submit"value="送信" id="send" >
+　
+              <input type="reset" value="リセット">
+                <br>
+               <br>
+                <span class="caption-10gray-hight">ご連絡頂いた個人情報は、本ご依頼内容に関する対応にのみ利用します。<br>
+                このページは128bit-SSL暗号化の安全性の高いセキュア通信が提供されています。
+                <br>
+              <img src="../../../sheard_item/mini-logo-white.gif" width="135" height="25"></span>
+         </td>
+        </tr>
+    </table>
+    </form>
+  </td>
+</tr>
+</table>
+<script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3172569-1";
+urchinTracker();
+</script>
+</body>
+</html>

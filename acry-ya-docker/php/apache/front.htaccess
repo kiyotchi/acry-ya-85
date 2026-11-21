@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------------------
+# フロント用のローカル安全版 .htaccess
+#
+# 本番の acry-ya.com/public/.htaccess は以下のためローカルで使えない:
+#   - HTTPS 強制リダイレクト
+#   - Basic 認証
+#   - 攻撃元 IP の 503 ブロック
+#   - ErrorDocument 404 /404.html（Laravel の 404 画面を bypass する）
+#
+# このファイルを public/.htaccess に読み取り専用で上書きマウントする。
+# ---------------------------------------------------------------------------
+
+Options -MultiViews -Indexes
+
+# 本番同様、.html / .htm を PHP として実行する
+<FilesMatch "\.(html|htm)$">
+    AddType application/x-httpd-php .html .htm
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # /products/ 配下もフロントコントローラへ
+    RewriteCond %{REQUEST_URI} (^/products/)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

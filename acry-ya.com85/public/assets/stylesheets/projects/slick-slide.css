@@ -1,0 +1,415 @@
+/*===========================================
+    slick-slide
+===========================================*/
+#p-top .top__slide--wrap {
+  padding-bottom: 50px;
+}
+.top__slide--wrap {
+  padding-bottom: 50px;
+}
+
+.p-mainVisual {
+  margin-bottom: 1em;
+}
+
+.p-mainVisual .mainVisual__slick {
+  width: 100%;
+}
+
+.p-mainVisual .mainVisual__slick .slick-arrow {
+  background-color: #009A98;
+  border-radius: 100px;
+  border: 2px solid #fff;
+  opacity: 0.9;
+}
+
+.p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-l,
+.p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-r {
+  width: 100%;
+  height: 100%;
+}
+
+.p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-l::after,
+.p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-r::after {
+  display: none;
+}
+
+.p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-l::before,
+.p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-r::before {
+  height: 15px;
+  width: 15px;
+  background-color: transparent;
+  position: absolute;
+  top: 45%;
+}
+
+.p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-l::before {
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+  left: auto;
+  right: 38%;
+  transform: translate(0, -50%) rotate(45deg);
+}
+
+.p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-r::before {
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  left: 38%;
+  right: auto;
+  transform: translate(0, -50%) rotate(-45deg);
+}
+
+.p-mainVisual .mainVisual__slick .slick-prev {
+  left: -26px;
+}
+
+.p-mainVisual .mainVisual__slick .slick-next {
+  right: -26px;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item {
+  display: block;
+  width: 100%;
+  outline: none;
+  border-style: none;
+  position: relative;
+  padding-left: 4px;
+  padding-right: 4px;
+  opacity: 0.7;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item.slick-current {
+  opacity: 1;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item img {
+  display: block;
+  width: 100%;
+  outline: none;
+  border-style: none;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__text {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  font-size: 24px;
+  padding: 0 50px;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__title {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: inherit;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__copy {
+  font-size: 22px;
+  line-height: 1.6;
+  text-align: inherit;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__link {
+  font-size: 18px;
+  background-color: #009A98;
+  color: #fff;
+  padding: 5px 25px 3px 20px;
+  line-height: 1.3;
+  position: relative;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__link::after {
+  content: '';
+  height: 8px;
+  width: 8px;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  left: auto;
+  right: 10px;
+  transform: translate(0, -50%) rotate(-45deg);
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__title+.item__copy {
+  margin-top: 15px;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__copy+.item__title {
+  margin-top: 15px;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__position--left {
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  text-align: left;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__position--right {
+  top: 50%;
+  left: 40%;
+  transform: translate(0, -50%);
+  text-align: right;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__position--center {
+  text-align: center;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__color--white {
+  color: #fff;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__color--black {
+  color: #212121;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__color--main {
+  color: #009A98;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__color--blue {
+  color: #1DAEE9;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__color--red {
+  color: #d8686f;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__color--purple {
+  color: #b20064;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__title.size__sm {
+  font-size: 32px;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__title.size__lg {
+  font-size: 42px;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__copy.size__sm {
+  font-size: 20px;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__copy.size__lg {
+  font-size: 26px;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .text__bold {
+  font-weight: 700;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__pc {
+  display: block;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__sp {
+  display: none;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__link.link__color--white {
+  background-color: #fff;
+  color: #212121;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__link.link__color--white::after {
+  border-bottom: 1px solid #212121;
+  border-right: 1px solid #212121;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__link.link__color--blue {
+  background-color: #009A98;
+  color: #fff;
+}
+
+.p-mainVisual .mainVisual__slick .slick__item .item__link.link__color--red {
+  background-color: #d8686f;
+  color: #fff;
+}
+
+@media screen and (max-width: 1360px) {
+  .p-mainVisual .mainVisual__slick .slick__item .item__title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__link {
+    font-size: 18px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title+.item__copy {
+    margin-top: 10px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy+.item__title {
+    margin-top: 10px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title.size__sm {
+    font-size: 28px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title.size__lg {
+    font-size: 38px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy.size__sm {
+    font-size: 18px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy.size__lg {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .top__slide--wrap,
+  #p-top .top__slide--wrap {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 10px;
+  }
+
+  .top__slide--wrap.sp__none {
+    display: none;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__pc {
+    display: none;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__sp {
+    display: block;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__text {
+    width: 90%;
+  }
+
+
+  .p-mainVisual .mainVisual__slick .slick__item .text__position--left {
+    top: 15px;
+    left: 0;
+    transform: translate(0, 0);
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .text__position--right {
+    top: 15px;
+    left: auto;
+    right: 0;
+    transform: translate(0, 0);
+  }
+
+  .p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-l::before,
+  .p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-r::before {
+    height: 8px;
+    width: 8px;
+    top: 45%;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-l::before {
+    right: 38%;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick-arrow .c-icon--arrow-r::before {
+    left: 38%;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick-prev {
+    left: 5px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick-next {
+    right: 5px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__link {
+    font-size: 4vw;
+    padding: 5px 25px 3px 15px;
+    margin-top: 5px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__link::after {
+    height: 6px;
+    width: 6px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title+.item__copy {
+    margin-top: 3px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy+.item__title {
+    margin-top: 3px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__text {
+    padding: 0 15px;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title {
+    font-size: 5.5vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title.size__sm {
+    font-size: 5vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title.size__lg {
+    font-size: 6vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title.size__md--sp {
+    font-size: 5.5vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title.size__sm--sp {
+    font-size: 5vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__title.size__lg--sp {
+    font-size: 6vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy {
+    font-size: 3vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy.size__sm {
+    font-size: 2.5vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy.size__lg {
+    font-size: 3.5vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy.size__md--sp {
+    font-size: 3vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy.size__sm--sp {
+    font-size: 2.5vw;
+  }
+
+  .p-mainVisual .mainVisual__slick .slick__item .item__copy.size__lg--sp {
+    font-size: 3.5vw;
+  }
+}

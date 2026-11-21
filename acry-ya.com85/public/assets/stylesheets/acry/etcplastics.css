@@ -1,0 +1,96 @@
+/*===========================================
+    c-faqList
+===========================================*/
+.c-faqList .faqList__item .item__question {
+  color: #333;
+  font-size: 1rem;
+}
+[class*="c-list"][class*="-disc"] .list__item {
+  font-size: 0.9rem;
+}
+/*===========================================
+    c-button
+===========================================*/
+#p-product [class*="c-button-"][class*="-pdf"] {
+  padding: 0.8em 1.0em;
+  font-size: 1.133rem;
+  border: none;
+  background-color: #e95464;
+  color: #fff;
+}
+[class*="Btn-Icon"]{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 13px;
+  transform: translateY(-50%);
+}
+/*===========================================
+    c-list
+===========================================*/
+.overview__Description [class*="c-list"] .list__item:last-child {
+  margin-bottom: 2rem;
+}
+[class*="c-list"] .list__item:last-child {
+  margin-bottom: 0.2rem;
+}
+/*===========================================
+    c-card
+===========================================*/
+[class*="c-card-"][class*="-step"] {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  border: solid 1px #333;
+}
+/*===========================================
+    tel
+===========================================*/
+/* 動作 */
+[class*="c-list"] .list__item > a[href*="tel:"] {
+  color: #333;
+  font-weight:normal;
+}
+
+@media (min-width: 751px) {
+  a[href*="tel:"] {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+  }
+}
+
+/* 表示 */
+[class*="c-list"][class*="-weightBold"] {
+  font-weight: bold;
+}
+
+[class*="c-list"][class*="-weightBold"] .list__item ,
+[class*="c-list"] .list__item > a[href*="tel:"] {
+  font-weight: bold;
+  margin-bottom: 0.4em;
+  padding-left: 0;
+  text-indent: 0;
+  list-style-position: inside;
+}
+
+[class*="c-list"] .list__item > a[href*="tel:"]:before {
+  content: 'TEL ';
+  font-size: 0.8rem;
+}
+
+[class*="infoFax"]{
+  font-weight: bold;
+}
+
+[class*="infoFax"]:before {
+  content: 'FAX ';
+  font-size: 0.8rem;
+}
+
+
+/*===========================================
+    overview
+===========================================*/
+#p-product [class*="p-overview"] .overview__order {
+  border-bottom: none;
+}

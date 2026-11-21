@@ -1,0 +1,425 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="description" content="お問い合わせフォーム">
+<meta name="keywords" content="お問い合わせフォーム">
+<title>お問い合わせフォーム</title>
+<link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../js/full-order_s.js"></script>
+<script type="text/javascript" src="../js/input_check.js"></script>
+<?php  
+$ua = $_SERVER['HTTP_USER_AGENT'];  
+if(  
+     strpos($ua, 'DoCoMo') ||  
+     strpos($ua, 'KDDI') ||  
+     strpos($ua, 'Vodafone') ||  
+     strpos($ua, 'SoftBank')  
+ ){  
+    header("Location: https://pro.form-mailer.jp/fms/0a37472021749");  
+     exit;  
+ }  
+?> 
+
+</head>
+<body bgcolor="#f8f8ff" leftmargin="1" topmargin="1" marginwidth="0" marginheight="0">
+<table width="765" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="30"><!-- #BeginLibraryItem "/Library/header1s.lbi" --><link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<table width="765" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="100%" colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td background="../../../sheard_item/header2.jpg"><a href="/"><img src="../../../sheard_item/header1.jpg" alt="アクリ屋ドットコム" width="196" height="55" border="0"></a></td>
+        <td width="546" height="55" align="right" background="../../../sheard_item/header2.jpg"><a href="/"><strong><font color="#FFFFFF" class="caption-12white" size="7">アクリル材料加工とアクリル製品の&quot;アクリ屋ドットコム&quot;</font></strong></a></td>
+        <td background="../../../sheard_item/header2.jpg"><img src="../../../sheard_item/header3.jpg" width="23" height="55"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="21" colspan="2" align="center" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="5">&nbsp;</td>
+          <td align="center"><font size="1"><a href="/" class="caption-10gray">トップページ</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/htm2/htm/itemlist.htm" class="caption-10gray">商品一覧</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/example_top/htm/example.htm" class="caption-10gray">お客様活用事例</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/howtoorder_top/htm/howtoorder.htm" class="caption-10gray">ご購入ガイド</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td width="40" align="center"><font size="1"><a href="/acry-ya_new/htm2/htm/situmon.html" class="caption-10gray">Q&amp;A</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/cgibin/cart-n/ex/cart.cgi" class="caption-10gray">カートを見る</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/contact_top/htm/contact.htm" class="caption-10gray">お問い合わせ</a></font></td>
+          <td width="5">&nbsp;</td>
+          <td width="16%" align="right" valign="bottom" nowrap>
+                <form action="http://www.frame-acry-ya.com/search-a.html" method="get" id="srch">
+                  <input type="text" name="p" id="srchInput" size="15" maxlength="25">
+                  <input type="image" name="search" src="/sheard_item/kensaku-gray.gif" border="0" width="40" height="19" alt="サイト検索"id="srchBtn">
+                  <br>
+                  <input type="hidden" id="fr" name="fr" value="cse">
+                  <input type="hidden" id="ei" name="ei" value="Shift_JIS">
+                  <input type="hidden" id="csid" name="csid" value="bnZLO3dcDrOqllfysUZ57LKkI8eGMEk-">
+                  <input type="hidden" name="vs" value="www.acry-ya.com" id="yjInsite">
+                </form>
+	</td>
+	</tr>
+	</table>
+    </td>
+  </tr>
+</table><!-- #EndLibraryItem --><tr>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="4">
+      <tr>
+        <td height="25" background="../../../sheard_item/line-titele-wide.jpg"><h1 style="font-size:14; margin:0px;"> <span class="caption-12gray"><font color="#FFFFFF">　お問い合わせ</font></span></h1></td>
+      </tr>
+      <tr>
+        <td valign="top" bgcolor="#F5F5EB"><a href="/" class="caption-12gray"><u>トップページ</u></a>　<span class="caption-12gray">＞　<a href="/acry-ya_new/html/contact_top/htm/contact.htm"><u>お問い合わせ</u></a>　＞　お問い合わせフォーム</span></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+  <td align="center" valign="top" bgcolor="#FFFFFF">
+    <form action="/cgibin/clipmail/c1/clipmail.cgi" method="post" enctype="multipart/form-data" name="sendform" id="sendform">
+      <br>
+      <table width="700" border="0" cellpadding="1" cellspacing="1" bgcolor="#999999">
+        <tr>
+          <td align="center" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="5" cellspacing="1" class="caption-12gray">
+              <tr align="right">
+                <td colspan="3"><a href="https://pro.form-mailer.jp/fms/0a37472021749" target="_blank"><u class="caption-10green">携帯・スマートフォンからのお問い合わせ</u></a> </td>
+                </tr>
+              <tr>
+                <td width="8%" align="left">&nbsp;</td>
+                <td width="80%" align="left" valign="middle">多く頂くお問い合わせは、<a href="/acry-ya_new/htm2/htm/situmon.html" target="_blank"><u class="caption-12orange"><strong>よくある質問Q&amp;A</strong></u></a>をご用意しております。　<a href="/acry-ya_new/htm2/htm/situmon.html" target="_blank"><img src="../../../sheard_item/button-q-and-a.gif" width="106" height="17" border="0" align="absmiddle"></a> <br>
+                  <br>
+                  お見積のご依頼は、<a href="/acry-ya_new/html/full_order/htm/full_order.html"><u class="caption-12orange"><strong>お見積フォーム</strong></u></a>よりお願い致します。　<a href="/acry-ya_new/html/full_order/htm/full_order.html"><img src="../../../sheard_item/button-mitumori-form.gif" width="106" height="17" border="0" align="absmiddle"></a> </td>
+                <td width="12%" align="right" nowrap><img src="../img/toiawase/toiawase-gazo.gif" width="70" height="70"></td>
+              </tr>
+          </table>
+            </td>
+        </tr>
+      </table>
+      <input type="hidden" name="need" value="お名前 email お名前かな 電話番号 弊社からの電話連絡 郵便番号 都道府県 住所 お問い合わせ内容" />
+      <input type="hidden" name="match" value="email email2" />
+      <input type="hidden" name="subject" value="お問い合わせありがとうございます（アクリ屋ドットコム）">
+      <br>
+      <table width="700" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#999999" class="caption-12gray">
+        <tr align="center" bgcolor="#999999">
+          <td height="35" colspan="4"><span class="title-11pt-gray"><font color="#FFFFFF">acry-ya.com お問い合わせフォーム </font></span></td>
+        </tr>
+        <tr align="center" bgcolor="#DED8BE">
+          <td colspan="4"><strong>お客様情報</strong></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td valign="middle" nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td class="caption-12gray">メールアドレス</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td width="513" colspan="3" bgcolor="#FFFFFF"><input type="text" name="email"  id="email" size="30" maxlength="50">
+            携帯のアドレスは、なるべくお避け下さい。</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">メールアドレス(確認用)</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td colspan="3" bgcolor="#FFFFFF"><input name="email2" type="text" id="email2" size="30" maxlength="50">
+        同じアドレスをもう一度入力下さい。</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">お名前(漢字)</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td colspan="3" nowrap bgcolor="#FFFFFF"><input name="お名前" type="text" id="お名前"  onchange="check_hankaku(this.value)" size="18">
+        （例：山田太郎）　法人の場合はご担当者様名</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">お名前(ひらがな)</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td colspan="3" bgcolor="#FFFFFF"><input name="お名前かな" type="text" id="お名前かな" onchange="check_hankaku(this.value)" size="26">
+        （例：やまだたろう）</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">個人／法人</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td colspan="3" bgcolor="#FFFFFF"><select name="個人/法人">
+              <option value="個人様" selected>個人様</option>
+              <option value="法人様">法人様</option>
+            </select>
+            選択下さい。</td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+            <tr>
+              <td class="caption-12gray">法人名</td>
+            </tr>
+          </table></td>
+          <td colspan="3" nowrap bgcolor="#FFFFFF"><input name="法人名" type="text"  onchange="check_hankaku(this.value)" size="32">        
+                法人の場合のみ記入（会社名・団体名など）　　 </td>
+          </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+            <tr>
+              <td class="caption-12gray">法人名(ひらがな)</td>
+            </tr>
+          </table></td>
+          <td colspan="3" nowrap bgcolor="#FFFFFF"><input name="法人名かな" type="text" onChange="check_hankaku(this.value)" size="32">
+            法人の場合のみ記入</td>
+          </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+            <tr>
+              <td class="caption-12gray">法人部署名</td>
+            </tr>
+          </table></td>
+          <td colspan="3" nowrap bgcolor="#FFFFFF"><input name="部署名" type="text" onchange="check_hankaku(this.value)" size="32">
+            法人の場合のみ記入</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">郵便番号</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td height="2" colspan="3" bgcolor="#FFFFFF"><input type="text" name="郵便番号" size="10" maxlength="8"></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">都道府県</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td height="0" colspan="3" bgcolor="#FFFFFF"><select name="都道府県">
+            <option value="" selected>以下から選択
+                <option value="北海道">北海道
+                <option value="青森県">青森県
+                <option value="岩手県">岩手県
+                <option value="宮城県">宮城県
+                <option value="秋田県">秋田県
+                <option value="山形県">山形県
+                <option value="福島県">福島県
+                <option value="茨城県">茨城県
+                <option value="栃木県">栃木県
+                <option value="群馬県">群馬県
+                <option value="埼玉県">埼玉県
+                <option value="千葉県">千葉県
+                <option value="東京都">東京都
+                <option value="神奈川県">神奈川県
+                <option value="新潟県">新潟県
+                <option value="富山県">富山県
+                <option value="石川県">石川県
+                <option value="福井県">福井県
+                <option value="山梨県">山梨県
+                <option value="長野県">長野県
+                <option value="岐阜県">岐阜県
+                <option value="静岡県">静岡県
+                <option value="愛知県">愛知県
+                <option value="三重県">三重県
+                <option value="滋賀県">滋賀県
+                <option value="京都府">京都府
+                <option value="大阪府">大阪府
+                <option value="兵庫県">兵庫県
+                <option value="奈良県">奈良県
+                <option value="和歌山県">和歌山県
+                <option value="鳥取県">鳥取県
+                <option value="島根県">島根県
+                <option value="岡山県">岡山県
+                <option value="広島県">広島県
+                <option value="山口県">山口県
+                <option value="徳島県">徳島県
+                <option value="香川県">香川県
+                <option value="愛媛県">愛媛県
+                <option value="高知県">高知県
+                <option value="福岡県">福岡県
+                <option value="佐賀県">佐賀県
+                <option value="長崎県">長崎県
+                <option value="熊本県">熊本県
+                <option value="大分県">大分県
+                <option value="宮崎県">宮崎県
+                <option value="鹿児島県">鹿児島県
+                <option value="沖縄県">沖縄県
+                </select></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">住所</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td height="1" colspan="3" bgcolor="#FFFFFF"><input type="text" name="住所" size="50" onChange="check_hankaku(this.value)">
+            マンション名も省略せずに記入下さい。</td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">電話番号</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td height="1" colspan="3" bgcolor="#FFFFFF"><input type="text" name="電話番号" size="18" value="" maxlength="13"></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">弊社からの電話連絡</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+          </table></td>
+          <td height="1" colspan="3" bgcolor="#FFFFFF"><input type="radio" name="弊社からの電話連絡" value="可">
+可 　　
+  <input type="radio" name="弊社からの電話連絡" value="不可">
+  不可 </td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap bgcolor="#f5f5f5"><table width="100%">
+            <tr>
+              <td nowrap class="caption-12gray">FAX</td>
+              </tr>
+          </table></td>
+          <td height="1" colspan="3" bgcolor="#FFFFFF"><input type="text" name="ＦＡＸ" size="18" value="" maxlength="13"></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td align="left" valign="top" bgcolor="#f5f5f5"><table width="100%">
+              <tr>
+                <td nowrap class="caption-12gray">お問い合わせ内容</td>
+                <td width="20%"><img src="/acry-ya_new/img/sheard_item/hissu.gif" width="30"></td>
+              </tr>
+            </table>
+            </td>
+          <td colspan="3" bgcolor="#FFFFFF">詳しく記入下さい。<br>
+              <table border="0" cellpadding="5" cellspacing="1" class="caption-12gray">
+                <tr>
+                  <td align="center" bgcolor="#F0EDE1"> お見積のご依頼は、<a href="/acry-ya_new/html/full_order/htm/full_order.html" target="_blank"><u class="caption-12orange"><strong>お見積フォーム</strong></u></a>より、お願い致します。 </td>
+                </tr>
+              </table>
+              <textarea name="お問い合わせ内容" cols="70" rows="10" id="お問い合わせ内容" style="font-size: 10pt" onchange="check_hankaku(this.value)"></textarea></td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td valign="top" bgcolor="#f5f5f5"><table width="100%">
+            <tr>
+              <td nowrap class="caption-12gray">図面の添付</td>
+            </tr>
+          </table></td>
+          <td colspan="3" bgcolor="#FFFFFF">※添付書類は「pdf ・ ai（CS5以下) ・ dxf ・ jpg ・ zip ・ lzh」の形式（拡張子）でお願い致します。<br>
+※Macでデータを作成する際は、必ず拡張子を付けて下さい。<br>
+<span class="caption-12orange">※データには寸法と仕様詳細を必ずご記入下さい。</span><br>
+<span class="caption-12orange">※DXFデータは文字化けする事がある為、詳細を明記したPDFデータを併せて添付下さい。</span><br>
+<span class="caption-12orange">※ファイルを３つ以上お送り頂く際は、1つのフォルダにまとめた後に圧縮して添付下さい。</span><br>
+        添付書類１
+        <input type=file name="clip-1" size="15" maxlength="60">
+        <br>
+        添付書類２
+        <input type=file name="clip-2" size="15" maxlength="60">
+        <br>
+        添付書類３
+        <input type=file name="clip-3" size="15" maxlength="60">
+        <br>
+        合計3MB以内（圧縮可）<br>
+        添付の図面数
+        <select name="添付図面の数" id="添付図面の数">
+          <option value="無し" selected>無し
+                <option value="1">1 
+                <option value="2">2 
+                <option value="3">3 
+                <option value="4">4 
+                <option value="5">5 
+                <option value="6">6 
+                <option value="7">7 
+                <option value="FAXで送る">FAXで送る 
+              </select>
+          </td>
+        </tr>
+        <tr bgcolor="#FFFF99">
+          <td align="left" nowrap bgcolor="#f5f5f5"><table width="100%">
+            <tr>
+              <td nowrap class="caption-12gray">お客様情報の保存</td>
+            </tr>
+          </table></td>
+          <td align="left" bgcolor="#FFFFFF">入力した情報（メールアドレス・お名前・住所・電話番号等）を保存し、再入力が不要になります。<br>
+                <input type="checkbox" name="お客様情報" value="保存" id="f_cookie"><strong>チェックで保存</strong>　※複数人で１台のパソコンを使う場合はチェックしないことをお勧めします。</td>
+        </tr>
+        <tr align="center">
+          <td colspan="4" bgcolor="#FFFFFF"><input type="button"value="送信" id="send" onClick="input_check_c()">
+          <input type="reset" value="リセット">
+          <br>
+          <br>
+          <span class="caption-10gray-hight">ご連絡頂いた個人情報は、本ご依頼内容に関する対応にのみ利用します。<br>
+        このページは128bit-SSL暗号化の安全性の高いセキュア通信が提供されています。 <br>
+        <img src="../../../sheard_item/mini-logo-white.gif" width="135" height="25"></span> </td>
+        </tr>
+      </table>
+    </form>
+  </td>
+</tr>
+  <tr>
+    <td valign="top" height="7"><!-- #BeginLibraryItem "/Library/footer7.lbi" --><script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_popupMsg(msg) { //v1.0
+  alert(msg);
+}
+//-->
+</script>
+<link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<table width="765" border="0" cellpadding="5" cellspacing="1" bgcolor="#999999">
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><table width="650" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td colspan="11" align="center"><a href="/"><strong><font size="2">アクリル材料加工とアクリル製品の&quot;アクリ屋ドットコム&quot;</font></strong></a></td>
+        </tr>
+        <tr>
+          <td colspan="11" align="center" nowrap>
+		  <a href="javascript:;" onClick="MM_popupMsg('『著作権について』\r		  このWebサイト上の文章、写真、図、映像などは個人的な利用を目的とした場合を除き複製、使用することは著作権法により禁止されていますので、複製、使用は事前に当社にご連絡の上、許諾を得て頂くようお願い致します。\r		  『商標について』\r		  「アクリ屋」の名称及び類似する商標の使用に関する権利は当社に帰属します。これを当社の許諾を得ることなく使用等する行為は商標法等により禁止されていますので、事前に当社にご連絡の上、許諾を得て頂くようお願い致します。')">
+          <span class="caption-09gray">copyright (C)  acry-ya.com. all rights reserved.　「アクリ屋」は株式会社さくら樹脂の登録商標です。</span></a><br>
+		  <span class="caption-10gray-hight"><strong>株式会社さくら樹脂 〒222-0001神奈川県横浜市港北区樽町4-13-2</strong></span></td>
+        </tr>
+      </table>
+      <table width="350" border="0" cellpadding="0" cellspacing="0" class="caption-10gray">
+        <tr>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/" class="caption-12green"><font size="1">トップページ</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/htm2/htm/itemlist.htm" class="caption-12green"><font size="1">商品一覧</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/html/acry_ya_top/htm/acry_ya.htm" class="caption-12green"><font size="1">会社概要</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/htm2/htm/privacy_policy.html" class="caption-12green"><font size="1">プライバシーポリシー</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/html/contact_top/htm/contact.htm" class="caption-12green"><font size="1">お問い合わせ</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table><!-- #EndLibraryItem --></td>
+  </tr>
+</table>
+<script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3172569-1";
+urchinTracker();
+</script>
+</body>
+</html>

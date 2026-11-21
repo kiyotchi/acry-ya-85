@@ -1,0 +1,43 @@
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_popupMsg(msg) { //v1.0
+  alert(msg);
+}
+//-->
+</script>
+<link href="../css/newccs.css" rel="stylesheet" type="text/css">
+<table width="765" border="0" cellpadding="5" cellspacing="1" bgcolor="#999999">
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><table width="650" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td colspan="11" align="center"><a href="/"><strong><font size="2">アクリル材料加工とアクリル製品の&quot;アクリ屋ドットコム&quot;</font></strong></a></td>
+        </tr>
+        <tr>
+          <td colspan="11" align="center" nowrap>
+		  <a href="javascript:;" onClick="MM_popupMsg('『著作権について』
+このWebサイト上の文章、写真、図、映像などは個人的な利用を目的とした場合を除き複製、使用することは著作権法により禁止されていますので、複製、使用は事前に当社にご連絡の上、許諾を得て頂くようお願い致します。
+
+『商標について』
+「アクリ屋」の名称及び類似する商標の使用に関する権利は当社に帰属します。これを当社の許諾を得ることなく使用等する行為は商標法等により禁止されていますので、事前に当社にご連絡の上、許諾を得て頂くようお願い致します。')">
+          <span class="caption-09gray">copyright (C) 1999-2010 acry-ya.com. all rights reserved.　「アクリ屋」は株式会社さくら樹脂の登録商標です。</span></a><br>
+		  <span class="caption-10gray-hight"><strong>株式会社さくら樹脂 〒222-0001神奈川県横浜市港北区樽町4-13-2</strong></span></td>
+        </tr>
+      </table>
+      <table width="350" border="0" cellpadding="0" cellspacing="0" class="caption-10gray">
+        <tr>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/" class="caption-12green"><font size="1">トップページ</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/htm2/htm/itemlist.htm" class="caption-12green"><font size="1">商品一覧</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/html/acry_ya_top/htm/acry_ya.htm" class="caption-12green"><font size="1">会社概要</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/htm2/htm/privacy_policy.html" class="caption-12green"><font size="1">プライバシーポリシー</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/html/contact_top/htm/contact.htm" class="caption-12green"><font size="1">お問合せ</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

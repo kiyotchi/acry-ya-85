@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="description" content="お問い合わせフォーム">
+<meta name="keywords" content="お問い合わせフォーム">
+<title>アクリルリサイクルお申し込みフォーム</title>
+<link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<script language="JavaScript">
+<!--
+function checkEmail(checkString){
+	var newstr = "";
+	var at = false;
+	var dot = false;
+
+	if (checkString.indexOf("@") != -1) {
+		at = true;
+	} else if (checkString.indexOf(".") != -1) {
+		dot = true;
+	}
+	for (var i = 0; i < checkString.length; i++) {
+		ch = checkString.substring(i, i + 1)
+		if ((ch >= "A" && ch <= "Z") || (ch >= "a" && ch <= "z")
+			|| (ch == "@") || (ch == ".") || (ch == "_")
+			|| (ch == "-") || (ch >= "0" && ch <= "9")) {
+			newstr += ch;
+			if (ch == "@") {
+				at=true;
+			}
+			if (ch == ".") {
+				dot=true;
+			}
+		}
+	}
+	if ((at == true) && (dot == true)) {
+		return newstr;
+	} else {
+		alert ("入力されたメールアドレスは\n不正なアドレスのようです。\n再度入力し直してください。");
+		return checkString;
+	}
+}
+!-->
+</script>
+
+<script language="JavaScript">
+<!--
+function check()
+{
+	if((document.cyumon.email.value) != (document.cyumon.email2.value)){
+		alert("メールアドレスと確認用メールアドレスが一致しません。");
+		document.cyumon.email2.focus();
+		document.cyumon.send.disabled = true;
+	} else {
+		document.cyumon.send.disabled = false;
+	};
+
+	return true;
+}
+!-->
+</script>
+
+<SCRIPT language="JavaScript">
+<!--
+function check_hankaku(txt)
+{
+	hc = "｡､･ｦｧｨｩｪｫｬｭｮｯｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝﾞﾟ"
+	for(i=0; i<txt.length; i++) {
+    	if(hc.indexOf(txt.charAt(i),0) >= 0){
+    		alert("半角カナは使用できません");
+    		return false};
+  	}
+  return true;
+}
+!-->
+</SCRIPT>
+</head>
+<body bgcolor="#d6d6d6" leftmargin="1" topmargin="1" marginwidth="0" marginheight="0">
+<table width="765" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td><!-- #BeginLibraryItem "/Library/header1s.lbi" --><link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<table width="765" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="100%" colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td background="../../../sheard_item/header2.jpg"><a href="/"><img src="../../../sheard_item/header1.jpg" alt="アクリ屋ドットコム" width="196" height="55" border="0"></a></td>
+        <td width="546" height="55" align="right" background="../../../sheard_item/header2.jpg"><a href="/"><strong><font color="#FFFFFF" class="caption-12white" size="7">アクリル材料加工とアクリル製品の&quot;アクリ屋ドットコム&quot;</font></strong></a></td>
+        <td background="../../../sheard_item/header2.jpg"><img src="../../../sheard_item/header3.jpg" width="23" height="55"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="21" colspan="2" align="center" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="5">&nbsp;</td>
+          <td align="center"><font size="1"><a href="/" class="caption-10gray">トップページ</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/htm2/htm/itemlist.htm" class="caption-10gray">商品一覧</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/example_top/htm/example.htm" class="caption-10gray">お客様活用事例</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/howtoorder_top/htm/howtoorder.htm" class="caption-10gray">ご購入ガイド</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td width="40" align="center"><font size="1"><a href="/acry-ya_new/htm2/htm/situmon.html" class="caption-10gray">Q&amp;A</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/cgibin/cart-n/ex/cart.cgi" class="caption-10gray">カートを見る</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/contact_top/htm/contact.htm" class="caption-10gray">お問い合わせ</a></font></td>
+          <td width="5">&nbsp;</td>
+          <td width="16%" align="right" valign="bottom" nowrap>
+                <form action="http://www.frame-acry-ya.com/search-a.html" method="get" id="srch">
+                  <input type="text" name="p" id="srchInput" size="15" maxlength="25">
+                  <input type="image" name="search" src="/sheard_item/kensaku-gray.gif" border="0" width="40" height="19" alt="サイト検索"id="srchBtn">
+                  <br>
+                  <input type="hidden" id="fr" name="fr" value="cse">
+                  <input type="hidden" id="ei" name="ei" value="Shift_JIS">
+                  <input type="hidden" id="csid" name="csid" value="bnZLO3dcDrOqllfysUZ57LKkI8eGMEk-">
+                  <input type="hidden" name="vs" value="www.acry-ya.com" id="yjInsite">
+                </form>
+	</td>
+	</tr>
+	</table>
+    </td>
+  </tr>
+</table><!-- #EndLibraryItem --><tr>
+  <td align="center" valign="top" bgcolor="#FFFFFF">
+    <table width="100%" border="0" cellspacing="0" cellpadding="4">
+      <tr>
+        <td height="25" background="../../../sheard_item/line-titele-wide.jpg"><h1 style="font-size:14; margin:0px;"> <span class="caption-12gray"><font color="#FFFFFF">　アクリル リサイクル お申し込みフォーム</font></span></h1>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" bgcolor="#F5F5EB"><a href="/" class="caption-12gray"><u>トップページ</u></a>　<span class="caption-12gray">＞　アクリル リサイクル お申し込みフォーム</span></td>
+      </tr>
+    </table>
+    <form action="/cgibin/order2/form6mail.cgi" method="POST" enctype="multipart/form-data" name="cyumon" id="cyumon">
+      <!-- 設定しない VALUE="" の行は削除しても構いません -->
+      <!-- name="_subject" メールのタイトル -->
+      <input type=hidden name="_subject" value="アクリルのリサイクル申込み（ホームページからの申込み）">
+      <!-- name="_location" 送信後に表示するページＵＲＬ ＊１よりも優先される-->
+      <input type=hidden name="_location" value="form_folder/html_form/htm/recycle_thanks.htm">
+      <!-- name="_gourl" name="_goname" 送信後にリンクするページ名とＵＲＬ ＊１-->
+      <input type=hidden name="_gourl" value="次に進む">
+      <input type=hidden name="_goname" value="/">
+      <!-- name="_emailset" Ｅメール入力欄として扱う欄名(Ｅメール構文チェックする)-->
+      <input type=hidden name="_emailset" value="email">
+      <!-- name="_type" メール記録形式 VALUE="1"で別段表示 -->
+      <input type=hidden name="_type" value="">
+      <!-- name="_indispen" 必須入力にする欄名 空欄でも空送信されるTYPE(TEXT,TEXTAREA)に限る-->
+      <input type=hidden name="_indispen" value="お名前(漢字)">
+      <input type=hidden name="_indispen" value="email">
+      <input type=hidden name="_indispen" value="電話番号">
+	  <input type=hidden name="_indispen" value="郵便番号">
+      <input type=hidden name="_indispen" value="都道府県">
+      <input type=hidden name="_indispen" value="住所">
+      <input type=hidden name="_indispen" value="お送り頂くアクリル製品の内容">
+      <div align="center">
+          <table width="660" border="0" cellpadding="1" cellspacing="1" bgcolor="#999999" class="caption-12gray">
+            <tr>
+              <td height="30" align="center" bgcolor="#EBE7D6">アクリルのリサイクルについて</td>
+            </tr>
+            <tr>
+              <td align="center" bgcolor="#FFFFFF"><div align="left"> <img src="../img/recycle/recycle.gif" width="80" height="75" align="left">アクリ屋ドットコムは、株式会社セイコーインターナショナルの協力により、アクリ屋で販売いたしましたアクリル製品のリサイクルを行います。アクリ屋でお買上げ頂きましたアクリル製品がご不要になりましたら、指定の場所にお送り下さい （送料はお客様にてご負担願います）。無償にてリサイクルさせて頂きます。<br>
+                <br>
+                リサイクル事業会社　<a href="http://www.seiko-intl.com/" target="_blank"><u class="caption-12orange">株式会社セイコーインターナショナル</u></a><br>
+              </div></td>
+            </tr>
+          </table>
+          <br>
+          <table width="660"  border="0" cellpadding="1" cellspacing="1" bgcolor="#999999" class="caption-12gray">
+            <tr align="center" bgcolor="#EBE7D6">
+              <td height="25" class="title-11pt-green">１</td>
+              <td height="25" class="title-11pt-green">２</td>
+              <td height="25" class="title-11pt-green">３</td>
+            </tr>
+            <tr bgcolor="#FFFFFF">
+              <td width="33%" align="center"><img src="../img/recycle/recycle-form.gif" width="200" height="230"></td>
+              <td width="33%" align="center"><img src="../img/recycle/recycle-web3.gif" width="200" height="222"></td>
+              <td width="33%" align="center"><img src="../img/recycle/recycle-web2.gif" width="200" height="138"></td>
+            </tr>
+            <tr valign="top" bgcolor="#FFFFFF">
+              <td>本ページの申し込みフォームより必要事項を入力の上、申し込み後に表示される「シール」をプリントして下さい。</td>
+              <td>お客様にてアクリル製品を梱包下さい。梱包は簡易的で結構です。（梱包材はお客様の準備となります）</td>
+              <td>本画面から申し込み後に表示される「シール」を梱包の目立つ位置にテープで貼って下さい。</td>
+            </tr>
+            <tr valign="top" bgcolor="#FFFFFF">
+              <td bgcolor="#CCF2EA">お申し込み頂ける品は、弊社からお買上げ頂きましたアクリル製品のみとなります。</td>
+              <td bgcolor="#CCF2EA">可能な限り付属の金属類などは取り外し、アクリルのみになるようにお願い致します。</td>
+              <td bgcolor="#CCF2EA"><p>送料はお客様負担にてお願い致します。<br>
+                  <strong>お送り先は本ページ申し込み後にも表示されます。</strong><br>
+                  ＜送り先＞<br>
+                  （株）セイコーインターナショナル<br>
+                  東金流通センター<br>
+                  〒283-0821<br>
+                  千葉県東金市小野503-4 <br>
+                  TEL：0475-50-6570
+              </td>
+            </tr>
+          </table>
+          <br>
+      </div>
+      <table width="660" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#999999" class="caption-12gray">
+        <tr align="center" bgcolor="#F0EDE1">
+          <td colspan="2">アクリル リサイクル お申し込みフォーム<br>
+            <span class="caption-10gray-hight">このページは128bit-SSL暗号化の安全性の高いセキュア通信が提供されています</span></td>
+        </tr>
+        <tr align="center">
+          <td colspan="2" bgcolor="#FFFFFF"><span class="caption-12green">ご注意</span>：半角カナ・記号は文字化けになりますので、ご使用にならないようお願い致します 。<span class="caption-12green">（＊の項目は必須）</span></td>
+        </tr>
+        <tr>
+          <td width="103" nowrap bgcolor="#FFFFFF"><div align="left"><font color="#999999">■</font>お名前(漢字）＊</div></td>
+          <td nowrap bgcolor="#FFFFFF"><input type="text" name="お名前(漢字)" size="18" maxlength="32">
+        （例：山田太郎）　<span class="caption-12green">＊法人の場合はご担当者様名</span></td>
+        </tr>
+        <tr>
+          <td nowrap bgcolor="#FFFFFF"><font color="#999999">■</font>お名前<span class="caption-10gray">(ひらがな）</span>＊</td>
+          <td bgcolor="#FFFFFF"><input type="text" name="お名前(かな)" size="18" maxlength="32">
+        （例：やまだたろう）</td>
+        </tr>
+        <tr>
+          <td nowrap bgcolor="#FFFFFF"><div align="left"><font color="#999999">■</font>Ｅメール<br>
+        　　 アドレス＊</div></td>
+          <td bgcolor="#FFFFFF"><input name="email" type="text" id="email" size="30" maxlength="48" onCopy="alert('コピー禁止');return false" onchange="this.value=checkEmail(this.value)">
+        （半角）
+        </td>
+        </tr>
+        <tr>
+          <td nowrap bgcolor="#FFFFFF"><font color="#999999">■</font>Ｅメール<br>
+        　アドレス確認用＊</td>
+          <td bgcolor="#FFFFFF"><input name="email2" type="text" id="email2" size="30" maxlength="48" onPaste=" alert('ペースト禁止');return false"  onchange="check(cyumon)">
+            <span class="caption-12green">同じアドレスをもう一度入力下さい（半角）</span></td>
+        </tr>
+        <tr>
+          <td nowrap bgcolor="#FFFFFF"><font color="#999999">■</font>お客様は</td>
+          <td bgcolor="#FFFFFF"><select name="個人/法人">
+              <option value="個人様" selected>個人様</option>
+              <option value="法人様">法人様</option>
+            </select>
+        (選択下さい)</td>
+        </tr>
+        <tr bgcolor="#F0EDE1">
+          <td nowrap><font color="#999999">■</font>法人名</td>
+          <td nowrap><input name="法人名" type="text" id="法人名" size="18" maxlength="32">
+            <br>
+        <span class="caption-10gray">※&nbsp;法人の場合のみ記入（会社名・団体名など）　※半角カナ・記号は不可</span></td>
+        </tr>
+        <tr>
+          <td width="103" nowrap bgcolor="#FFFFFF"><div align="left"><font color="#999999">■</font>お電話番号＊</div></td>
+          <td bgcolor="#FFFFFF"> <span class="caption-10gray">（半角-例：111-222-3333）</span><br>
+            <input type="text" name="電話番号" size="15" value="" maxlength="15">              </td>
+          </tr>
+        <tr>
+          <td width="103" bgcolor="#FFFFFF"><div align="left"><font color="#999999">■</font>ご住所＊</div></td>
+          <td height="2" bgcolor="#FFFFFF">（半角-例：111-1111）<br>
+        郵便番号
+        <input type="text" name="郵便番号" size="10" maxlength="10">
+        　　　都道府県
+        <input type="text" name="都道府県" size="8" maxlength="12">
+        <br>
+        市区郡以降の住所
+        <input type="text" name="住所" size="40" maxlength="50">
+        <span class="caption-10gray">※半角カナ・記号は不可</span></td>
+        </tr>
+        <tr>
+        <td bgcolor="#FFFFFF"><font color="#999999">■</font>お送り頂く<br>　
+          製品の内容＊</td>
+        <td bgcolor="#FFFFFF"> 内容はなるべく詳しくご記入下さい。 <span class="caption-10gray">（例：アクリルケース２個）</span><br>
+        <input name="お送り頂くアクリル製品の内容" type="text" id="お送り頂くアクリル製品の内容" style="font-size: 10pt" value="" size="60"></td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF"><font color="#999999">■</font>お送り頂く予定日＊</td>
+          <td bgcolor="#FFFFFF"><input name="発送予定日" type="text" id="発送予定日" value="　　　月　　　日" size="18" maxlength="32"></td>
+          </tr>
+        <tr>
+          <td colspan="2" bgcolor="#FFFFFF"><div align="center">
+              <input name="send" type="submit" id="send" value="申込み">
+              　
+              <input type="reset" name="リセット" value="リセット">
+              <br>
+              <span class="caption-12green">送るボタンは１回だけ押して下さい </span><!-- name="_ccopy" 送信内容の写しを表示する する場合はVALUE="1"を渡す -->
+          </div></td>
+        </tr>
+    </table>
+    </form>  
+  </td>
+</tr>
+  <tr>
+    <td valign="top" height="7"><!-- #BeginLibraryItem "/Library/footer7.lbi" --><script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_popupMsg(msg) { //v1.0
+  alert(msg);
+}
+//-->
+</script>
+<link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<table width="765" border="0" cellpadding="5" cellspacing="1" bgcolor="#999999">
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><table width="650" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td colspan="11" align="center"><a href="/"><strong><font size="2">アクリル材料加工とアクリル製品の&quot;アクリ屋ドットコム&quot;</font></strong></a></td>
+        </tr>
+        <tr>
+          <td colspan="11" align="center" nowrap>
+		  <a href="javascript:;" onClick="MM_popupMsg('『著作権について』\r		  このWebサイト上の文章、写真、図、映像などは個人的な利用を目的とした場合を除き複製、使用することは著作権法により禁止されていますので、複製、使用は事前に当社にご連絡の上、許諾を得て頂くようお願い致します。\r		  『商標について』\r		  「アクリ屋」の名称及び類似する商標の使用に関する権利は当社に帰属します。これを当社の許諾を得ることなく使用等する行為は商標法等により禁止されていますので、事前に当社にご連絡の上、許諾を得て頂くようお願い致します。')">
+          <span class="caption-09gray">copyright (C) 1999-2011 acry-ya.com. all rights reserved.　「アクリ屋」は株式会社さくら樹脂の登録商標です。</span></a><br>
+		  <span class="caption-10gray-hight"><strong>株式会社さくら樹脂 〒222-0001神奈川県横浜市港北区樽町4-13-2</strong></span></td>
+        </tr>
+      </table>
+      <table width="350" border="0" cellpadding="0" cellspacing="0" class="caption-10gray">
+        <tr>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/" class="caption-12green"><font size="1">トップページ</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/htm2/htm/itemlist.htm" class="caption-12green"><font size="1">商品一覧</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/html/acry_ya_top/htm/acry_ya.htm" class="caption-12green"><font size="1">会社概要</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/htm2/htm/privacy_policy.html" class="caption-12green"><font size="1">プライバシーポリシー</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+          <td align="center"><a href="/acry-ya_new/html/contact_top/htm/contact.htm" class="caption-12green"><font size="1">お問い合わせ</font></a></td>
+          <td align="center"><font size="1">|</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table><!-- #EndLibraryItem --></td>
+  </tr>
+</table>
+<script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3172569-1";
+urchinTracker();
+</script>
+</body>
+</html>

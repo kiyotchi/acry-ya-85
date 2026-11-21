@@ -1,0 +1,295 @@
+let totalPrice = 0;
+let taxRate = {{ $tax_rate }};
+let taxRateValue = (100 + taxRate) / 100;
+
+@if( !empty($delivery_dates) )
+let delivery_dates = {
+    @foreach($delivery_dates as $key => $value)
+            '{{ $key }}' : '{{ $value }}'
+        @if(!$loop->last),@endif
+    @endforeach
+};
+@endif
+
+@if( !empty($discount_rates) )
+let discountRates = [
+    @foreach($discount_rates as $discount_rate)
+        {
+            'number_of_lower_limit' : {{ $discount_rate->number_of_lower_limit }},
+            'number_of_upper_limit' : {{ $discount_rate->number_of_upper_limit }},
+            'discount_rate' : {{ $discount_rate->discount_rate }}
+        }@if(!$loop->last),@endif
+    @endforeach
+]
+@endif
+
+@if( !empty($product->productSetting->quantity_html_tag_id) )
+let quantityTagID = '{{ $product->productSetting->quantity_html_tag_id }}';
+@endif
+
+// 金額計算処理
+$(function () {
+    let price = $('#base_price').val();
+    let quantity = $('#'+quantityTagID).val();
+    @if( !empty($product->productSetting->is_auto_calculation_valid) )
+    calcPrice();
+    window.addEventListener('pageshow', function() {
+        calcPrice();
+    });
+    $(document).on('click', '.number__button--plus, .number__button--minus', function(){
+        calcPrice();
+    });
+    $(document).on('change', '#'+quantityTagID, function(){
+        calcPrice();
+    });
+    function calcPrice() {
+        let quantity = $('#'+quantityTagID).val();
+        if( discountRates.length > 0 ) {
+            let discountRate = 0;
+            for( var i = 0; i < discountRates.length; i++ ) {
+                if( discountRates[i].number_of_lower_limit <= quantity && discountRates[i].number_of_upper_limit >= quantity ) {
+                    discountRate = discountRates[i].discount_rate;
+                    break;
+                }
+            }
+            discountRatePercentage = 100 - discountRate;
+            unitPrice = Math.round( Math.round(price * taxRateValue) * discountRatePercentage / 100);
+            totalPrice = unitPrice * quantity;
+            regularTotalPrice = Math.round(price * taxRateValue) * quantity;
+            discountPrice = regularTotalPrice - totalPrice;
+            $('#discount_rate').text(discountRate);
+        } else {
+            unitPrice = Math.round(price * taxRateValue);
+            totalPrice = unitPrice * quantity;
+        }
+        displayUnitPrice = String(unitPrice).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        displayTotalPrice = String(totalPrice).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        $('#unit_price').text(displayUnitPrice);
+        $('#total').text(displayTotalPrice);
+        $('#price').val(unitPrice);
+        $('#total_value').val(totalPrice);
+        $('#sipri').val('::'+unitPrice);
+    }
+    @endif
+});
+
+// リダイレクト
+$(function () {
+    @if( !empty($product->productSetting->is_color_valid) && !empty($product->productSetting->color_html_tag_id) )
+    $('[name={{ $product->productSetting->color_html_tag_id }}]').on('change', function () {
+        redirect();
+    });
+    @endif
+    @if( !empty($product->productSetting->is_size_valid) && $product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_NUMERIC )
+    @if( !empty($product->productSetting->specification_size_numerical_html_tag_id) )
+    $('[name={{ $product->productSetting->specification_size_numerical_html_tag_id }}]').on('change', function () {
+        redirect();
+    });
+    @endif
+    @endif
+    @if( !empty($product->productSetting->is_size_valid) && $product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_STRING)
+    @if( !empty($product->productSetting->specification_size_string_html_tag_id) )
+    $('[name={{ $product->productSetting->specification_size_string_html_tag_id }}]').on('change', function () {
+        redirect();
+    });
+    @endif
+    @endif
+    @if( !empty($product->productSetting->is_plate_thickness_valid) && !empty($product->productSetting->plate_thickness_html_tag_id) )
+    $('[name={{ $product->productSetting->plate_thickness_html_tag_id }}]').on('change', function () {
+        redirect();
+    });
+    @endif
+    @if( !empty($product->productSetting->is_product_option_valid) )
+    $('[name={{ $product->productOption->html_tag_name }}]').on('change', function () {
+        redirect();
+    });
+    @endif
+
+    @if( !empty($product->productSetting->is_quantity_valid) && !empty($product->productSetting->price_calculation_function) )
+    {!! $product->productSetting->price_calculation_function !!}
+    $('[name={{ $product->productSetting->quantity_html_tag_id }}]').on('change', function () {
+        {!! $product->productSetting->price_calculation_function !!}
+    });
+    @endif
+
+    @if( !empty($product->productSetting->is_quantity_valid) )
+        @if( empty($product->productSetting->is_auto_calculation_valid) )
+            // 自動計算処理がOFFの場合
+            reflectFixedPrice();
+            reflectUnitPrice();
+            reflectTotalPrice();
+            $('[name={{ $product->productSetting->quantity_html_tag_id }}]').on('change', function () {
+                reflectUnitPrice();
+                reflectTotalPrice();
+                reflectDeliveryPrivatePrice();
+                reflectDeliveryFarawayPrice();
+            });
+        @else
+            // 自動計算処理がONの場合
+            $('[name={{ $product->productSetting->quantity_html_tag_id }}]').on('change', function () {
+                reflectDeliveryPrivatePrice();
+                reflectDeliveryFarawayPrice();
+            });
+        @endif
+    @endif
+
+    reflectDeliveryPrivatePrice();
+    reflectDeliveryFarawayPrice();
+    $('#total').on('DOMSubtreeModified propertychange', function () {
+        let total = $('#total').text();
+        $('#total_value').val(total);
+    });
+
+    @if($product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_FREE)
+    $('[name={{ $product->productSetting->free_input_width_html_tag_id }}]').on('change', function () {
+        reflectUnitPrice();
+        reflectTotalPrice();
+        reflectDeliveryPrivatePrice();
+        reflectDeliveryFarawayPrice();
+    });
+    $('[name={{ $product->productSetting->free_input_height_html_tag_id }}]').on('change', function () {
+        reflectUnitPrice();
+        reflectTotalPrice();
+        reflectDeliveryPrivatePrice();
+        reflectDeliveryFarawayPrice();
+    });
+    @if( !empty($product->productSetting->is_free_input_depth_valid) && !empty($product->productSetting->free_input_depth_html_tag_id) )
+    $('[name={{ $product->productSetting->free_input_depth_html_tag_id }}]').on('change', function () {
+        reflectUnitPrice();
+        reflectTotalPrice();
+        reflectDeliveryPrivatePrice();
+        reflectDeliveryFarawayPrice();
+    });
+    @endif
+    @endif
+
+    @if( !empty($product->productSetting->is_destination_valid) )
+    $('[name={{ $product->productSetting->destination_html_tag_id }}]').on('change', function () {
+        reflectUnitPrice();
+        reflectTotalPrice();
+        reflectDeliveryPrivatePrice();
+        reflectDeliveryFarawayPrice();
+        souhu_info = document.getElementById("{{ $product->productSetting->destination_html_tag_id }}");
+        document.cookie = "souhu_info=" + encodeURI(souhu_info.value);
+    });
+    @endif
+    @if($product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_FREE)
+    $('[name={{ $product->productSetting->free_input_width_html_tag_id }}]').on('change', function () {
+        width = document.getElementById("{{ $product->productSetting->free_input_width_html_tag_id }}");
+        document.cookie = "width=" + width.value;
+    });
+    $('[name={{ $product->productSetting->free_input_height_html_tag_id }}]').on('change', function () {
+        height = document.getElementById("{{ $product->productSetting->free_input_height_html_tag_id }}");
+        document.cookie = "height=" + height.value;
+    });
+    @endif
+    @if( !empty($product->productSetting->is_quantity_valid) )
+    $('[name={{ $product->productSetting->quantity_html_tag_id }}]').on('change', function () {
+        suu = document.getElementById("{{ $product->productSetting->quantity_html_tag_id }}");
+        document.cookie = "suu=" + suu.value;
+    });
+    @endif
+
+    @if( !empty($product->productSetting->add_cart_function) )
+    $(document).on('click', '#add_to_cart', function () {
+        return {{ $product->productSetting->add_cart_function }}
+    });
+    @endif
+
+    // カート追加時のCookie削除
+    $(document).on('click', '#add_to_cart', function () {
+        cookieClear();
+    });
+});
+
+// Cookie削除処理
+function cookieClear() {
+    document.cookie = "souhu_info=;";
+    document.cookie = "width=;";
+    document.cookie = "height=;";
+    document.cookie = "suu=;";
+}
+
+function reflectTotalPrice() {
+    let total = $('#total_value').val();
+    total = Number(total.replace(/,/g, ''));
+    total = String(total).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    $('#total').html(total);
+}
+
+function reflectUnitPrice() {
+    let unitPrice = $('#price').val();
+    unitPrice = Number(unitPrice.replace(/,/g, ''));
+    unitPrice = String(unitPrice).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    $('#unit_price').text(unitPrice);
+}
+
+function reflectFixedPrice() {
+    let fixedPrice = $('#price').val();
+    $('#fixed_price').text(fixedPrice);
+    // $('#base_price').val(Number(fixedPrice.replace(/,/g, '')));
+}
+
+function reflectDeliveryPrivatePrice() {
+@if( !empty($product->productSetting->delivery_private_price_html_tag_id) )
+    let privatePrice = $('[name={{ $product->productSetting->delivery_private_price_html_tag_id }}]').val();
+    $('#private_price').text(privatePrice);
+@endif
+}
+
+function reflectDeliveryFarawayPrice() {
+@if( !empty($product->productSetting->delivery_faraway_price_html_tag_id) )
+    let farawayPrice = $('[name={{ $product->productSetting->delivery_faraway_price_html_tag_id }}]').val();
+    $('#faraway_price').text(farawayPrice);
+@endif
+}
+
+// 規格選択時のページ遷移処理
+function redirect() {
+    let redirectUrlArray = [];
+@if( !empty($product->productSetting->is_color_valid) )
+    if ($('[name={{ $product->productSetting->color_html_tag_id }}]').length) {
+        let color = $('[name={{ $product->productSetting->color_html_tag_id }}] option:selected').data('id');
+        if (color != '') {
+            redirectUrlArray.push('color=' + color);
+        }
+    }
+@endif
+@if( !empty($product->productSetting->is_size_valid) )
+    @if($product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_NUMERIC )
+    if ($('[name={{ $product->productSetting->specification_size_numerical_html_tag_id }}]').length) {
+        let size = $('[name={{ $product->productSetting->specification_size_numerical_html_tag_id }}] option:selected').data('id');
+        if (size != '') {
+            redirectUrlArray.push('size=' + size);
+        }
+    }
+    @endif
+    @if($product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_STRING)
+    if ($('[name={{ $product->productSetting->specification_size_string_html_tag_id }}]').length) {
+        let size = $('[name={{ $product->productSetting->specification_size_string_html_tag_id }}] option:selected').data('id');
+        if (size != '') {
+            redirectUrlArray.push('size=' + size);
+        }
+    }
+    @endif
+@endif
+@if( !empty($product->productSetting->is_plate_thickness_valid) )
+    if ($('[name={{ $product->productSetting->plate_thickness_html_tag_id }}]').length) {
+        let thickness = $('[name={{ $product->productSetting->plate_thickness_html_tag_id }}] option:selected').data('id');
+        if (thickness != '') {
+            redirectUrlArray.push('thickness=' + thickness);
+        }
+    }
+@endif
+@if( !empty($product->productSetting->is_product_option_valid) )
+    if ($('[name={{ $product->productOption->html_tag_name }}]').length) {
+        let option = $('[name={{ $product->productOption->html_tag_name }}] option:selected').data('id');
+        if (option != '') {
+            redirectUrlArray.push('option=' + option);
+        }
+    }
+@endif
+    let redirectUrl = '?' + redirectUrlArray.join('&');
+
+    window.location.href = redirectUrl;
+}

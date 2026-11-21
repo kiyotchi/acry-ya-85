@@ -1,0 +1,607 @@
+
+<?php include $_SERVER['DOCUMENT_ROOT'].'static.php'; ?><!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+  <head><?php echo $head_start; ?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=10, user-scalable=yes">
+    <meta meta http-equiv="Expires" content="604800">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="アクリ屋ドットコムはアクリル製品とアクリル板,名入れほかアクリル樹脂加工の通信販売サイトです">
+    <meta name="keywords" content="アクリル板,アクリルケース,アクリル加工,販売,通販,価格,当日出荷,当日発送,ポスターフレーム,フォトフレーム,樹脂,アクリ屋">
+    <title>書体彫刻について｜アクリ屋ドットコム</title>
+    <meta property="og:title" content="書体彫刻について｜アクリ屋ドットコム">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/naire_order/typeface/">
+    <meta property="og:image" content="/assets/images/ogp.jpg">
+    <meta property="og:site_name" content="アクリ屋ドットコム">
+    <meta property="og:description" content="アクリ屋ドットコムはアクリル製品とアクリル板,名入れほかアクリル樹脂加工の通信販売サイトです">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="アクリ屋ドットコム">
+    <meta name="twitter:description" content="アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。">
+    <meta name="twitter:image" content="/assets/images/ogp.jpg">
+    <meta itemprop="image" content="/assets/images/ogp.jpg">
+    <!--meta(property='fb:app_id', content='')-->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/stylesheets/base.css">
+    <link rel="stylesheet" href="/assets/stylesheets/layout.css">
+    <link rel="stylesheet" href="/assets/stylesheets/style.css">
+    <link rel="stylesheet" href="/assets/stylesheets/projects/naire-order.css">
+    <link rel="stylesheet" href="/assets/stylesheets/acry-ya.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://jpostal-1006.appspot.com/jquery.jpostal.js" defer></script>
+    <script src="/assets/javascripts/common.js"></script>
+    <script src="/assets/javascripts/function.js" defer></script>
+    <script src="/assets/javascripts/plugins/cookie.js" defer></script>
+    <script src="/assets/javascripts/plugins/add-comma.js" defer></script>
+    <script src="/assets/javascripts/plugins/form-address.js" defer></script>
+  </head>
+  <body id="p-naireOrder">
+    <div id="wrapper" class="l-column js-menu">
+      <?php echo $header; ?>
+      <?php echo $sidemenu; ?>
+      <div class="column__right">
+        <div class="l-loading js-loading"><img src="/assets/images/loading.png" class="loading__image is-animated fx-infinite">
+        </div>
+        <div class="l-banner"><img src="/assets/images/banner/bn_souryomuryo_sp.jpg"></div>
+        <main class="l-main">
+          <div class="main__sub--white">
+            <nav class="c-pankuzu--scroll">
+              <ul class="pankuzu__list">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/naire_order/">名入れオーダー</a></li>
+                <li>書体彫刻</li>
+              </ul>
+            </nav><?php echo $notice; ?>
+            <h1 class="main__title c-heading--xl">書体彫刻</h1>
+            <nav class="c-pageIndex c-flame--xs-border"><a href="#01" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>特長</a><a href="#02" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>名入れ彫刻価格</a><a href="#03" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>製作について</a><a href="#04" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>原稿データの作成方法</a>
+            </nav>
+            <div class="p-action c-section">
+              <div class="action__button"><a href="/naire_order/typeface/order/" class="c-button--xl-primary">書体彫刻オーダーフォーム<i class="button__icon--after c-icon--arrow-r-white"></i></a></div>
+            </div>
+            <!--特長-->
+            <section id="01" class="c-section">
+              <div class="l-article--column-1-vertical">
+                <div class="article__content">
+                  <h2 class="c-heading--md-border">特長</h2>
+                </div>
+              </div>
+              <div class="l-article--column-3-vertical">
+                <div class="article__content"><img src="/assets/images/projects/naire_order/typeface/img_01.jpg"></div>
+                <div class="article__content"><img src="/assets/images/projects/naire_order/typeface/img_02.jpg"></div>
+                <div class="article__content"><img src="/assets/images/projects/naire_order/typeface/img_03.jpg"></div>
+              </div>
+              <div class="l-article--column-1-vertical">
+                <div class="article__content">
+                  <ul class="c-list--disc">
+                    <li class="list__item">データが無くても寸法指定で製作可能</li>
+                    <li class="list__item">弊社書体【丸ゴシック体・明朝体】から選択可能</li>
+                    <li class="list__item">色入れ（白赤黒の３色のみ）が可能</li>
+                  </ul>
+                  <div class="js-modal">
+                    <div data-target="colorSample" class="c-button--sm-gray js-modal__trigger--open">色入れの色見本</div>
+                    <div id="colorSample" class="c-window--md js-modal__content"><img src="/assets/images/projects/naire_order/machine/img_01.jpg"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--名入れ彫刻価格表-->
+            <section id="02" class="c-section js-tab p-price">
+              <h2 class="c-heading--md-border">名入れ彫刻価格</h2>
+              <p class="c-text--md">下表の納期は彫刻のみの納期の為、本体の製作日数は別途必要になります。<br>本表の価格はアクリル板300x300mm以内に彫刻した価格になります。それ以上のサイズの場合は、別途お見積もりになります。</p>
+              <div class="c-buttonGroup--tab js-tab__navigation"><a data-target="sans" class="c-button--tab u-width--50 js-tab__trigger is-active">書体彫刻（丸ゴシック体）</a><a data-target="serif" class="c-button--tab u-width--50 js-tab__trigger">書体彫刻（明朝体）</a></div>
+              <div class="js-tab__content">
+                <div id="sans" class="l-article--column-1 js-tab__item is-active">
+                  <table class="c-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th colspan="2">切削データ準備費（税抜）</th>
+                        <th colspan="8">製作数量別単価（税抜）</th>
+                      </tr>
+                      <tr>
+                        <th class="u-width--20">文字高さ／文字数</th>
+                        <th class="u-width--20">テキスト指定<br>（データ無し）</th>
+                        <th class="u-width--20">テキスト<br>レイアウトデータ</th>
+                        <th>1</th>
+                        <th>2～4</th>
+                        <th>5～9</th>
+                        <th>10～49</th>
+                        <th>50～199</th>
+                        <th>200～499</th>
+                        <th>500～999</th>
+                        <th>1000～</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th colspan="1" rowspan="3">文字高さ 5ミリまで／10文字</th>
+                        <td>￥2,000</td>
+                        <td>￥1,000</td>
+                        <td>￥543</td>
+                        <td>￥489</td>
+                        <td>￥434</td>
+                        <td>￥361</td>
+                        <td>￥326</td>
+                        <td>￥309</td>
+                        <td>￥271</td>
+                        <td>￥244</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">プラス10文字までの追加単価</th>
+                        <td>￥271</td>
+                        <td>￥244</td>
+                        <td>￥217</td>
+                        <td>￥181</td>
+                        <td>￥163</td>
+                        <td>￥154</td>
+                        <td>￥136</td>
+                        <td>￥123</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">色入れ追加単価（赤白黒のみ）</th>
+                        <td colspan="4">￥91</td>
+                        <td colspan="4">￥46</td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" rowspan="3">文字高さ 10ミリまで／10文字</th>
+                        <td>￥2,000</td>
+                        <td>￥1,000</td>
+                        <td>￥814</td>
+                        <td>￥741</td>
+                        <td>￥650</td>
+                        <td>￥543</td>
+                        <td>￥489</td>
+                        <td>￥460</td>
+                        <td>￥407</td>
+                        <td>￥361</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">プラス10文字までの追加単価</th>
+                        <td>￥407</td>
+                        <td>￥371</td>
+                        <td>￥326</td>
+                        <td>￥271</td>
+                        <td>￥244</td>
+                        <td>￥231</td>
+                        <td>￥204</td>
+                        <td>￥181</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">色入れ追加単価（赤白黒のみ）</th>
+                        <td colspan="4">￥91</td>
+                        <td colspan="4">￥46</td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" rowspan="3">文字高さ 20ミリまで／10文字</th>
+                        <td>￥2,000</td>
+                        <td>￥1,000</td>
+                        <td>￥986</td>
+                        <td>￥887</td>
+                        <td>￥789</td>
+                        <td>￥657</td>
+                        <td>￥591</td>
+                        <td>￥559</td>
+                        <td>￥493</td>
+                        <td>￥444</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">プラス10文字までの追加単価</th>
+                        <td>￥493</td>
+                        <td>￥444</td>
+                        <td>￥394</td>
+                        <td>￥329</td>
+                        <td>￥296</td>
+                        <td>￥280</td>
+                        <td>￥247</td>
+                        <td>￥221</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">色入れ追加単価（赤白黒のみ）</th>
+                        <td colspan="4">￥157</td>
+                        <td colspan="4">￥79</td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" rowspan="3">文字高さ 30ミリまで／10文字</th>
+                        <td>￥2,000</td>
+                        <td>￥1,000</td>
+                        <td>￥1,233</td>
+                        <td>￥1,109</td>
+                        <td>￥986</td>
+                        <td>￥821</td>
+                        <td>￥740</td>
+                        <td>￥699</td>
+                        <td>￥616</td>
+                        <td>￥550</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">プラス10文字までの追加単価</th>
+                        <td>￥616</td>
+                        <td>￥556</td>
+                        <td>￥493</td>
+                        <td>￥411</td>
+                        <td>￥370</td>
+                        <td>￥350</td>
+                        <td>￥309</td>
+                        <td>￥276</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">色入れ追加単価（赤白黒のみ）</th>
+                        <td colspan="4">￥181</td>
+                        <td colspan="4">￥91</td>
+                      </tr>
+                      <tr>
+                        <th colspan="3">彫刻費用 ＝ 切削データ準備費＋（製作単価 ｘ 製作数）</th>
+                        <th colspan="4">納期約2週間</th>
+                        <th colspan="2">納期約3週間</th>
+                        <th colspan="2">納期約4週間</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="c-text--sm-right">表示金額は税抜価格となります。</p>
+                </div>
+                <div id="serif" class="l-article--column-1 js-tab__item">
+                  <table class="c-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th colspan="2">切削データ準備費（税抜）</th>
+                        <th colspan="8">製作数量別単価（税抜）</th>
+                      </tr>
+                      <tr>
+                        <th class="u-width--20">文字高さ／文字数</th>
+                        <th class="u-width--20">テキスト指定<br>（データ無し）</th>
+                        <th class="u-width--20">テキスト<br>レイアウトデータ</th>
+                        <th>1</th>
+                        <th>2～4</th>
+                        <th>5～9</th>
+                        <th>10～49</th>
+                        <th>50～199</th>
+                        <th>200～499</th>
+                        <th>500～999</th>
+                        <th>1000～</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th colspan="1" rowspan="3">文字高さ 5ミリまで／10文字</th>
+                        <td>￥2,000</td>
+                        <td>￥1,000</td>
+                        <td>￥814</td>
+                        <td>￥733</td>
+                        <td>￥651</td>
+                        <td>￥543</td>
+                        <td>￥489</td>
+                        <td>￥463</td>
+                        <td>￥407</td>
+                        <td>￥367</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">プラス10文字までの追加単価</th>
+                        <td>￥407</td>
+                        <td>￥367</td>
+                        <td>￥326</td>
+                        <td>￥273</td>
+                        <td>￥244</td>
+                        <td>￥231</td>
+                        <td>￥204</td>
+                        <td>￥184</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">色入れ追加単価（赤白黒のみ）</th>
+                        <td colspan="4">￥183</td>
+                        <td colspan="4">￥91</td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" rowspan="3">文字高さ 10ミリまで／10文字</th>
+                        <td>￥2,000</td>
+                        <td>￥1,000</td>
+                        <td>￥1,221</td>
+                        <td>￥1,113</td>
+                        <td>￥976</td>
+                        <td>￥814</td>
+                        <td>￥733</td>
+                        <td>￥690</td>
+                        <td>￥611</td>
+                        <td>￥543</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">プラス10文字までの追加単価</th>
+                        <td>￥611</td>
+                        <td>￥557</td>
+                        <td>￥489</td>
+                        <td>￥407</td>
+                        <td>￥367</td>
+                        <td>￥347</td>
+                        <td>￥307</td>
+                        <td>￥273</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">色入れ追加単価（赤白黒のみ）</th>
+                        <td colspan="4">￥183</td>
+                        <td colspan="4">￥91</td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" rowspan="3">文字高さ 20ミリまで／10文字</th>
+                        <td>￥2,000</td>
+                        <td>￥1,000</td>
+                        <td>￥1,479</td>
+                        <td>￥1,331</td>
+                        <td>￥1,183</td>
+                        <td>￥986</td>
+                        <td>￥887</td>
+                        <td>￥839</td>
+                        <td>￥740</td>
+                        <td>￥667</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">プラス10文字までの追加単価</th>
+                        <td>￥740</td>
+                        <td>￥667</td>
+                        <td>￥591</td>
+                        <td>￥493</td>
+                        <td>￥444</td>
+                        <td>￥420</td>
+                        <td>￥371</td>
+                        <td>￥333</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">色入れ追加単価（赤白黒のみ）</th>
+                        <td colspan="4">￥314</td>
+                        <td colspan="4">￥157</td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" rowspan="3">文字高さ 30ミリまで／10文字</th>
+                        <td>￥2,000</td>
+                        <td>￥1,000</td>
+                        <td>￥1,850</td>
+                        <td>￥1,663</td>
+                        <td>￥1,479</td>
+                        <td>￥1,233</td>
+                        <td>￥1,110</td>
+                        <td>￥1,049</td>
+                        <td>￥924</td>
+                        <td>￥826</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">プラス10文字までの追加単価</th>
+                        <td>￥924</td>
+                        <td>￥834</td>
+                        <td>￥740</td>
+                        <td>￥617</td>
+                        <td>￥556</td>
+                        <td>￥526</td>
+                        <td>￥463</td>
+                        <td>￥414</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">色入れ追加単価（赤白黒のみ）</th>
+                        <td colspan="4">￥363</td>
+                        <td colspan="4">￥183</td>
+                      </tr>
+                      <tr>
+                        <th colspan="3">彫刻費用 ＝ 切削データ準備費＋（製作単価 ｘ 製作数）</th>
+                        <th colspan="4">納期約2週間</th>
+                        <th colspan="2">納期約3週間</th>
+                        <th colspan="2">納期約4週間</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="c-text--sm-right">表示金額は税抜価格となります。</p>
+                  <div class="c-flame--sm-gray">
+                    <h4 class="c-heading--xs">文字の変形について</h4>
+                    <p>明朝体の場合、文字の変形に支障があるため、文字数に対して極端に縦長になる場合はお受けできません。下記は、１０文字に対しての最小幅になります。</p>
+                    <table class="c-table">
+                      <tbody>
+                        <tr>
+                          <th>文字高さ</th>
+                          <td>5mm</td>
+                          <td>10mm</td>
+                          <td>20mm</td>
+                          <td>30mm</td>
+                        </tr>
+                        <tr>
+                          <th>10文字の最小幅</th>
+                          <td>37mm</td>
+                          <td>72mm</td>
+                          <td>136mm</td>
+                          <td>196mm</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <h3 class="c-heading--sm-block">切削データ準備費（同じレイアウトで、文字が違う場合）</h3>
+              <table class="c-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th colspan="8">切削データ準備費（税抜）</th>
+                  </tr>
+                  <tr>
+                    <th>数量</th>
+                    <th>1</th>
+                    <th>2～4</th>
+                    <th>5～9</th>
+                    <th>10～49</th>
+                    <th>50～199</th>
+                    <th>200～499</th>
+                    <th>500～999</th>
+                    <th>1000以上</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>レイアウトデータ有り</th>
+                    <td>￥1,000</td>
+                    <td>￥600</td>
+                    <td>￥352</td>
+                    <td>￥200</td>
+                    <td>￥171</td>
+                    <td>￥52</td>
+                    <td>￥36</td>
+                    <td>￥21</td>
+                  </tr>
+                  <tr>
+                    <th>テキスト指定データ無し</th>
+                    <td>￥2,000</td>
+                    <td>￥1,200</td>
+                    <td>￥700</td>
+                    <td>￥400</td>
+                    <td>￥340</td>
+                    <td>￥100</td>
+                    <td>￥71</td>
+                    <td>￥40</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="c-text--sm-right">表示金額は税抜価格となります。</p>
+              <div class="detail__history">
+  <h3 class="c-heading--xs">改訂履歴</h3>
+  <ul class="c-historyList">
+    <li class="historyList__item">
+      <time datetime="2025-03-14">2025/3/14</time>
+      <p class="item__title">価格改定</p>
+            </section>
+            <!--製作について-->
+            <section id="03" class="c-section">
+              <h2 class="c-heading--md-border">製作について</h2>
+              <div class="l-article--column-2-vertical">
+                <div class="article__content c-flame--md-gray">
+                  <h3 class="c-heading--sm">彫刻可能なアクリル</h3>
+                  <ul class="c-list--disc">
+                    <li class="list__item">アクリル板は最大600x450mm</li>
+                    <li class="list__item">厚みは2mm～15mm
+                    </li>
+                  </ul>
+                </div>
+                <div class="article__content c-flame--md-gray">
+                  <h3 class="c-heading--sm">製作条件</h3>
+                  <ul class="c-list--disc">
+                    <li class="list__item">文字のみ（漢字カナ英数など）</li>
+                    <li class="list__item">文字のみで水平横書き</li>
+                    <li class="list__item">最大文字高さ30mm・最小文字高さ4mm</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <!--原稿データの作成方法-->
+            <section id="04" class="c-section js-tab">
+              <h2 class="c-heading--md-border">原稿データの作成方法</h2>
+              <div class="c-buttonGroup--tab js-tab__navigation"><a data-target="available" class="c-button--tab u-width--50 js-tab__trigger is-active">書体データが準備できる場合</a><a data-target="unusable" class="c-button--tab u-width--50 js-tab__trigger">書体データが準備できない場合</a></div>
+              <div class="js-tab__content">
+                <div id="available" class="l-article--column-1 js-tab__item is-active">
+                  <div class="c-card--step-horizontal">
+                    <div class="card__head">
+                      <div class="card__discription">
+                        <p>既製書体（丸ゴシック体・明朝体）の横書きの場合は 【イラストレーター】又は【ワード】又は【JPG・GIF・PDF形式】のデータを下記要領にてご準備下さい。</p>
+                        <ol class="c-list--icon">
+                          <li class="list__item"><i class="c-icon--number--primary">1</i>彫刻する板の四角い枠を表記し、縦横寸法を入れます。
+                            <p class="c-text--sm-note">アートボードサイズで指定しないで下さい。</p>
+                          </li>
+                          <li class="list__item"><i class="c-icon--number--primary">2</i>彫刻する文字をレイアウトして、彫刻の縦横寸法を入れます。
+                            <p class="c-text--sm-note">お持ちの丸ゴシック体か明朝体を配置して下さい。</p>
+                            <p class="c-text--sm-note">実際の彫刻は弊社準備の丸ゴシック体又は明朝体になります。</p>
+                          </li>
+                          <li class="list__item"><i class="c-icon--number--primary">3</i>彫刻位置の寸法を入れます（右図の点線は不要）。</li>
+                          <li class="list__item"><i class="c-icon--number--primary">4</i>オーダーフォーム内の図面の添付にてデータをお送り下さい。</li>
+                        </ol>
+                      </div>
+                    </div>
+                    <div class="card__body">
+                      <div class="card__image"><img src="/assets/images/projects/naire_order/typeface/img_05.jpg"></div>
+                      <figcaption class="c-text--xs-center">縦70mmx横120mmの板に書体彫刻を入れる場合の例</figcaption>
+                    </div>
+                  </div>
+                  <div class="section__sub">
+                    <h3 class="c-heading--sm-block">注意</h3>
+                    <div class="l-article--column-1">
+                      <ul class="c-list--disc">
+                        <li class="list__item">Macでデータを作成された場合は、ファイル名に拡張子を入れて圧縮して下さい。</li>
+                        <li class="list__item">データに不備があった場合は、修正後に再度お送り頂く場合がございます。予めご了承願います。</li>
+                        <li class="list__item">弊社使用フォントの都合上、文字の仕上がりサイズが指定サイズと異なる場合があります。</li>
+                        <li class="list__item">レイアウトデータが準備できない場合は、次の【書体データが準備できない場合】を参照の上、テキスト原稿にてご準備下さい。</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div id="unusable" class="l-article--column-1 js-tab__item">
+                  <div class="c-card--step-horizontal">
+                    <div class="card__head">
+                      <div class="card__discription">
+                        <p>オーダーフォームの「テキスト指定欄」に１～８の指定を記載して下さい。</p>
+                        <ol class="c-list--icon">
+                          <li class="list__item"><i class="c-icon--number--primary">1</i>彫刻文字：アクリ屋</li>
+                          <li class="list__item"><i class="c-icon--number--primary">2</i>彫刻板サイズ：横120mm</li>
+                          <li class="list__item"><i class="c-icon--number--primary">3</i>彫刻板サイズ：縦60mm</li>
+                          <li class="list__item"><i class="c-icon--number--primary">4</i>彫刻位置：左端から10mm</li>
+                          <li class="list__item"><i class="c-icon--number--primary">5</i>彫刻位置：右端から10mm</li>
+                          <li class="list__item"><i class="c-icon--number--primary">6</i>彫刻位置：下から20mm</li>
+                          <li class="list__item"><i class="c-icon--number--primary">7</i>彫刻文字の高さ：10mm</li>
+                          <li class="list__item"><i class="c-icon--number--primary">8</i>彫刻文字の全体幅：100mm</li>
+                        </ol>
+                      </div>
+                    </div>
+                    <div class="card__body">
+                      <div class="card__image"><img src="/assets/images/projects/naire_order/typeface/img_04.jpg"></div>
+                      <figcaption class="c-text--xs-center">縦60mmx横120mmの板に書体彫刻を入れる場合の例</figcaption>
+                    </div>
+                  </div>
+                  <div class="section__sub">
+                    <h3 class="c-heading--sm-block">注意</h3>
+                    <div class="l-article--column-1">
+                      <ul class="c-list--disc">
+                        <li class="list__item">弊社使用フォントの都合上、文字の仕上がりサイズが指定サイズと異なる場合があります。</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div class="p-action c-section">
+              <div class="action__button"><a href="/naire_order/typeface/order/" class="c-button--xl-primary">書体彫刻オーダーフォーム<i class="button__icon--after c-icon--arrow-r-white"></i></a></div>
+            </div>
+          </div>
+          <script type="application/ld+json">
+          {
+            "@context": "http:\/\/schema.org",
+            "@type": "website",
+            "name": "アクリル板材料の加工とアクリル製品の専門店 | アクリ屋ドットコム",
+            "inLanguage": "jp",
+            "publisher": {
+              "@type": "Organization",
+              "name": "株式会社さくら樹脂"
+            },
+            "headline": "アクリル板材料の加工とアクリル製品の専門店",
+            "description": "アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。",
+            "url": "https:\/\/acry-ya.com\/"
+          }
+          </script>
+          <script type="application/ld+json">
+          {
+            "@context": "http:\/\/schema.org",
+            "@type": "Organization",
+            "name": "株式会社さくら樹脂",
+            "description": "株式会社さくら樹脂は、アクリル材料加工・アクリル製品のネットショップ「アクリ屋ドットコム」の運営を主体に、その他、工業用樹脂部品の受託製造を行っています。製品は、精密で精度の要求される工業製品を制作する加工技術をベースに、最新設備を駆使し、各種の樹脂加工のノウハウを持つ専門の職人が制作致します。",
+            "url ": "https:\/\/www.acry-ya.com\/naire_order\/typeface\/",
+            "telephone": "+81 45-547-6372",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "樽町4-13-2",
+              "addressLocality": "港北区",
+              "addressRegion": "神奈川県",
+              "postalCode": "222-0001",
+              "addressCountry": "JP"
+            }
+          }
+          </script>
+        </main><?php echo $footer; ?>
+      </div>
+    </div><?php echo $body_end; ?>
+  </body>
+</html>

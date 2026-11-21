@@ -1,0 +1,445 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------
+    RESET
+------------------------------------------------------------------------------ */
+
+html {
+    overflow-y: auto;
+}
+
+body {
+    color: #333;
+    background: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, caption,
+dl, dt, dd, ol, ul, li,
+fieldset, label, legend, option,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 100%;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    vertical-align: top;
+    text-align: left;
+}
+
+input, textarea, select {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    vertical-align: middle;
+    text-align: left;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+dl, dt, dd, ol, ul, li {
+    list-style: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    *border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th, td {
+    border: none;
+    text-align: left;
+    vertical-align: top;
+}
+
+pre {
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+img {
+    border: none;
+    vertical-align: bottom;
+}
+
+a {
+    border: none;
+    text-decoration: none;
+}
+
+a:hover {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:active, a:focus {
+    outline: none;
+}
+
+sup {
+    position: relative;
+    bottom: 0.7em;
+    font-size: 71.5%;
+    vertical-align: baseline;
+}
+
+sub {
+    position: relative;
+    top: 0.1em;
+    font-size: 71.5%;
+    vertical-align: baseline;
+}
+
+abbr, acronym {
+    border-bottom: dotted 1px #ccc;
+    cursor: help;
+}
+
+hr {
+    /*	display: none; */
+}
+
+
+/* ----------------------------------------------------------------------------
+    STYLE
+------------------------------------------------------------------------------ */
+
+/* 幅 */
+.wLong {
+    width: 80% !important;
+}
+
+.wFull {
+    width: 100% !important;
+}
+
+/* マージン */
+.mgt10 {
+    margin-top: 10px !important;
+}
+
+.mgt20 {
+    margin-top: 20px !important;
+}
+
+.mgt30 {
+    margin-top: 30px !important;
+}
+
+.mgt40 {
+    margin-top: 40px !important;
+}
+
+.mgt50 {
+    margin-top: 50px !important;
+}
+
+.mgt60 {
+    margin-top: 60px !important;
+}
+
+.mgb10 {
+    margin-bottom: 10px !important;
+}
+
+.mgb20 {
+    margin-bottom: 20px !important;
+}
+
+.mgb30 {
+    margin-bottom: 30px !important;
+}
+
+.mgb40 {
+    margin-bottom: 40px !important;
+}
+
+.mgb50 {
+    margin-bottom: 50px !important;
+}
+
+.mgb60 {
+    margin-bottom: 60px !important;
+}
+
+/* フロート関連 */
+.clear {
+    clear: both !important;
+}
+
+/* フォントサイズ */
+.font10 {
+    font-size: 71% !important;
+}
+
+.font11 {
+    font-size: 78% !important;
+}
+
+.font12 {
+    font-size: 85% !important;
+}
+
+.font13 {
+    font-size: 92% !important;
+}
+
+.font14 {
+    font-size: 100% !important;
+}
+
+.font15 {
+    font-size: 107% !important;
+}
+
+.font16 {
+    font-size: 114% !important;
+}
+
+.font17 {
+    font-size: 121% !important;
+}
+
+.font18 {
+    font-size: 128% !important;
+}
+
+.font19 {
+    font-size: 136% !important;
+}
+
+.font20 {
+    font-size: 143% !important;
+}
+
+/* 書体関連 */
+.textL {
+    text-align: left !important;
+}
+
+.textC {
+    text-align: center !important;
+}
+
+.textR {
+    text-align: right !important;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.Indent {
+    padding-left: 1.3em !important;
+    text-indent: -1.3em !important;
+}
+
+/* 罫線 */
+.bds {
+    border: solid 1px #cbcbcb !important;
+}
+
+.bdst {
+    border-top: solid 1px #cbcbcb !important;
+}
+
+.bdsr {
+    border-right: solid 1px #cbcbcb !important;
+}
+
+.bdsb {
+    border-bottom: solid 1px #cbcbcb !important;
+}
+
+.bdsl {
+    border-left: solid 1px #cbcbcb !important;
+}
+
+/* 点線 */
+.bdd {
+    border: dotted 1px #cbcbcb !important;
+}
+
+.bddt {
+    border-top: dotted 1px #cbcbcb !important;
+}
+
+.bddr {
+    border-right: dotted 1px #cbcbcb !important;
+}
+
+.bddb {
+    border-bottom: dotted 1px #cbcbcb !important;
+}
+
+.bddl {
+    border-left: dotted 1px #cbcbcb !important;
+}
+
+/* 回り込み */
+.fl {
+    float: left !important;
+}
+
+.fr {
+    float: right !important;
+}
+
+/* テーブル内位置指定 */
+.vertT {
+    vertical-align: top !important;
+}
+
+.vertM {
+    vertical-align: middle !important;
+}
+
+.vertB {
+    vertical-align: bottom !important;
+}
+
+/* ----------------------------------------------------------------------------
+    PREFERENCES
+------------------------------------------------------------------------------ */
+html {
+    font-size: 62.5%;
+}
+
+body, input, textarea, legend, button {
+    color: #333;
+    font-size: 14px;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+}
+
+b, em, strong {
+    font-weight: bold;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+input[type=text], input[type=password], textarea {
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+}
+
+input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+input[type=radio] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+input.numeric {
+    text-align: right;
+    width: 80px !important;
+}
+
+select {
+    border: 1px solid #ccc;
+    padding: 0px 5px;
+}
+
+input:disabled {
+    background-color: #ccc;
+}
+
+label {
+    cursor: pointer;
+    padding: 2px;
+    margin-right: 6px;
+}
+
+input + .unit {
+    margin-left: 4px;
+    padding: 3px 0;
+    display: inline-block;
+}
+
+/* ----------------------------------------------------------------------------
+    CLEARFIX
+------------------------------------------------------------------------------ */
+.clearfix:after {
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+    font-size: 0.1em;
+    line-height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+*
+
+1257897500
+* html .clearfix {
+    display: inline-block;
+}
+
+/* no ie mac \*/
+
+*
+
+1257897501
+* html .clearfix {
+    height: 1%;
+}

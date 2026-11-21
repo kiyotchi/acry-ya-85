@@ -1,0 +1,270 @@
+p {
+	background-color: transparent;
+}
+p img:hover {
+	cursor: hand;
+	opacity: 0.7;
+}
+
+.photo_free_ac {
+	width:		254px;
+	height:		60px;
+	margin:		0;
+	padding:	0;
+	top:92px;
+	left:-132px;
+	border:0;
+	position:	relative; /* 相対位置指定 */
+}
+
+.photo_free_ac img {
+	width:		100%;
+}
+
+.photo_free_pc {
+	width:		254px;
+	height:		60px;
+	margin:		0;
+	padding:	0;
+	top:32px;
+	left:132px;
+	border:0;
+	position:	relative; /* 相対位置指定 */
+}
+
+.photo_free_pc img {
+	width:		100%;
+}
+
+.photo_free_as {
+	width:		254px;
+	height:		60px;
+	margin:		0;
+	padding:	0;
+	top:37px;
+	left:-132px;
+	border:0;
+	position:	relative; /* 相対位置指定 */
+}
+
+.photo_free_as img {
+	width:		100%;
+}
+
+.photo_free_ps {
+	width:		254px;
+	height:		60px;
+	margin:		0;
+	padding:	0;
+	top:-23px;
+	left:132px;
+	border:0;
+	position:	relative; /* 相対位置指定 */
+}
+
+.photo_free_ps img {
+	width:		100%;
+}
+
+/* イメージボタンhover用 */
+.img_btn {
+	width:		106px;
+	height:		17px;
+	margin:		0;
+	padding:	0;
+	border:0;
+	position:	relative; /* 相対位置指定 */
+}
+
+/* サンプルボタンhover用 */
+.sample_btn {
+	width:		270px;
+	height:		84px;
+	margin:		0;
+	padding:	0;
+	border:0;
+	position:	relative;
+	left: 1px;
+}
+
+.sample_color {
+	width:		280px;
+	height:		60px;
+	margin:		0;
+	padding:	0;
+	top:27px;
+	left:8px;
+	border:0;
+	position:	relative;
+}
+
+.sample_color img {
+	width:		100%;
+}
+
+.irare_mitu {
+	width:		420px;
+	height:		58px;
+	margin:		0;
+	padding:	0;
+	border:0;
+	position:	relative;
+}
+
+.irare_mitu img {
+	width:		100%;
+}
+
+.sample_matte {
+	width:		280px;
+	height:		60px;
+	margin:		0;
+	padding:	0;
+	top:27px;
+	left:4px;
+	border:0;
+	position:	relative; /* 相対位置指定 */
+}
+
+.sample_matte img {
+	width:		100%;
+}
+
+
+.photo_info {/*親div*/
+	width:		100%;
+	position: relative;/*相対配置*/
+}
+
+.photo_info img {
+  width: 230px;
+  height: 230px;
+}
+
+.photo_info_small {/*親div*/
+	width:		100%;
+	position: relative;/*相対配置*/
+}
+
+.photo_info_small img {
+  width: 76px;
+  height: 76px;
+}
+
+.material_name {
+  font-weight: bold;
+  text-align:left;
+  position: relative;
+  padding: .5em 1em .5em 2em;
+  border: 1px solid #ccc;
+  background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
+  background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
+}
+
+.material_name::after {
+  position: absolute;
+  left: .6em;
+  z-index: 2;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border: 3px solid #38d3ac;
+  border-radius: 100%
+}
+
+.imgonmouse {
+  border: 0px solid #CCC;
+  margin: 0px;
+  overflow: hidden;
+  width: 229px; 
+}
+.imgonmouse img {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+.imgonmouse ul {
+  padding: 0px;
+  margin-top: 0px;
+}
+.imgonmouse ul li img {
+  height: 55px;
+  width: 55px;
+  border: 0px solid #CCC;
+  padding: 0px;
+  margin-right: 1px;
+  margin-left: 1px;
+  margin-bottom: 1px;
+  
+  
+}
+.imgonmouse ul li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
+
+.imgonmouse_MC {
+  border: 0px solid #CCC;
+  margin: 0px;
+  overflow: hidden;
+  width: 229px; 
+}
+.imgonmouse_MC img {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+.imgonmouse_MC ul {
+  padding: 0px;
+  margin-top: 0px;
+}
+.imgonmouse_MC ul li img {
+  height: 55px;
+  width: 55px;
+  border: 0px solid #CCC;
+  padding: 0px;
+  margin-right: 1px;
+  margin-left: 1px;
+  margin-bottom: 1px;
+  
+  
+}
+.imgonmouse_MC ul li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
+
+.imgonmouse_bake {
+  border: 0px solid #CCC;
+  margin: 0px;
+  overflow: hidden;
+  width: 229px; 
+}
+.imgonmouse_bake img {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+.imgonmouse_bake ul {
+  padding: 0px;
+  margin-top: 0px;
+}
+.imgonmouse_bake ul li img {
+  height: 55px;
+  width: 55px;
+  border: 0px solid #CCC;
+  padding: 0px;
+  margin-right: 1px;
+  margin-left: 1px;
+  margin-bottom: 1px;
+  
+  
+}
+.imgonmouse_bake ul li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}

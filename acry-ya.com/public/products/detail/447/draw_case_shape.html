@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta meta http-equiv="Expires" content="604800">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="図面確認">
+    <meta name="keywords" content="図面確認,アクリ屋">
+    <title>図面確認 | アクリ屋ドットコム</title>
+    <meta property="og:title" content="図面確認 | アクリ屋ドットコム">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/products/detail/304/draw_photo-s_2d.html">
+    <meta property="og:image" content="/assets/images/ogp.jpg">
+    <meta property="og:site_name" content="アクリ屋">
+    <meta property="og:description" content="図面確認">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="図面確認 | アクリ屋ドットコム">
+    <meta name="twitter:description" content="図面確認">
+    <meta name="twitter:image" content="/assets/images/ogp.jpg">
+    <meta itemprop="image" content="/assets/images/ogp.jpg">
+    <!--meta(property='fb:app_id', content='')-->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/javascripts/semi/common/stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="/assets/javascripts/common.js"></script>
+    <script src="/assets/javascripts/function.js"></script>
+    <script src="/assets/javascripts/plugins/cookie.js"></script>
+    <script src="/assets/javascripts/plugins/add-comma.js"></script>
+    <script src="/assets/javascripts/plugins/slick-1.6.0.min.js"></script>
+    <script src="/assets/javascripts/plugins/slick-1.6.0.setting.js"></script>
+    <script src="/assets/javascripts/semi/2d/sakuzu_parts.js"></script>
+    <script src="/assets/javascripts/semi/2d/item_form.js"></script>
+    <script src="/assets/javascripts/semi/2d/pdf.js"></script>
+    <script src="/assets/javascripts/semi/2d/jspdf.min.js"></script>
+    <script src="/assets/javascripts/semi/2d/err_check.js"></script>
+    <script src="/assets/javascripts/UV/sin_sakuzu_case_shape.js"></script>
+    <script src="/assets/javascripts/UV/transmitter_case.js"></script>
+    <meta name="GENERATOR" content="MSHTML 11.00.9600.19431">
+  </head>
+  <body id="p-product-drawing">
+    <div id="wrapper">
+      <form name="form_semiorder" id="form_semiorder" class="c-form">
+      
+      
+      
+        <header class="l-header p-header">
+          <p class="header__logo"><a href="/" class="logo__image"><img src="/assets/images/logo/logo_acryya.svg" alt="acry-ya.com"></a></p>
+          <div class="header__drawing">
+            <div class="drawing__control">
+              <div class="control__scale">
+                
+              </div>
+              <div class="form__select u-width--100">
+                                        <select name="side" id="side" onchange="chang_side()">
+                                            <option value="0" selected="">前面</option>
+                                            <option value="1">左面</option>
+                                            <option value="2">背面</option>
+                                            <option value="3">右面</option>
+                                            <option value="4">上面</option>
+                                            <option value="5">台座上面</option>
+                                            <option value="6">台座前面</option>
+                           
+                                        </select>
+              </div>
+              <div class="control__scale">
+                
+              </div>
+              <!--
+              <div class="control__print">
+                <button type="button" value="シミュレーターへ" onClick="transmitter()" class="c-button--sm-primary" id ="design">シミュレーターへ</button>
+              </div>
+              -->
+              <div class="control__scale">
+                
+              </div>
+              <div class="control__print">
+                <button type="button" value="閉じる" onClick="window.close(); return false;" class="c-button--sm-primary">閉じて戻る</button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="l-main">
+          <div class="p-drawing">
+            <div id="waku" class="drawing__frame">
+              <canvas id="zu"></canvas>
+            </div>
+            <ul class="drawing__note c-list--sm-note">
+              <li class="list__item"><a href="javascript:;" onclick="MM_popupMsg('図面の表示のご注意\n\n■商品形状は黒色線で表示、寸法線と引き出し線は青色線で表示、飾る物は灰色の塗りで表示されます。')"><u class="caption-12orange">図面表示のご注意</u></a>　　　　    <a href="javascript:;"onclick="MM_popupMsg('【注意事項】\n\n■縦横兼用ではございません。\n\n■飾る物に対し四辺余白が20mmずつ出来ます。')"><u class="caption-12orange">【注意事項】</u></a></li>
+            </ul>
+          </div>
+        </main>
+      </form>
+      
+      
+      <form action="https://print.acry-ya.com/pd_test/?edit_mode=case" method="post" class="c-form" name="form_hidden" id="form_hidden">
+            	      <input name="hinmei" type="HIDDEN" id="hinmei" value="アクリルケースUV印刷 セミオーダー">  
+                      <input name="type" type="HIDDEN" id="type" value="1" maxlength="4">
+                                                                    
+                      <input name="key" type="HIDDEN" id="key" value="" maxlength="30">
+                                                                 
+                      <input name="code" type="HIDDEN" id="code" value="xxxxxxxxxxxxxxxxx" maxlength="30">
+                                                                    
+                      <input name="suu" type="HIDDEN" id="suu" value="2" maxlength="4">
+                                                                    
+               
+                                                                    
+                      <input name="pcost" type="HIDDEN" id="pcost" value="0" maxlength="8">
+                                                                    
+                      <input name="body_thickness" type="HIDDEN" id="body_thickness" value="5" maxlength="14">
+                                                                   
+                      <input name="pedestal_type" type="HIDDEN" id="pedestal_type" value="Cタイプ" maxlength="14">
+                                                                    
+                      <input name="pedestal_thickness" type="HIDDEN" id="pedestal_thickness" value="5" maxlength="14">
+                                                                   
+                      <input name="body_color" type="HIDDEN" id="body_color" value="クリアー" maxlength="14">
+                                                                    
+                  	  <input name="pedestal_color" type="HIDDEN" id="pedestal_color" value="" maxlength="14">
+                  	  <input name="body_rear_mirror" type="HIDDEN" id="body_rear_mirror" value="" maxlength="14">
+                  	  <input name="pedestal_upper_mirror" type="HIDDEN" id="pedestal_upper_mirror" value="" maxlength="14">
+                  	  <input name="repeat_flag" type="HIDDEN" id="repeat_flag" value="0" maxlength="4">     
+                      <input name="hinmei" type="HIDDEN" id="hinmei" value="アクリルケースUV印刷 セミオーダー">                                                       
+                      <input name="Orders_URL" type="HIDDEN" id="Orders_URL" value="https://test.acry-ya.com/products/detail/444/" maxlength="104">
+                                                                    
+                      <input name="3d_URL" type="HIDDEN" id="3d_URL" value="https://test.acry-ya.com/products/detail/444/UVprint_case_3d.html" maxlength="104">
+                                                                   
+                      <input name="width_f" id="width_f" type="HIDDEN" value="500" maxlength="4">
+                                                                  
+                      <input name="tate_f" id="tate_f" type="HIDDEN" value="500" maxlength="4">
+                                                                    
+                      <input name="X1_f" id="X1_f" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="Y1_f" id="Y1_f" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="X2_f" id="X2_f" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="Y2_f" id="Y2_f" type="HIDDEN" value="480" maxlength="4">
+                      
+                      <input name="full_f" id="full_f" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="white_f" id="white_f" type="HIDDEN" value="0" maxlength="4">
+                      
+                      <input name="full_white_f" id="full_white_f" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="pre_f" id="pre_f" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="side_f" id="side_f" type="HIDDEN" value="0" maxlength="4">
+                      <input name="disabled_f" id="disabled_f" type="HIDDEN" value="0" maxlength="4">
+                      <input name="yobi_f" id="yobi_f" type="HIDDEN" value="" maxlength="4">
+                                                                    
+                      
+                                                                    
+                      <input name="width_l" id="width_l" type="HIDDEN" value="500" maxlength="4">
+                                                                  
+                      <input name="tate_l" id="tate_l" type="HIDDEN" value="500" maxlength="4">
+                                                                    
+                      <input name="X1_l" id="X1_l" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="Y1_l" id="Y1_l" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="X2_l" id="X2_l" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="Y2_l" id="Y2_l" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="full_l" id="full_l" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="white_l" id="white_l" type="HIDDEN" value="0" maxlength="4">
+                      
+                      <input name="full_white_l" id="full_white_l" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="pre_l" id="pre_l" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="side_l" id="side_l" type="HIDDEN" value="0" maxlength="4">
+                      <input name="disabled_l" id="disabled_l" type="HIDDEN" value="0" maxlength="4">
+                      <input name="yobi_l" id="yobi_l" type="HIDDEN" value="" maxlength="4">
+                      
+                                                                   
+                     
+                                                                    
+                      <input name="width_b" id="width_b" type="HIDDEN" value="500" maxlength="4">
+                                                                 
+                      <input name="tate_b" id="tate_b" type="HIDDEN" value="500" maxlength="4">
+                                                                   
+                      <input name="X1_b" id="X1_b" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="Y1_b" id="Y1_b" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="X2_b" id="X2_b" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="Y2_b" id="Y2_b" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="full_b" id="full_b" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="white_b" id="white_b" type="HIDDEN" value="0" maxlength="4">
+                      
+                      <input name="full_white_b" id="full_white_b" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="pre_b" id="pre_b" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="side_b" id="side_b" type="HIDDEN" value="0" maxlength="4">
+                      <input name="disabled_b" id="disabled_b" type="HIDDEN" value="0" maxlength="4">
+                      <input name="yobi_b" id="yobi_b" type="HIDDEN" value="" maxlength="4">
+                      
+                                                                    
+                     
+                                                                    
+                      <input name="width_r" id="width_r" type="HIDDEN" value="500" maxlength="4">
+                                                                  
+                      <input name="tate_r" id="tate_r" type="HIDDEN" value="500" maxlength="4">
+                                                                   
+                      <input name="X1_r" id="X1_r" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="Y1_r" id="Y1_r" type="HIDDEN" value="10" maxlength="4">
+                                                                   
+                      <input name="X2_r" id="X2_r" type="HIDDEN" value="480" maxlength="4">
+                                                                   
+                      <input name="Y2_r" id="Y2_r" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="full_r" id="full_r" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="white_r" id="white_r" type="HIDDEN" value="0" maxlength="4">
+                      
+                      <input name="full_white_r" id="full_white_r" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="pre_r" id="pre_r" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="side_r" id="side_r" type="HIDDEN" value="0" maxlength="4">
+                      <input name="disabled_r" id="disabled_r" type="HIDDEN" value="0" maxlength="4">
+                      <input name="yobi_r" id="yobi_r" type="HIDDEN" value="" maxlength="4">
+                      
+                                                                    
+                      
+                                                                   
+                      <input name="width_t" id="width_t" type="HIDDEN" value="500" maxlength="4">
+                                                                  
+                      <input name="tate_t" id="tate_t" type="HIDDEN" value="500" maxlength="4">
+                                                                    
+                      <input name="X1_t" id="X1_t" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="Y1_t" id="Y1_t" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="X2_t" id="X2_t" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="Y2_t" id="Y2_t" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="full_t" id="full_t" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="white_t" id="white_t" type="HIDDEN" value="0" maxlength="4">
+                      
+                      <input name="full_white_t" id="full_white_t" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="pre_t" id="pre_t" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="side_t" id="side_t" type="HIDDEN" value="0" maxlength="4">
+                      <input name="disabled_t" id="disabled_t" type="HIDDEN" value="0" maxlength="4">
+                      <input name="yobi_t" id="yobi_t" type="HIDDEN" value="" maxlength="4">
+                      
+                                                                    
+                     
+                                                                    
+                      <input name="width_d_bo" id="width_d_bo" type="HIDDEN" value="500" maxlength="4">
+                                                                  
+                      <input name="tate_d_bo" id="tate_d_bo" type="HIDDEN" value="500" maxlength="4">
+                                                                    
+                      <input name="X1_d_bo" id="X1_d_bo" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="Y1_d_bo" id="Y1_d_bo" type="HIDDEN" value="10" maxlength="4">
+                                                                    
+                      <input name="X2_d_bo" id="X2_d_bo" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="Y2_d_bo" id="Y2_d_bo" type="HIDDEN" value="480" maxlength="4">
+                                                                    
+                      <input name="full_d_bo" id="full_d_bo" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="white_d_bo" id="white_d_bo" type="HIDDEN" value="0" maxlength="4">
+                      
+                      <input name="full_white_d_bo" id="full_white_d_bo" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="pre_d_bo" id="pre_d_bo" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="side_d_bo" id="side_d_bo" type="HIDDEN" value="0" maxlength="4">
+                      <input name="disabled_d_bo" id="disabled_d_bo" type="HIDDEN" value="0" maxlength="4">
+                      <input name="yobi_d_bo" id="yobi_d_bo" type="HIDDEN" value="" maxlength="4">
+                                                                    
+                    
+                                                                    
+                      <input name="width_d_fr" id="width_d_fr" type="HIDDEN" value="500" maxlength="4">
+                                                                  
+                      <input name="tate_d_fr" id="tate_d_fr" type="HIDDEN" value="50" maxlength="4">
+                                                                   
+                      <input name="X1_d_fr" id="X1_d_fr" type="HIDDEN" value="5" maxlength="4">
+                                                                    
+                      <input name="Y1_d_fr" id="Y1_d_fr" type="HIDDEN" value="5" maxlength="4">
+                                                                    
+                      <input name="X2_d_fr" id="X2_d_fr" type="HIDDEN" value="490" maxlength="4">
+                                                                    
+                      <input name="Y2_d_fr" id="Y2_d_fr" type="HIDDEN" value="40" maxlength="4">
+                                                                    
+                      <input name="full_d_fr" id="full_d_fr" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="white_d_fr" id="white_d_fr" type="HIDDEN" value="0" maxlength="4">
+                      
+                      <input name="full_white_d_fr" id="full_white_d_fr" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="pre_d_fr" id="pre_d_fr" type="HIDDEN" value="0" maxlength="4">
+                                                                    
+                      <input name="side_d_fr" id="side_d_fr" type="HIDDEN" value="0" maxlength="4">
+                      <input name="disabled_d_fr" id="disabled_d_fr" type="HIDDEN" value="0" maxlength="4">
+                      <input name="yobi_d_fr" id="yobi_d_fr" type="HIDDEN" value="" maxlength="4">
+                     
+          
+   		</form>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+     <script>
+      var z_x = 0;
+      var z_y = 0;
+      var mouseX = 0;
+      var mouseY = 0;
+      var canvas;
+      var bai = 100;
+      var beseDistance = 0
+      var timeoutId;
+      var sm_sc_m = 0.5;
+      var sm_sc = 1;
+      var sm_k = 0;
+      var ii = 0
+      var start_x = 0;
+      var start_y = 0;
+      var start_x2 = 0;
+      var start_y2 = 0;
+      var end_x = 0;
+      var end_y = 0;
+      var end_x2 = 0;
+      var end_y2 = 0;
+      var z_sc = 0;
+      var move_f = 0;
+      canvas = document.getElementById('zu');
+      var fff = document.getElementById('form_semiorder');
+      var context = canvas.getContext('2d');
+     
+
+function MM_popupMsg(msg) { //v1.0
+alert(msg);
+}
+    var b_cnt=0;
+    var s_cnt=0
+	var llx1=0;
+	var llx2=0;
+	var lly1=0;
+	var lly2=0;
+
+      window.onload = function() {
+      	
+      	if(window.innerWidth<769){
+      		let vh = window.innerHeight * 0.01;
+      		document.documentElement.style.setProperty('--vh', '${vh}px');
+      	}
+        canvas.onclick = function(e) {
+          // クリック位置の座標計算（canvasの左上を基準。-2ずつしているのはborderの分）
+          var rect = e.target.getBoundingClientRect();
+          mouseX = e.clientX - Math.floor(rect.left) - 2;
+          mouseY = e.clientY - Math.floor(rect.top) - 2;
+          z_x = mouseX;
+          z_y = mouseY;
+         // draw3(canvas, bai, 0);
+        }
+        const elem2 = document.querySelector('#zu');
+        fff.ontouchstart = function(event) {
+          var touches = event.changedTouches;
+          if (event.touches.length > 1) {
+            event.preventDefault();
+          }
+        }
+        fff.ontouchmove = function(event) {
+          event.preventDefault();
+        }
+        
+        
+        
+        canvas.ontouchmove = function(event) {
+          var touches = event.changedTouches;
+          if (event.targetTouches.length > 1) {
+            fff.ontouchmove = function(e) {
+              e.preventDefault();
+            }
+            event.preventDefault();
+            var x1 = touches[0].pageX;
+            var y1 = touches[0].pageY;
+            var x2 = touches[1].pageX;
+            var y2 = touches[1].pageY;
+            var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+           
+			
+            clearTimeout(timeoutId);
+            if (beseDistance) {
+              var scale = distance / beseDistance;          
+              sm_k = 1;
+              if (scale < 1) {
+              
+                sm_sc = sm_sc - scale * 0.01;
+                s_cnt=s_cnt+1
+                if(s_cnt>=3){
+                	s_cnt=0
+                	draw6(0)
+                }
+              }
+              if (scale > 1) {             
+                sm_sc = sm_sc + scale * 0.01;
+                b_cnt=b_cnt+1
+                if(b_cnt>=3){
+                
+                	b_cnt=0
+                	draw6(1)
+                }
+              }
+              timeoutId = setTimeout(function() {
+                beseDistance = 0;
+                fff.ontouchmove = function(event) {
+                  event.preventDefault();
+                  s_cnt=3
+                  b_cnt=3
+                }
+              }, 100);
+            } else {
+			
+              	beseDistance = distance;
+            }
+          }
+          if (event.targetTouches.length == 1) {
+            fff.ontouchmove = function(e) {
+              if (touches.length > 1) {
+                e.preventDefault()
+                return false
+              }
+            }
+            sm_k = 1
+            move_f = 1
+          }
+        }
+        canvas.ontouchend = function(event) {
+          var touches = event.changedTouches;
+          fff.ontouchmove = function(event) {
+            event.preventDefault()
+          }
+        }
+        draw6(2);
+      };
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+name: acry-ya2026
+
+# ---------------------------------------------------------------------------
+# 共通定義
+# ---------------------------------------------------------------------------
+x-php-base: &php-base
+  restart: unless-stopped
+  networks:
+    - appnet
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+  depends_on:
+    mysql:
+      condition: service_healthy
+    mailpit:
+      condition: service_started
+
+# ---------------------------------------------------------------------------
+# サービス
+# ---------------------------------------------------------------------------
+services:
+  # =========================================================================
+  # MySQL 8.4
+  #   - dump2026.sql を acryya_system に自動インポート
+  #   - acryya_system85 を作成し、同じダンプをインポート
+  #   - PHP 7.2 用に mysql_native_password を有効化
+  # =========================================================================
+  mysql:
+    image: mysql:8.4
+    container_name: acryya-mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-time-zone=+09:00
+      # MySQL 8.0 を使う場合は
+      # --default-authentication-plugin=mysql_native_password に読み替える
+      - --mysql-native-password=ON
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: acryya_system
+      MYSQL_USER: acryya58
+      MYSQL_PASSWORD: ${DB_PASSWORD_58:-acryya58}
+      DB_PASSWORD_85: ${DB_PASSWORD_85:-acryya85}
+      TZ: Asia/Tokyo
+    ports:
+      - "${MYSQL_PORT:-33060}:3306"
+    volumes:
+      - ./db-data:/var/lib/mysql
+      - ./mysql/conf/my.cnf:/etc/mysql/conf.d/zz-acryya.cnf:ro
+      - ./mysql/init/00-users.sh:/docker-entrypoint-initdb.d/00-users.sh:ro
+      - ../ai-document/dump2026.sql:/docker-entrypoint-initdb.d/10-dump.sql:ro
+      - ./mysql/init/20-init85.sh:/docker-entrypoint-initdb.d/20-init85.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks:
+      - appnet
+
+  # =========================================================================
+  # フロント 5.8 (PHP 7.2)
+  # =========================================================================
+  front58:
+    <<: *php-base
+    build:
+      context: ./php
+      args:
+        PHP_VERSION: "7.2.34"
+        COMPOSER_IMAGE: "composer:2.2"
+    image: acry-ya-php:7.2
+    container_name: acryya-front58
+    working_dir: /var/www/acry-ya.com
+    ports:
+      - "${FRONT58_PORT:-8002}:80"
+    environment:
+      APP_ROOT: /var/www/acry-ya.com
+      APACHE_DOCUMENT_ROOT: /var/www/acry-ya.com/public
+      TZ: Asia/Tokyo
+      APP_URL: http://localhost:${FRONT58_PORT:-8002}
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: acryya_system
+      DB_USERNAME: acryya58
+      DB_PASSWORD: ${DB_PASSWORD_58:-acryya58}
+      MAIL_DRIVER: smtp
+      MAIL_MAILER: smtp
+      MAIL_HOST: mailpit
+      MAIL_PORT: "1025"
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      DELIVERIES_PATH: /var/www/acry-ya.com/data/zaiko6.csv
+      IMAGE_STORAGE: public/img_storage
+      DISPLAY_IMAGE_PATH: storage/images/
+    volumes:
+      - ../acry-ya.com:/var/www/acry-ya.com:cached
+      # 管理画面の商品画像をフロントの表示パスに共有（読み取り専用）
+      - ../admin.acry-ya.com/storage/app/public/img_storage:/var/www/acry-ya.com/public/storage/images:ro,cached
+      # 本番 .htaccess の HTTPS 強制 / Basic 認証 / IP 制限を避ける
+      - ./php/apache/front.htaccess:/var/www/acry-ya.com/public/.htaccess:ro
+
+  # =========================================================================
+  # 管理 5.8 (PHP 7.2)
+  # =========================================================================
+  admin58:
+    <<: *php-base
+    build:
+      context: ./php
+      args:
+        PHP_VERSION: "7.2.34"
+        COMPOSER_IMAGE: "composer:2.2"
+    image: acry-ya-php:7.2
+    container_name: acryya-admin58
+    working_dir: /var/www/admin.acry-ya.com
+    ports:
+      - "${ADMIN58_PORT:-8003}:80"
+    environment:
+      APP_ROOT: /var/www/admin.acry-ya.com
+      APACHE_DOCUMENT_ROOT: /var/www/admin.acry-ya.com/public
+      TZ: Asia/Tokyo
+      APP_URL: http://localhost:${ADMIN58_PORT:-8003}
+      SITE_URL: http://localhost:${FRONT58_PORT:-8002}
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: acryya_system
+      DB_USERNAME: acryya58
+      DB_PASSWORD: ${DB_PASSWORD_58:-acryya58}
+      MAIL_DRIVER: smtp
+      MAIL_MAILER: smtp
+      MAIL_HOST: mailpit
+      MAIL_PORT: "1025"
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      DELIVERIES_PATH: /var/www/acry-ya.com/data/zaiko6.csv
+      IMAGE_STORAGE: public/img_storage
+      DISPLAY_IMAGE_PATH: storage/images/
+      FRONT_REVIEW_IMAGES_DIR: http://localhost:${FRONT58_PORT:-8002}/storage/reviewimages/
+    volumes:
+      - ../admin.acry-ya.com:/var/www/admin.acry-ya.com:cached
+      # 出荷目安 CSV はフロントの data を参照する
+      - ../acry-ya.com/data:/var/www/acry-ya.com/data:ro,cached
+
+  # =========================================================================
+  # フロント 85 (バージョンは .env の PHP85_VERSION で指定)
+  #   Phase 0 で acry-ya.com85 を作成してから
+  #   docker compose --profile v85 up -d で起動する
+  # =========================================================================
+  front85:
+    <<: *php-base
+    profiles: ["v85"]
+    build:
+      context: ./php
+      args:
+        PHP_VERSION: ${PHP85_VERSION:-8.5.0}
+        COMPOSER_IMAGE: ${PHP85_COMPOSER_IMAGE:-composer:2}
+    image: acry-ya-php:${PHP85_VERSION:-8.5.0}
+    container_name: acryya-front85
+    working_dir: /var/www/acry-ya.com85
+    ports:
+      - "${FRONT85_PORT:-8000}:80"
+    environment:
+      APP_ROOT: /var/www/acry-ya.com85
+      APACHE_DOCUMENT_ROOT: /var/www/acry-ya.com85/public
+      TZ: Asia/Tokyo
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:${FRONT85_PORT:-8000}
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: acryya_system85
+      DB_USERNAME: acryya85
+      DB_PASSWORD: ${DB_PASSWORD_85:-acryya85}
+      MAIL_DRIVER: smtp
+      MAIL_MAILER: smtp
+      MAIL_HOST: mailpit
+      MAIL_PORT: "1025"
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      DELIVERIES_PATH: /var/www/acry-ya.com85/data/zaiko6.csv
+      IMAGE_STORAGE: public/img_storage
+      DISPLAY_IMAGE_PATH: storage/images/
+    volumes:
+      - ../acry-ya.com85:/var/www/acry-ya.com85:cached
+      - ../admin.acry-ya.com85/storage/app/public/img_storage:/var/www/acry-ya.com85/public/storage/images:ro,cached
+      - ./php/apache/front.htaccess:/var/www/acry-ya.com85/public/.htaccess:ro
+
+  # =========================================================================
+  # 管理 85 (バージョンは .env の PHP85_VERSION で指定)
+  # =========================================================================
+  admin85:
+    <<: *php-base
+    profiles: ["v85"]
+    build:
+      context: ./php
+      args:
+        PHP_VERSION: ${PHP85_VERSION:-8.5.0}
+        COMPOSER_IMAGE: ${PHP85_COMPOSER_IMAGE:-composer:2}
+    image: acry-ya-php:${PHP85_VERSION:-8.5.0}
+    container_name: acryya-admin85
+    working_dir: /var/www/admin.acry-ya.com85
+    ports:
+      - "${ADMIN85_PORT:-8001}:80"
+    environment:
+      APP_ROOT: /var/www/admin.acry-ya.com85
+      APACHE_DOCUMENT_ROOT: /var/www/admin.acry-ya.com85/public
+      TZ: Asia/Tokyo
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:${ADMIN85_PORT:-8001}
+      SITE_URL: http://localhost:${FRONT85_PORT:-8000}
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: acryya_system85
+      DB_USERNAME: acryya85
+      DB_PASSWORD: ${DB_PASSWORD_85:-acryya85}
+      MAIL_DRIVER: smtp
+      MAIL_MAILER: smtp
+      MAIL_HOST: mailpit
+      MAIL_PORT: "1025"
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      DELIVERIES_PATH: /var/www/acry-ya.com85/data/zaiko6.csv
+      IMAGE_STORAGE: public/img_storage
+      DISPLAY_IMAGE_PATH: storage/images/
+      FRONT_REVIEW_IMAGES_DIR: http://localhost:${FRONT85_PORT:-8000}/storage/reviewimages/
+    volumes:
+      - ../admin.acry-ya.com85:/var/www/admin.acry-ya.com85:cached
+      - ../acry-ya.com85/data:/var/www/acry-ya.com85/data:ro,cached
+
+  # =========================================================================
+  # Mailpit（SMTP 受信 / Web UI）
+  # =========================================================================
+  mailpit:
+    image: axllent/mailpit:v1.34
+    container_name: acryya-mailpit
+    ports:
+      - "${MAILPIT_SMTP_PORT:-1025}:1025"
+      - "${MAILPIT_UI_PORT:-8025}:8025"
+    environment:
+      TZ: Asia/Tokyo
+      MP_SMTP_AUTH_ACCEPT_ANY: "1"
+      MP_SMTP_AUTH_ALLOW_INSECURE: "1"
+    networks:
+      - appnet
+
+  # =========================================================================
+  # 任意ツール: Node（Laravel Mix のビルド用）
+  #   docker compose --profile tools run --rm node
+  # =========================================================================
+  node:
+    image: node:18
+    profiles: ["tools"]
+    working_dir: /app
+    volumes:
+      - ../admin.acry-ya.com:/app:cached
+    environment:
+      NODE_OPTIONS: --openssl-legacy-provider
+    command: sh -lc "npm install && npm run dev"
+    networks:
+      - appnet
+
+  # =========================================================================
+  # 任意ツール: phpMyAdmin
+  #   docker compose --profile tools up -d phpmyadmin
+  # =========================================================================
+  phpmyadmin:
+    image: phpmyadmin:5
+    profiles: ["tools"]
+    ports:
+      - "${PMA_PORT:-8080}:80"
+    environment:
+      PMA_HOST: mysql
+      # acryya85 は acryya_system / acryya_system85 の両方にアクセスできる
+      PMA_USER: acryya85
+      PMA_PASSWORD: ${DB_PASSWORD_85:-acryya85}
+      UPLOAD_LIMIT: 64M
+    networks:
+      - appnet
+
+# ---------------------------------------------------------------------------
+# ネットワーク
+# ---------------------------------------------------------------------------
+networks:
+  appnet:
+    driver: bridge

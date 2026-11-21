@@ -1,0 +1,45 @@
+<link href="../css/newccs.css" rel="stylesheet" type="text/css">
+<table width="765" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="100%" colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><a href="/"><img src="../sheard_item/header1.jpg" alt="アクリ屋ドットコム" width="196" height="55" border="0"></a></td>
+        <td width="546" height="55" align="right" background="../sheard_item/header2.jpg"><a href="/"><strong><font color="#FFFFFF" class="caption-12white" size="7">アクリル材料加工とアクリル製品の&quot;アクリ屋ドットコム&quot;</font></strong></a></td>
+        <td><img src="../sheard_item/header3.jpg" width="23" height="55"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="21" colspan="2" align="center" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="5">&nbsp;</td>
+          <td align="center"><font size="1"><a href="/" class="caption-10gray">トップページ</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/htm2/htm/itemlist.htm" class="caption-10gray">商品一覧</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/example_top/htm/example.htm" class="caption-10gray">お客様活用事例</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/howtoorder_top/htm/howtoorder.htm" class="caption-10gray">ご購入ガイド</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td width="40" align="center"><font size="1"><a href="/acry-ya_new/htm2/htm/situmon.html" class="caption-10gray">Q&amp;A</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/cgibin/cart-n/ex/cart.cgi" class="caption-10gray">買い物かごを見る</a></font></td>
+          <td width="5" align="center" class="caption-10gray"><font size="1">｜</font></td>
+          <td align="center"><font size="1"><a href="/acry-ya_new/html/contact_top/htm/contact.htm" class="caption-10gray">お問い合わせ</a></font></td>
+          <td width="5">&nbsp;</td>
+          <td width="16%" align="right" valign="bottom" nowrap>
+                <form action="http://www.frame-acry-ya.com/search-a.html" method="get" id="srch">
+                  <input type="text" name="p" id="srchInput" size="15" maxlength="25">
+                  <input type="image" name="search" src="/sheard_item/kensaku-gray.gif" border="0" width="40" height="19" alt="サイト検索"id="srchBtn">
+                  <br>
+                  <input type="hidden" id="fr" name="fr" value="cse">
+                  <input type="hidden" id="ei" name="ei" value="Shift_JIS">
+                  <input type="hidden" id="csid" name="csid" value="bnZLO3dcDrOqllfysUZ57LKkI8eGMEk-">
+                  <input type="hidden" name="vs" value="www.acry-ya.com" id="yjInsite">
+                </form>
+	</td>
+	</tr>
+	</table>
+    </td>
+  </tr>
+</table>

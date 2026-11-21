@@ -1,0 +1,23 @@
+/*===========================================
+    p-guide-change
+===========================================*/
+#p-guide-change .p-add h3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -moz-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+#p-guide-change .p-add h3 span {
+  margin-left: 0.5rem;
+  font-weight: bold;
+  font-size: 0.875em;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImd1aWRlLWNoYW5nZS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7OzZDQUU2QztBQUM3QztFQUNFLHFCQUFjO0VBQWQsc0JBQWM7RUFBZCxrQkFBYztFQUFkLHFCQUFjO0VBQWQsY0FBYztFQUNkLHVCQUFzQjtFQUF0Qiw4QkFBc0I7RUFBdEIsb0JBQXNCO0VBQXRCLG9CQUFzQjtFQUF0QixzQkFBc0I7Q0FDdkI7O0FBRUQ7RUFDRSxvQkFBb0I7RUFDcEIsa0JBQWtCO0VBQ2xCLG1CQUFtQjtDQUNwQiIsImZpbGUiOiJwcm9qZWN0cy9ndWlkZS1jaGFuZ2UuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4gICAgcC1ndWlkZS1jaGFuZ2Vcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0qL1xuI3AtZ3VpZGUtY2hhbmdlIC5wLWFkZCBoMyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBmbGV4LWVuZDtcbn1cblxuI3AtZ3VpZGUtY2hhbmdlIC5wLWFkZCBoMyBzcGFuIHtcbiAgbWFyZ2luLWxlZnQ6IDAuNXJlbTtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIGZvbnQtc2l6ZTogMC44NzVlbTtcbn1cbiJdfQ== */

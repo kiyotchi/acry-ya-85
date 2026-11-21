@@ -1,0 +1,8 @@
+/*===========================================
+    314
+===========================================*/
+@media screen and (min-width: 601px), print {
+  #p-product [class*="p-overview"] .overview__order .order__action .action__draw > * {
+    width: 100%;
+  }
+}

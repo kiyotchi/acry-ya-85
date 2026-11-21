@@ -1,0 +1,26 @@
+.DS_Store
+.env
+.env.*
+config/credentials/*
+!config/credentials/README.md
+node_modules/
+mcp/node_modules/
+mcp/dist/
+mcp/ga4/.venv/
+mcp/ga4/python/
+logs/
+backups/
+analytics/*/raw/
+*.log
+
+# テーマ: マーチャント設定は追跡しない
+theme/config/settings_data.json
+theme/.shopify/
+
+# ロック・一時ファイル
+locks/*.lock/
+locks/*.lock
+*.tmp
+
+# AIDesigner のローカル実行（絶対パスを含むため追跡しない）
+.aidesigner/

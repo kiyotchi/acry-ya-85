@@ -1,0 +1,189 @@
+
+<?php include $_SERVER['DOCUMENT_ROOT'].'static.php'; ?><!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+  <head><?php echo $head_start; ?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=10, user-scalable=yes">
+    <meta meta http-equiv="Expires" content="604800">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="ご購入ガイド">
+    <meta name="keywords" content="アクリル板,アクリルケース,アクリル加工,販売,通販,価格,当日出荷,当日発送,ポスターフレーム,フォトフレーム,樹脂,アクリ屋">
+    <title>ご購入ガイド｜アクリ屋ドットコム</title>
+    <meta property="og:title" content="ご購入ガイド｜アクリ屋ドットコム">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/guide">
+    <meta property="og:image" content="/assets/images/ogp.jpg">
+    <meta property="og:site_name" content="アクリ屋ドットコム">
+    <meta property="og:description" content="ご購入ガイド">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="アクリ屋ドットコム">
+    <meta name="twitter:description" content="アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。">
+    <meta name="twitter:image" content="/assets/images/ogp.jpg">
+    <meta itemprop="image" content="/assets/images/ogp.jpg">
+    <!--meta(property='fb:app_id', content='')-->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/stylesheets/base.css">
+    <link rel="stylesheet" href="/assets/stylesheets/layout.css">
+    <link rel="stylesheet" href="/assets/stylesheets/style.css">
+    <link rel="stylesheet" href="/assets/stylesheets/acry-ya.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://jpostal-1006.appspot.com/jquery.jpostal.js" defer></script>
+    <script src="/assets/javascripts/common.js"></script>
+    <script src="/assets/javascripts/function.js" defer></script>
+    <script src="/assets/javascripts/plugins/cookie.js" defer></script>
+    <script src="/assets/javascripts/plugins/add-comma.js" defer></script>
+    <script src="/assets/javascripts/plugins/form-address.js" defer></script>
+    <link rel="stylesheet" href="/assets/stylesheets/projects/guide.css">
+  </head>
+  <body id="p-guide">
+    <div id="wrapper" class="l-column js-menu">
+      <?php echo $header; ?>
+      <?php echo $sidemenu; ?>
+      <div class="column__right">
+        <div class="l-loading js-loading"><img src="/assets/images/loading.png" class="loading__image is-animated fx-infinite">
+        </div>
+        <div class="l-banner"><img src="/assets/images/banner/bn_souryomuryo_sp.jpg"></div>
+        <main class="l-main">
+          <div class="main__sub--white">
+            <nav class="c-pankuzu--scroll">
+              <ul class="pankuzu__list">
+                <li><a href="/">HOME</a></li>
+                <li>ご利用ガイド</li>
+              </ul>
+            </nav><?php echo $notice; ?>
+            <h1 class="main__title c-heading--xl">ご利用ガイド</h1>
+            <section class="p-category c-section">
+              <div class="c-cardGroup--2-vertical">
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/guide/img_01.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/guide/order/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>商品の注文について</a></h3>
+                                <div class="card__information">
+                                  <ul class="c-list c-text--sm">
+                                    <li class="list__item"><a href="/guide/order/#01">ショッピングカートからのご注文</a></li>
+                                    <li class="list__item"><a href="/guide/order/#02">フリー注文フォームからのご注文</a></li>
+                                    <li class="list__item"><a href="/guide/order/#03">WEBお見積からのご注文</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/guide/img_02.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/guide/payment/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>お支払いについて</a></h3>
+                                <div class="card__information">
+                                  <ul class="c-list c-text--sm">
+                                    <li class="list__item"><a href="/guide/payment/#01">お支払い方法</a></li>
+                                    <li class="list__item"><a href="/guide/payment/#01_new">お支払方法ごとの与信（枠確保）について</a></li>
+                                    <li class="list__item"><a href="/guide/payment/#03">注文請書の発行</a></li>
+                                    <li class="list__item"><a href="/guide/payment/#04">領収書の発行</a></li>
+                                    <li class="list__item"><a href="/guide/payment/#05">学校及び公的研究機関様の校費・研究費の売掛取引</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/guide/img_03.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/guide/point/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>ポイント会員について</a></h3>
+                                <div class="card__information">
+                                  <ul class="c-list c-text--sm">
+                                    <li class="list__item"><a href="/guide/point/#01">ポイント会員のメリット</a></li>
+                                    <li class="list__item"><a href="/guide/point/#02">ポイントの獲得</a></li>
+                                    <li class="list__item"><a href="/guide/point/#03">仮ポイント・利用可能ポイントについて</a></li>
+                                    <li class="list__item"><a href="/guide/point/#04">ポイントの有効期限</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/guide/img_04.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/guide/delivery/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>配送・送料について</a></h3>
+                                <div class="card__information">
+                                  <ul class="c-list c-text--sm">
+                                    <li class="list__item"><a href="/guide/delivery/#01">配送について</a></li>
+                                    <li class="list__item"><a href="/guide/delivery/#02">送料について</a></li>
+                                    <li class="list__item"><a href="/guide/delivery/#03">梱包形態について</a></li>
+                                    <li class="list__item"><a href="/guide/delivery/#04">発送予定日の目安</a></li>
+                                    <li class="list__item"><a href="/guide/delivery/#05">お届け日について</a></li>
+                                    <li class="list__item"><a href="/guide/next-day-delivery/">翌日配送サービス</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/guide/img_05.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/guide/change/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>注文内容の変更、返品、交換について</a></h3>
+                                <div class="card__information">
+                                  <ul class="c-list c-text--sm">
+                                    <li class="list__item"><a href="/guide/change/#01">注文のキャンセル</a></li>
+                                    <li class="list__item"><a href="/guide/change/#02">注文内容変更</a></li>
+                                    <li class="list__item"><a href="/guide/change/#03">追加注文</a></li>
+                                    <li class="list__item"><a href="/guide/change/#04">商品返品・交換</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/guide/img_06.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/guide/use/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>サイトの使い方</a></h3>
+                                <div class="card__information">
+                                  <ul class="c-list c-text--sm">
+                                    <li class="list__item"><a href="/guide/use/shopping_cart/">ショッピングカートからのご購入方法</a></li>
+                                    <li class="list__item"><a href="/guide/use/freeform/">フリー注文フォームからのご購入方法</a></li>
+                                    <li class="list__item"><a href="/guide/use/auto_order/">WEB自動見積ご利用方法</a></li>
+                                    <li class="list__item"><a href="/guide/use/bill/">WEB注文請書の発行方法</a></li>
+                                    <li class="list__item"><a href="/guide/use/point/">ポイント会員登録方法</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+              </div>
+            </section>
+          </div>
+          <script type="application/ld+json">
+          {
+            "@context": "http:\/\/schema.org",
+            "@type": "website",
+            "name": "アクリル板材料の加工とアクリル製品の専門店 | アクリ屋ドットコム",
+            "inLanguage": "jp",
+            "publisher": {
+              "@type": "Organization",
+              "name": "株式会社さくら樹脂"
+            },
+            "headline": "アクリル板材料の加工とアクリル製品の専門店",
+            "description": "アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。",
+            "url": "https:\/\/acry-ya.com\/"
+          }
+          </script>
+          <script type="application/ld+json">
+          {
+            "@context": "http:\/\/schema.org",
+            "@type": "Organization",
+            "name": "株式会社さくら樹脂",
+            "description": "株式会社さくら樹脂は、アクリル材料加工・アクリル製品のネットショップ「アクリ屋ドットコム」の運営を主体に、その他、工業用樹脂部品の受託製造を行っています。製品は、精密で精度の要求される工業製品を制作する加工技術をベースに、最新設備を駆使し、各種の樹脂加工のノウハウを持つ専門の職人が制作致します。",
+            "url ": "https:\/\/www.acry-ya.com\/guide\/",
+            "telephone": "+81 45-547-6372",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "樽町4-13-2",
+              "addressLocality": "港北区",
+              "addressRegion": "神奈川県",
+              "postalCode": "222-0001",
+              "addressCountry": "JP"
+            }
+          }
+          </script>
+        </main><?php echo $footer; ?>
+      </div>
+    </div><?php echo $body_end; ?>
+  </body>
+</html>

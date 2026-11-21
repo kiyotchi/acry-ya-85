@@ -1,0 +1,38 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+// font-size
+$fontSize:1.6rem;
+
+
+// font-color
+$fontColor: #000 !default;
+
+
+// パスの設定
+$imgPath: "../img/";
+$commonPath: "#{$imgPath}common/";
+
+
+// カラー設定
+$blue: #9495c8;
+$gray: #f3f3f3;
+$orange: #f48111;
+$yellow: #ffe400;
+$red: #e33944;
+$green: #00b900;
+$beige: #fff3e2;
+
+$fbColor: #29487d;
+$twiColor: #00acee;
+$lineColor: #1dcd00;
+
+// ブレイクポイント
+$small:  "screen and (max-width: 600px)";
+
+
+
+// コンテンツ 最大幅
+$maxWidth: 1280px;

@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Notice extends Model
+{
+    // 主キーがlaravel規約と異なるため修正
+    protected $primaryKey = 'notice_id';
+
+    // createメソッドでの書き込み許可
+    protected $fillable = ['notice','is_display','created_at','updated_at'];
+}

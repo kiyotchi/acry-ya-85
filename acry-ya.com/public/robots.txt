@@ -1,0 +1,4 @@
+User-agent: *
+
+Disallow: /sample/
+Disallow: /404.html 

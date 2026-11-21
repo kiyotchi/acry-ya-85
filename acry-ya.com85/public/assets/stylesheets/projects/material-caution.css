@@ -1,0 +1,17 @@
+/*===========================================
+    p-material-caution
+===========================================*/
+#p-material-caution .p-dirt ol li {
+  margin: 0 0 0.5rem 1.5rem;
+  text-indent: -1.5rem;
+}
+
+#p-material-caution .p-dirt ol li span {
+  margin-right: 0.4rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.25em;
+  line-height: 1.5;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hdGVyaWFsLWNhdXRpb24uY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs2Q0FFNkM7QUFDN0M7RUFDRSwwQkFBMEI7RUFDMUIscUJBQXFCO0NBQ3RCOztBQUVEO0VBQ0UscUJBQXFCO0VBQ3JCLGtDQUFrQztFQUNsQyxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtDQUNsQiIsImZpbGUiOiJwcm9qZWN0cy9tYXRlcmlhbC1jYXV0aW9uLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuICAgIHAtbWF0ZXJpYWwtY2F1dGlvblxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSovXG4jcC1tYXRlcmlhbC1jYXV0aW9uIC5wLWRpcnQgb2wgbGkge1xuICBtYXJnaW46IDAgMCAwLjVyZW0gMS41cmVtO1xuICB0ZXh0LWluZGVudDogLTEuNXJlbTtcbn1cblxuI3AtbWF0ZXJpYWwtY2F1dGlvbiAucC1kaXJ0IG9sIGxpIHNwYW4ge1xuICBtYXJnaW4tcmlnaHQ6IDAuNHJlbTtcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBmb250LXNpemU6IDEuMjVlbTtcbiAgbGluZS1oZWlnaHQ6IDEuNTtcbn1cbiJdfQ== */

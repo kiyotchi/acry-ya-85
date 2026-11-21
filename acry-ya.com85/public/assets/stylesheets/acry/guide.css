@@ -1,0 +1,71 @@
+*===========================================
+    accordion
+===========================================*/
+#p-guide-payment .js-accordion__trigger {
+    cursor: pointer;
+    font-size: large;
+}
+
+#p-guide-payment [id="atobarai"] img {
+  border: none;
+  vertical-align: bottom;
+  display: block;
+  width: 90%;
+}
+
+@media screen and (max-width: 600px) {
+  .u-margin--left-16 img{
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/*===========================================
+    UVprint
+===========================================*/
+#p-guide-print .c-faqList .faqList__item {
+    padding: 0.5rem 1rem;
+}
+
+#p-guide-print .c-faqList .faqList__item .item__question .question__icon {
+    margin-right: 1em;
+    font-size: 1.4rem;
+}
+
+#p-guide-print .c-faqList .faqList__item .item__answer .answer__icon {
+    margin-right: 1em;
+    font-size: 1.4rem;
+}
+
+#p-guide-print [class*="c-section"] {
+    padding-bottom: 0rem;
+}
+
+#p-guide-print .c-faqList .faqList__item .item__answer {
+    padding-top: 1rem;
+}
+
+#p-guide-print .js-accordion__content {
+    margin-top: 1rem;
+}
+
+#p-guide-print .c-faqList .faqList__item .item__answer .answer__title {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+#p-guide-print [class*="c-flame"] > * {
+    margin-top: 1rem;
+}
+
+#p-guide-print [class*="c-flame"][class*="-sm"] {
+    padding: 1rem;
+}
+
+#p-guide-print [class*="c-section"] > * {
+    margin-bottom: 1rem;
+}
+
+#step-06 [class*="l-article"] {
+  height: 60px;
+}

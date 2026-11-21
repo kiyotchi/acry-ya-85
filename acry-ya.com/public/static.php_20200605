@@ -1,0 +1,46 @@
+<?php
+ini_set('display_errors',1);
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+// env設定値読み込み
+$dotenv = Dotenv\Dotenv::create(__DIR__ . '/..');
+$dotenv->load();
+$app_url = getenv('APP_URL');
+
+$headers = getallheaders();
+
+// パーツ読み込み
+$head_start = curl_get_contents($app_url . "/head_start.php");
+$body_end = curl_get_contents($app_url . "/body_end.php");
+$header = curl_get_contents($app_url . "/header.php");
+$footer = curl_get_contents($app_url . "/footer.php");
+$sidemenu = curl_get_contents($app_url . "/sidemenu.php");
+$notice = curl_get_contents($app_url . "/notice.php");
+
+/**
+ * CURL処理
+ *
+ * @param $url
+ * @param int $timeout
+ *
+ * @return bool|string
+ */
+function curl_get_contents( $url, $timeout = 60 )
+{
+    //	global $headers;
+
+    $headers = getallheaders();
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+	curl_setopt($ch, CURLOPT_COOKIE,$headers['Cookie']);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false);
+	$result = curl_exec($ch);
+	curl_close($ch);
+
+	return $result;
+}

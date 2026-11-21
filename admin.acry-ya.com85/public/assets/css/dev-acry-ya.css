@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/*===========================================
+dev-body
+===========================================*/
+#dev-body section.edit .complete_message {
+    background: #00bcd41c;
+    border: 3px solid #00bcd4;
+}

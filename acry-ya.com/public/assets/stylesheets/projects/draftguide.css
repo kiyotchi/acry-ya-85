@@ -1,0 +1,28 @@
+[class*="c-flame"] {
+/*  background-color: #e5f6ff;*/
+}
+
+[class*="c-section"] {
+    border-bottom: solid 0px;
+    margin-bottom: 0rem;
+}
+
+[class*="c-heading"] {
+    margin-bottom: 0.2em;
+}
+
+[class*="c-list"] .list__item:last-child {
+    margin-bottom: 2rem;
+}
+
+[class*="c-flame"][class*="-semiorder"] {
+    border: solid 1px #999;
+}
+
+[class*="l-article"] [class*="article__content"] img {
+    border: solid 8px #c0c0c0;
+}
+
+#copyright [class*="l-article"] [class*="article__content"] img {
+    border: solid 0px;
+}

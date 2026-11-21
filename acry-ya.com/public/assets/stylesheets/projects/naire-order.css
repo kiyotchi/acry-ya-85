@@ -1,0 +1,26 @@
+/*===========================================
+    p-naireOrder
+===========================================*/
+#p-naireOrder .p-action .action__button {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  #p-naireOrder .p-purpose .purpose__button > div:first-child {
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #p-naireOrder .p-purpose .purpose__print {
+    margin-bottom: 16px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #p-naireOrder .p-price {
+    overflow: auto;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5haXJlLW9yZGVyLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7NkNBRTZDO0FBQzdDO0VBQ0UsbUJBQW1CO0NBQ3BCOztBQUVEO0VBQ0U7SUFDRSxvQkFBb0I7R0FDckI7Q0FDRjs7QUFFRDtFQUNFO0lBQ0UsK0JBQStCO0dBQ2hDO0NBQ0Y7O0FBRUQ7RUFDRTtJQUNFLGVBQWU7R0FDaEI7Q0FDRiIsImZpbGUiOiJwcm9qZWN0cy9uYWlyZS1vcmRlci5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbiAgICBwLW5haXJlT3JkZXJcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0qL1xuI3AtbmFpcmVPcmRlciAucC1hY3Rpb24gLmFjdGlvbl9fYnV0dG9uIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA2MDBweCkge1xuICAjcC1uYWlyZU9yZGVyIC5wLXB1cnBvc2UgLnB1cnBvc2VfX2J1dHRvbiA+IGRpdjpmaXJzdC1jaGlsZCB7XG4gICAgbWFyZ2luLWJvdHRvbTogMTZweDtcbiAgfVxufVxuXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA2MDBweCkge1xuICAjcC1uYWlyZU9yZGVyIC5wLXB1cnBvc2UgLnB1cnBvc2VfX3ByaW50IHtcbiAgICBtYXJnaW4tYm90dG9tOiAxNnB4ICFpbXBvcnRhbnQ7XG4gIH1cbn1cblxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNjAwcHgpIHtcbiAgI3AtbmFpcmVPcmRlciAucC1wcmljZSB7XG4gICAgb3ZlcmZsb3c6IGF1dG87XG4gIH1cbn1cbiJdfQ== */

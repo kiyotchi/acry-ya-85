@@ -1,0 +1,28 @@
+.c-faqList .faqList__item {
+    padding: 0rem;
+    border-top: solid 1px #ddd;
+}
+
+[class*="c-heading"][class*="-blockcategory"] {
+  margin-bottom: 0.5em;
+  color: #009A98;
+}
+[class*="c-heading"][class*="-category"] {
+  color: #009A98;
+}
+[class*="l-article"] {
+  margin-bottom: 0.5rem !important;
+}
+[class*="l-article"] [class*="article__content"] {
+  margin-top: 0.5rem;
+}
+
+.c-faqList .faqList__item .item__question .question__icon {
+  right: 1.5rem;
+  margin-right: -0.5em;
+  width: 1em;
+  height: 1em;
+}
+.js-accordion__content {
+  margin-top: 0.5rem;
+}

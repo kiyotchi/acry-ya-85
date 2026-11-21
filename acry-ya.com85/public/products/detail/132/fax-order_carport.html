@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>FAX注文書（アクリ屋ドットコム）</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="newccs.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/assets/javascripts/std/polyca_fax.js"></script>
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+-->
+</style>
+</head>
+
+<body onload="draw();" bgcolor="#FFFFFF" text="#000000" topmargin="0">
+<table width="750" border="0" align="center" cellpadding="5" cellspacing="1" class="caption-12gray">
+  <tr align="center" bgcolor="#FFFFFF">
+    <td align="left"><font size="2"><br>■お申し込み頂いた後、弊社より注文確認書をＦＡＸ致します。注文確認書に署名・捺印の上、ご返送頂き「正式注文」となります。</font></td>
+  </tr>
+</table>
+<table width="750" border="1" align="center" cellpadding="5" cellspacing="1" bgcolor="#999999" class="caption-12gray">
+  <tr bgcolor="#FFFFFF"> 
+    <td width="350" rowspan="2" align="center" valign="middle"><p><strong><font size="5">カーポート屋根修理材</font></strong></p>
+    <p><strong><font size="5">FAX注文申込書</font></strong></p></td>
+    <td width="400" align="left" bgcolor="#FFFFFF"><font color="#FF0000">このページをプリントしてご記入の上、アクリ屋ドットコム宛にFAX願います。※項目は漏れなくご記入願います。</font></td>
+  </tr>
+  <tr>
+<td align="center" bgcolor="#FFFFFF" class="title-11pt-gray">送信先＞＞アクリ屋ドットコム　FAX 045-547-5945</td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td>　　　　　　フリガナ<br>
+      <span class="style1">※</span>■お名前(漢字）</td>
+    <td><span class="style1">※</span>■記入日　　　　　　　　　年　　　　　月　　　　　日</td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td><span class="style1">※</span>■TEL</td>
+    <td><span class="style1">※</span>■FAX</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td colspan="2"><span class="style1">※</span>■弊社からの電話連絡（○で囲んで下さい）　　　　　可　　　 ・　　　不可 　</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td colspan="2"><p>■ご注文内容で不明点があり、弊社より電話確認をさせて頂いても宜しい場合、ご希望の時間帯を記載下さい。<br>
+        <br>
+        　　　　　　
+    時　～　　　　　　時　　（24時間表示、平日の9時～17時の間でお願い致します）</p>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td colspan="2">■Ｅメールアドレス<br>
+      （ご記入頂くと製品出荷のご案内をメールにてご連絡致します）</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td colspan="2"><font color="#FF0000" size="2">（法人の場合のみ記入）</font><br>
+      ■法人名　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　■法人部署名</td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td colspan="2"><span class="style1">※</span>■ご住所　（〒　　　　　－　　　　　　）</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td colspan="2"><span class="style1">※</span>■お支払方法　（○で囲んで下さい）　　　　　　　　　銀行振込（前払い）　　　　　　　　　　郵便振替(前払い) </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td colspan="2" valign="top"><font color="#FF0000" size="2">（上記と同じ場合は不要です）</font><br>
+      ■お届け先名（フリガナ）<br>
+      <br>
+      <br>
+      ■お届け先ご住所　（〒　　　　－　　　　　）<br>
+      <br>
+      <br>
+      ■お届け先TEL<br>
+      <br>
+      <br>
+      ■納品書のお送り先（○で囲んで下さい）　　　お客様ご住所　　　　　お届け先</td>
+  </tr>
+</table>
+<br>
+<form name="form2">
+<table width="750" border="1" align="center" cellpadding="5" cellspacing="1" bgcolor="#999999">
+<tr align="center" bgcolor="#FFFFFF" class="caption-12gray">
+  <td colspan="2"><font size="3"><strong>ご注文内容</strong></font><br>
+    ●ご注文はホームページ掲載品のみになります。サイズ違いや特注品は、<a href="/full_order/" target="_blank"><font color="#FF0000"><u>フルオーダー(特注)</u></font></a>よりご依頼下さい。<br>
+    ●セミオーダー製品の場合は、ご希望の仕様を画面に入力したＷＥＢページをプリントして、同時にＦＡＸ願います。</td>
+</tr>
+<tr align="center" bgcolor="#FFFFFF" class="caption-12gray">
+  <td>品番</td>
+  <td align="left"><input name="itemno" type="text" class="title-12pt-gray" id="itemno" size="100" maxlength="100" readonly="true"></td>
+  </tr>
+<tr align="center" bgcolor="#FFFFFF" class="caption-12gray">
+  <td>品名</td>
+  <td align="left"><input name="itemna" type="text" class="title-12pt-gray" id="itemna" size="100" maxlength="100" readonly="true"></td>
+  </tr>
+<tr align="center" bgcolor="#FFFFFF" class="caption-12gray">
+  <td nowrap>サイズ</td>
+  <td align="left"><input name="size" type="text" class="title-12pt-gray" id="size" size="100" maxlength="100" readonly="true"></td>
+</tr>
+<tr align="center" bgcolor="#FFFFFF" class="caption-12gray">
+  <td>数量</td>
+  <td align="left"><input name="suryo" type="text" class="title-12pt-gray" id="suryo" size="100" maxlength="100" readonly="true"></td>
+  </tr>
+<tr align="center" bgcolor="#FFFFFF" class="caption-12gray">
+  <td>単価</td>
+  <td align="left"><input name="tanka" type="text" class="title-12pt-gray" id="tanka" size="100" maxlength="100" readonly="true"></td>
+</tr>
+<tr align="center" bgcolor="#FFFFFF" class="caption-12gray">
+  <td>合計</td>
+  <td align="left"><input name="sipri" type="text" class="title-12pt-gray" id="sipri" size="100" maxlength="100" readonly="true"></td>
+</tr>
+</table>
+</form>
+<div align="center">
+<table width="750" border="0" align="center" cellpadding="5" cellspacing="1" class="caption-12gray">
+  <tr align="center" bgcolor="#FFFFFF">
+    <td align="left">■ＦＡＸ注文の場合には、お買い物に利用できるアクリ屋ポイントの付与、ご利用はできません。<br>
+      ■送料・代引き手数料・銀行振込手数料は別途必要になります。<br>
+	  ■カード決済はネット注文のみとなります。</td>
+  </tr>
+</table>
+<p><br>
+</p>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3172569-1";
+urchinTracker();
+</script>
+</body>
+</html>

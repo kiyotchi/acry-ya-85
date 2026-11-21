@@ -1,0 +1,23 @@
+{{-- サイドメニュー上部のテンプレート --}}
+<nav class="sidebar__navigation">
+  <p class="navigation__caption"><span>キャンペーン</span></p>
+  <ul class="navigation__list">
+    <!-- バナーリスト-->
+    <li class="list__banner"><a href="#"><img src="http://placehold.it/300x120"></a></li>
+    <li class="list__banner"><a href="#"><img src="http://placehold.it/300x120"></a></li>
+    <!-- 通常リスト-->
+    <li class="list__item"><a href="#">サンプル</a></li>
+    <!-- ドロップダウンありリスト-->
+    <li class="list__item js-dropdown"><a href="#" class="js-dropdown__trigger">サンプル2</a>
+      <div class="item__window c-window--full js-dropdown__content--right"><a href="#" class="window__title c-heading--sm">サンプル2</a>
+        <ul class="window__list">
+          <li><a href="#">項目 1</a></li>
+          <li><a href="#">項目 2</a></li>
+          <li><a href="#">項目 3</a></li>
+          <li><a href="#">項目 4</a></li>
+          <li><a href="#">項目 5</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>

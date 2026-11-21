@@ -1,0 +1,650 @@
+
+<?php include $_SERVER['DOCUMENT_ROOT'].'static.php'; ?><!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+<head><?php echo $head_start; ?>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=10, user-scalable=yes">
+  <meta meta http-equiv="Expires" content="604800">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。">
+  <meta name="keywords" content="アクリル板,アクリルケース,アクリル加工,販売,通販,価格,当日出荷,当日発送,ポスターフレーム,フォトフレーム,樹脂,アクリ屋">
+  <title>お支払い方法｜アクリ屋ドットコム</title>
+  <meta property="og:title" content="お支払い方法｜アクリ屋ドットコム">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/guide/payment/">
+  <meta property="og:image" content="/assets/images/ogp.jpg">
+  <meta property="og:site_name" content="アクリ屋ドットコム">
+  <meta property="og:description" content="アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="アクリ屋ドットコム">
+  <meta name="twitter:description" content="アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。">
+  <meta name="twitter:image" content="/assets/images/ogp.jpg">
+  <meta itemprop="image" content="/assets/images/ogp.jpg">
+  <!--meta(property='fb:app_id', content='')-->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/stylesheets/base.css">
+  <link rel="stylesheet" href="/assets/stylesheets/layout.css">
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <link rel="stylesheet" href="/assets/stylesheets/projects/guide-payment.css">
+  <link rel="stylesheet" href="/assets/stylesheets/acry-ya.css">
+  <link rel="stylesheet" href="/assets/stylesheets/acry/guide.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <script src="https://jpostal-1006.appspot.com/jquery.jpostal.js" defer></script>
+  <script src="/assets/javascripts/common.js"></script>
+  <script src="/assets/javascripts/function.js" defer></script>
+  <script src="/assets/javascripts/plugins/cookie.js" defer></script>
+  <script src="/assets/javascripts/plugins/add-comma.js" defer></script>
+  <script src="/assets/javascripts/plugins/form-address.js" defer></script>
+</head>
+<body id="p-guide-payment">
+  <div id="wrapper" class="l-column js-menu">
+    <?php echo $header; ?>
+    <?php echo $sidemenu; ?>
+    <div class="column__right">
+      <div class="l-loading js-loading"><img src="/assets/images/loading.png" class="loading__image is-animated fx-infinite">
+      </div>
+      <div class="l-banner"><img src="/assets/images/banner/bn_souryomuryo_sp.jpg"></div>
+      <main class="l-main">
+        <div class="main__sub--white">
+          <nav class="c-pankuzu--scroll">
+            <ul class="pankuzu__list">
+              <li><a href="/">HOME</a></li>
+              <li><a href="/guide/">ご利用ガイド</a></li>
+              <li>お支払いについて</li>
+            </ul>
+          </nav><?php echo $notice; ?>
+          <h1 class="main__title c-heading--xl">お支払いについて</h1>
+          <nav class="c-pageIndex c-flame--xs-border"><a href="#01" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>お支払い方法</a>
+            <a href="#01_new" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>お支払方法ごとの与信について</a>
+            <a href="#02" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>注文請書の発行</a>
+            <a href="#03" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>領収書の発行</a>
+            <a href="#04" class="c-link js-anchorScroll"><i class="link__icon--before c-icon--arrow-bottom-primary"></i>学校及び公的研究機関様の校費・研究費の売掛取引</a>
+          </nav>
+          <!--お支払い方法-->
+          <section id="01" class="c-section">
+            <h2 class="c-heading--md-border">お支払い方法</h2>
+            <!--銀行振込（前払い）-->
+            <section id="01_01" class="section__sub">
+              <div class="article__content js-accordion"><a class="js-accordion__trigger"><i class="c-icon--toggle"></i>銀行振込（前払い）</a>
+                <div class="js-accordion__content" style="display: none;">
+                  <div class="article__content">
+                    <p>下記の振込先へ7営業日以内にお振込下さい（手数料が必要です）。<br>領収書が必要な場合は、ATMをご利用下さい。<br>弊社にてお振込みの確認が取れた時点で正式なご注文となり、製作・お届けの準備に入ります。</p>
+                    <table class="c-table u-width--70">
+                      <tbody>
+                        <tr>
+                          <th class="u-width--40">振込先</th>
+                          <td>(株)さくら樹脂</td>
+                        </tr>
+                        <tr>
+                          <th>銀行名</th>
+                          <td>
+                            <p class="js-modal">
+                              <a class="js-modal__trigger--open" data-target="payment">PayPay銀行</a>
+                              <div id="payment" class="c-window--md js-modal__content">
+                                <div class="l-article--column-1">
+                                  <p><strong>PayPay銀行について</strong></p>
+                                  <ul class="article__content c-list--disc">
+                                    <div class="l-article--column-2">
+                                      <div class="article__content">
+                                        <img src="/assets/images/projects/guide/payment/img_01.jpg">
+                                      </div>
+                                      <div class="article__content">
+                                        <li class="list__item">PayPay銀行は、会員以外でも、通常の銀行窓口やATMから他の銀行宛ての振込みの場合と同様に振込みができます。ATMで振込み先を選ぶ際に、PayPay銀行を選択して下さい。</li>
+                                        <li class="list__item">PayPay銀行の口座をお持ちの方は、振込みが簡単な【URL入金】がご利用頂けます。「オーダー確認メール」に手続きのURLを送信致します。当方からメール送信されたURLから手続き下さい。</li>
+                                      </div>
+                                    </div>
+                                  </ul>
+                                </div>
+                              </div>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>支店番号</th>
+                          <td>本店営業部（001）</td>
+                        </tr>
+                        <tr>
+                          <th>預金種別</th>
+                          <td>普通</td>
+                        </tr>
+                        <tr>
+                          <th>口座番号</th>
+                          <td>5004220</td>
+                        </tr>
+                        <tr>
+                          <th>口座名義</th>
+                          <td>カ）サクラジユシ</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--郵便振替（前払い）-->
+            <section id="01_02" class="section__sub">
+              <div class="article__content js-accordion"><a class="js-accordion__trigger"><i class="c-icon--toggle"></i>郵便振替（前払い）</a>
+                <div class="js-accordion__content" style="display: none;">
+                  <div class="article__content">
+                    <p>下記の口座へ7営業日以内にご送金下さい（手数料が必要です）。<br>弊社にてご送金の確認が取れた時点で正式なご注文となります(入金の確認に多少のお時間が掛かる為、お急ぎの場合は他のお支払い方法をご利用下さい)。<br>領収書が必要な場合は、ATMをご利用下さい。</p>
+                    <table class="c-table u-width--70">
+                      <tbody>
+                        <tr>
+                          <th class="u-width--40">送金先</th>
+                          <td>株式会社さくら樹脂</td>
+                        </tr>
+                        <tr>
+                          <th>口座番号</th>
+                          <td>10230-86178391</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--代金引換（着払い）-->
+            <section id="01_03" class="section__sub">
+              <div class="article__content js-accordion"><a class="js-accordion__trigger"><i class="c-icon--toggle"></i>代金引換（着払い）</a>
+                <div class="js-accordion__content" style="display: none;">
+                  <div class="article__content">
+                    <p>商品がお客様に届いた際、運送会社に料金をお支払い下さい。<br>現金・クレジットカード・デビットカード・電子マネーから自由にお支払方法が選択できます。</p>
+                    <section>
+                      <h4 class="c-heading--xs">代金引換手数料料金表（税込）</h4>
+                      <table class="c-table">
+                        <thead>
+                          <tr>
+                            <th>商品代金合計</th>
+                            <th>手数料</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>9,670円未満</th>
+                            <td>330円</td>
+                          </tr>
+                          <tr>
+                            <th>9,670円以上29,560円未満</th>
+                            <td>440円</td>
+                          </tr>
+                          <tr>
+                            <th>29,560円以上99,340円未満</th>
+                            <td>660円</td>
+                          </tr>
+                          <tr>
+                            <th>99,340円以上298,900円まで</th>
+                            <td>1,100円</td>
+                          </tr>
+                          <tr>
+                            <th>298,901円以上</th>
+                            <td>ご利用頂けません。他のお支払い方法をご利用下さい。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p class="c-text--sm-note u-margin--top-16">代引手数料はポイント利用でお支払い金額が変わっても、商品代金合計に対する該当の手数料が掛かります。予めご了承願います。</p>
+                    </section>
+                    <section class="c-flame--md-gray">
+                      <h4 class="c-heading--sm">ご利用頂けるクレジットカードと電子マネー</h4>
+                      <p class="u-margin--bottom-32">JCB・VISA・MASTER・ダイナース・アメリカンエキスプレスのマークの入っているクレジットカードはすべてご利用になれます。一括・分割・リボ払いでのお支払い方法がお選び頂けます。<br>デビットカードとは、キャッシュカードを利用して預金口座から即時に引落を行う代金決済サービスです。</p>
+                      <ul class="l-article--column-2-vertical-vertical">
+                        <li class="article__content--w50">
+                          <p class="c-heading--xs">代金引換時にご利用可能なカード</p><img src="/assets/images/projects/guide/payment/img_03.jpg">
+                        </li>
+                        <li class="article__content--w50">
+                          <p class="c-heading--xs">代金引換時にご利用可能な電子マネー</p><img src="/assets/images/projects/guide/payment/img_04.jpg">
+                          <div class="js-modal">
+                            <div data-target="electronicMoney" class="c-button--sm-white js-modal__trigger--open">電子マネーの利用可能エリア</div>
+                            <div id="electronicMoney" class="c-window--md js-modal__content"><img src="/assets/images/projects/guide/payment/img_05.gif"></div>
+                          </div>
+                        </li>
+                      </ul>
+                    </section>
+                    <section>
+                      <h5 class="c-heading--xs">注意事項</h5>
+                      <ul class="c-list--sm-note">
+                        <li class="list__item">携帯通信を利用するため、電波状況が悪い場所ではご利用頂けない場合があります。その場合は現金決済になります。予めご了承願います。</li>
+                        <li class="list__item">首都圏の場合、数量によって送料をお安くさせて頂くため、チャーター便を利用することがあります。その場合は現金決済をお願いする場合があります。</li>
+                        <li class="list__item">メーカー直送商品（アクリル大判板・ポリカーボネートほか）は代金引換がご利用頂けません。</li>
+                        <li class="list__item">アクリル板で「縦+横=1350mm以上」を超える場合は代金引換がご利用頂けません。</li>
+                        <li class="list__item">代引手数料はポイント利用でお支払い金額が変わっても、商品代金合計に対する該当の手数料が掛かります。予めご了承願います。</li>
+                        <li class="list__item">一部製品ではご利用できない商品もございます。予めご了承願います。</li>
+                        <li class="list__item">ご不在等でお受け取りできない場合は5日以内に不在票記載の連絡先へご連絡願います。それを経過してもお受け取りいただけない場合は、弊社までご連絡願います。万が一お客様都合でお受け取り頂けない場合（受取拒否）、請求書をお送り致しますので下記代金をお支払い頂きます。ご注文時に梱包送料を無料としている場合でも梱包送料が必要になります。
+                          <ul class="c-list--disc">
+                            <li class="list__item">オリジナル商品の場合　お届け梱包送料+返送料+手数料</li>
+                            <li class="list__item">セミオーダー/フルオーダー品の場合　製品代+お届け梱包送料+返送料+手数料</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--クレジットカード※ショッピングカートからご注文の場合のみ-->
+            <section id="01_04" class="section__sub">
+              <div class="article__content js-accordion"><a class="js-accordion__trigger"><i class="c-icon--toggle"></i>クレジットカード</a>
+                <div class="js-accordion__content" style="display: none;">
+                  <div class="article__content">
+                    <div class="l-article--column-2-reverse">
+                      <div class="article__content">
+                        <p class="u-margin--bottom-32">JCB、VISA、MASTER、Diners、Amex の各カードおよび下記のマークの提携カードがご利用頂けます。<span class="c-text--weightBold">クレジットカードのカード番号、カード名義、有効期限、セキュリティコードが必要となります。予めお手元にご利用カードをご用意ください。</span></p>
+                        <ul class="c-list--sm-note">
+                          <li class="list__item">ショッピングカートからご注文の場合のみ、ご使用いただけます。</li>
+                          <li class="list__item">SSLシステム利用によりカード番号は暗号化されます。</li>
+                          <li class="list__item">クレジットカードはご本人様以外はご使用になれません。</li>
+                          <li class="list__item">一部カードについて、分割払いがご利用いただけない場合がございます。 詳しくはカード発行会社へお問合せ下さい。</li>
+                          <li class="list__item">各クレジットカード会社との規約に基づき、通常のカードご利用代金と同様にご指定口座から自動引き落としとなります。 </li>
+                          <li class="list__item">カード会社から決済承認を得られなかった際の理由について弊社ではわかりかねますので、カード会社に直接お電話でご確認下さい。</li>
+                          <li class="list__item">カード会社のご利用明細書には「アクリ屋ドットコム」と表示されます。</li>
+                          <li class="list__item">クレジット決済サービスは決済代行会社である「DGFT」に運営サービスを委託しております。</li>
+                          <li class="list__item__red">ご購入の際にワンタイムパスワード等を入力する画面が表示される場合があります。</li>
+                          <li class="list__item__red">3Dセキュアの設定につきましてはお持ちのクレジットカード会社へお問合せください。</li>
+                        </ul>
+                      </div>
+                      <div class="article__content"><img src="/assets/images/projects/guide/payment/img_06.jpg" class="c-flame--border"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--コンビニ支払い（前払い）-->
+            <section id="01_05" class="section__sub">
+              <div class="article__content js-accordion"><a class="js-accordion__trigger"><i class="c-icon--toggle"></i>コンビニ支払い（前払い）</a>
+                <div class="js-accordion__content" style="display: none;">
+                  <div class="l-article--column-1-vertical">
+                    <div class="article__content">
+                      <p class="u-margin--bottom-32">セブンイレブン、ファミリーマート、ローソン、セイコーマートのコンビニでの支払いがご利用できます。</p>
+                      <ul class="c-list--sm-disc">
+                        <li class="list__item">ショッピングカートからご注文の場合のみ、ご使用いただけます。</li>
+                        <li class="list__item">現金支払いのみとなります。 </li>
+                        <li class="list__item">ご入金が確認でき次第、商品の製作・出荷とさせていただきます。</li>
+                        <li class="list__item">コンビニのお支払い明細には運営会社及び決済代行会社である「DGフィナンシャル」と表記されます。</li>
+                        <li class="list__item">法人様にてお買い求めの際は、コンビニのお支払い明細の宛名は、ご担当者氏名になります。</li>
+                        <li class="list__item">ご注文日含め10日以内にお支払い下さい。お支払い確認後の商品の製作及び発送となります。 <br>（10日以上経過してもお支払いのない場合は、キャンセルとさせて頂きます）</li>
+                        <li class="list__item">30万円以上はコンビニ支払いがご利用頂けませんので、他のお支払い方法をご利用ください。</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="l-article--column-1">
+                    <h4 class="c-heading--xs">コンビニ別お支払い手続きの流れ</h4>
+                    <ul>
+                      <li class="c-flame--md-border l-article--column-2-vertical-center u-margin--bottom-8">
+                        <div class="article__content--w30"><img src="/assets/images/projects/guide/payment/img_07.jpg"></div>
+                        <div class="article__content--w65">
+                          <p class="c-heading--sm">セブンイレブン</p>
+                          <ol class="c-list--icon u-margin--bottom-16">
+                            <li class="list__item"><i class="c-icon--number-primary">1</i>
+                              <p>ご注文後にご案内させていただく『払込票』が表示された画面を印刷</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">2</i>
+                              <p>レジで「インターネットの代金支払い」とお申し出の上、お渡し下さい。</p>
+                              <p class="c-text--sm-note">印刷できない場合は、『払込票番号』をお伝え下さい。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">3</i>
+                              <p>お支払いの際、インターネットショッピング払込受領証が発行されます。</p>
+                            </li>
+                          </ol>
+                          <p class="c-text--sm-note">セブン-イレブンではオーダー・セミオーダーなどの受注生産品とメーカー直送商品及び、法人様からのご注文に付きましてはご利用頂けません。受注生産品・メーカー直送商品及び、法人様の場合には他のコンビニ会社を選択下さい。</p>
+                        </div>
+                      </li>
+                      <li class="c-flame--md-border l-article--column-2-vertical-center u-margin--bottom-8">
+                        <div class="article__content--w30"><img src="/assets/images/projects/guide/payment/img_08.jpg"></div>
+                        <div class="article__content--w65">
+                          <p class="c-heading--sm">ファミリーマート</p>
+                          <ol class="c-list--icon u-margin--bottom-16">
+                            <li class="list__item"><i class="c-icon--number-primary">1</i>
+                              <p>マルチコピー機トップ画面のメニューから「代金支払い」を選択してください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">2</i>
+                              <p>「番号入力」を選択してください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">3</i>
+                              <p>第1番号入力してください。※第1番号はご注文時のメールに記載しております。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">4</i>
+                              <p>第2番号を入力してください。※第2番号はご注文時の電話番号になります。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">5</i>
+                              <p>お支払い方法のご案内後、申込内容の確認画面が表示されます。内容を確認してください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">6</i>
+                              <p>端末より出力された「マルチコピーサービス申込券」を持ってレジにて代金をお支払いください。<br>代金と引き換えに「受領書」をお渡ししますので、必ずお受取りください。</p>
+                            </li>
+                          </ol>
+                        </div>
+                      </li>
+                      <li class="c-flame--md-border l-article--column-2-vertical-center u-margin--bottom-8">
+                        <div class="article__content--w30"><img src="/assets/images/projects/guide/payment/img_09.jpg"></div>
+                        <div class="article__content--w65">
+                          <p class="c-heading--sm">ローソン</p>
+                          <ol class="c-list--icon u-margin--bottom-16">
+                            <li class="list__item"><i class="c-icon--number-primary">1</i>
+                              <p>Loppiトップ画面左の「各種番号をお持ちの方」を選択してください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">2</i>
+                              <p>ご注文後に弊社からお送りするメールに表記されたローソンの 『受付番号（6桁の数字）』を入力してください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">3</i>
+                              <p>ご注文時にご入力いただいたお電話番号を入力してください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">4</i>
+                              <p>お客様のお申込内容の確認画面が表示されます。内容をご確認いただき「了解」ボタンを押してください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">5</i>
+                              <p>Loppi端末より「申込券」が出力されます。その申込券を持って30分以内にレジで代金をお支払いください。<br>代金と引き換えに「払込受領証」をお渡ししますので、必ずお受け取りください。</p>
+                            </li>
+                          </ol>
+                        </div>
+                      </li>
+                      <li class="c-flame--md-border l-article--column-2-vertical-center">
+                        <div class="article__content--w30"><img src="/assets/images/projects/guide/payment/img_10.jpg"></div>
+                        <div class="article__content--w65">
+                          <p class="c-heading--sm">セイコーマート</p>
+                          <ol class="c-list--icon u-margin--bottom-16">
+                            <li class="list__item"><i class="c-icon--number-primary">1</i>
+                              <p>セイコーマートのレジにて「インターネット支払い」とお告げください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">2</i>
+                              <p>レジの画面にて『受付番号(6桁)』とご注文時の『電話番号』を入力してください。</p>
+                            </li>
+                            <li class="list__item"><i class="c-icon--number-primary">3</i>
+                              <p>レジにて代金をお支払いください。<br>代金と引き換えに「受取書」をお渡ししますので、必ずお受取りください。</p>
+                            </li>
+                          </ol>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--Amazon Pay-->
+            <section id="ap" class="section__sub">
+              <div class="article__content js-accordion"><a class="js-accordion__trigger"><i class="c-icon--toggle"></i>AmazonPay</a>
+                <div class="js-accordion__content" style="display: none;">
+                  <div class="article__content">
+                    <p class="u-margin--bottom-2">AmazonPayアカウントにご登録のお支払情報を利用して、簡単にご注文・お支払いただけます。その際、Amazonへのログインが必要です。</p>
+                    <!--<img src="/cgibin/cart-n/assets/images/projects/cart/amazonpay.png" class="u-width--10rem">-->
+
+                    <a href="https://apay-up-banner.com?merchantId=A2RLHGXDHI343C&banner=08_Amazon_Pay_BBP_320x100.png&locale=ja_JP&utm_source=A2RLHGXDHI343C" target="_blank">
+                      <img src="https://apay-up-banner.com/banner/08_Amazon_Pay_BBP_320x100.png?merchantId=A2RLHGXDHI343C&locale=ja_JP&width=320&height=100&utm_source=A2RLHGXDHI343C"></a>
+
+                      <ul class="c-list--sm-disc">
+                        <li class="list__item">Amazonポイントは付与されません。Amazonポイントのご利用もできません。</li>
+                        <li class="list__item">ご注文完了後でもお支払いは完了していないため、Amazonアカウントに登録済の支払い情報によってはキャンセルをさせていただく場合があります。 </li>
+                        <li class="list__item">ご注文完了後にAmazonから「Amazon Pay ご利用の確認」が送信されますが、この時点ではお支払いが完了しておりません。Amazonから「Amazon Pay ご請求内容のお知らせ」が送信されるとお支払い完了となります。</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- コンビニ後払い -->
+              <section id="01_06" class="section__sub">
+                <div class="article__content js-accordion"><a class="js-accordion__trigger"><i class="c-icon--toggle"></i>コンビニ後払い</a>
+                  <div class="js-accordion__content" style="display: none;">
+                    <div class="article__content">
+                      <div class="l-article--column">
+                        <div class="article__content">
+                          <ul class="c-list--sm-maru">
+                            <li class="list__item">後払い手数料：220円（税込）</li>
+                            <li class="list__item">利用限度額：110,000円（税込）</li>
+                            <li class="list__item">払込票は商品とは別に株式会社SCOREより郵送されます。発行から14日以内にコンビニでお支払いください。</li>
+                            <li class="list__item">お支払い期限を一定期間過ぎてもご入金の確認がとれない場合、ご請求金額に回収事務手数料297円（税込）を加算します。（最大3回、合計891円）</li>
+                            <li class="list__item">お客様に対する代金債権とそれに付帯する個人情報（定義は、個人情報の保護に関する法律第2条第1項に従います。）は、包括的な決済サービスを提供する株式会社DGフィナンシャルテクノロジーに譲渡・提供されたうえで、さらに同社から後払い決済サービスを提供する 株式会社SCOREに対し、再譲渡・提供されますので、当該第三者への譲渡・提供に同意の上、お申込みください。</li>
+                            <p class="u-margin--left-4 c-text--sm">【提供先の個人情報の利用目的】</p>
+                            <p class="u-margin--left-16 c-text--sm">以下URL（個人情報の取扱いについて）よりご確認ください。</p>
+                            <p class="u-margin--left-16 c-text--sm">株式会社DGフィナンシャルテクノロジー：<a href="https://www.veritrans.co.jp/privacy/operation.html" target="_blank">https://www.veritrans.co.jp/privacy/operation.html</a></p>
+                            <p class="u-margin--left-16 c-text--sm">株式会社SCORE　　：<a href="https://corp.scoring.jp/privacypolicy/" target="_blank">https://corp.scoring.jp/privacypolicy/</a></p>
+                            <p class="u-margin--left-4 c-text--sm">【提供する個人情報】：氏名、電話番号、住所、Eメールアドレス</p>
+                            <p class="u-margin--left-4 c-text--sm">　　　　　　　　　　※その他、個人情報には該当しない、購入商品や取引金額等の決済データも専用システムにて提供されます。</p>
+                            <li class="list__item">株式会社SCOREが行う与信審査の結果により、後払い決済をご利用頂けない場合がございます。</li>
+                            <li class="list__item">株式会社DGフィナンシャルテクノロジー、株式会社SCOREの詳細は以下URLよりご確認ください。
+                              <ul class="c-list--disc">
+                                <li class="list__item">株式会社DGフィナンシャルテクノロジーについて</li>
+                                <p class="u-margin--left-16 c-text--sm"><a href="https://www.veritrans.co.jp/" target="_blank">https://www.veritrans.co.jp/</a></p>
+                                <li class="list__item">株式会社SCOREについて</li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="u-margin--left-16"><a href="https://www.scoring.jp/consumer/" target="_blank"><img src="/cgibin/cart-n/assets/images/projects/cart/score_consumer.jpg" class="c-flame--border"></a></div>
+                    <div class="article__content">
+                      <div class="l-article--column">
+                        <div class="article__content">
+                          <p></p>
+                          <ul class="c-list--sm-maru">
+                            <li class="list__item">以下の場合、後払い決済をご利用いただけません。予めご了承ください。
+                              <ul class="c-list--disc">
+                                <li class="list__item">郵便局留め・運送会社営業所留め（郵便局または営業所での引き取り）を指定して行う発送</li>
+                                <li class="list__item">商品の転送を指定して行う発送</li>
+                                <li class="list__item">郵送先住所が「病院」「ホテル」「学校」である場合に、郵送先の名義が当該病院等の職員以外となっている状態で行う発送</li>
+                                <li class="list__item">鉄道の駅前など、公共の場所に設置された宅配・集荷ボックスを郵送先として行う発送</li>
+                                <p class="u-margin--left-20 c-text--sm">（マンション等の集合住宅または一軒家に、当該住居の住居者のために設けられた宅配ボックスは除きます）</p>
+                                <li class="list__item">コンビニエンスストア店頭での受け渡しを指定して行う発送</li>
+                              </ul>
+                            </li>
+                            <li class="list__item">個人情報の提供に関する問合せ先：045-547-6372</li>
+                            <li class="list__item">ご利用者が未成年の場合は、法定代理人の利用同意を得てご利用ください。</li>
+                            <li class="list__item">下記スマートフォンアプリからお支払い可能です。
+                              <ul class="c-list--disc">
+                                <li class="list__item">楽天銀行コンビニ支払サービス（アプリで払込票支払）</li>
+                                <li class="list__item">ｄ払い請求書払い</li>
+                                <li class="list__item">ファミペイ請求書支払い</li>
+                                <li class="list__item">楽天ペイ</li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!--<div class="u-margin--left-16"><a href="https://www.scoring.jp/consumer/" target="_blank"><img src="/cgibin/cart-n/assets/images/projects/cart/app_invoice_logo.jpg" class="c-flame--border"></a></div>-->
+                  </div>
+                </div>
+              </section>
+              <!-- PayPay -->
+              <section id="01_07" class="section__sub">
+                <div class="article__content js-accordion"><a class="js-accordion__trigger"><i class="c-icon--toggle"></i>PayPay</a>
+                  <div class="js-accordion__content" style="display: none;">
+                    <div class="article__content">
+                      <img src="/cgibin/cart-n/assets/images/projects/cart/paypay.jpg" class="u-width--10rem">
+                      <p class="table__note">「残高」または「PayPayクレジット」をご利用いただけます。</p>
+                      <ul class="c-list--sm-disc">
+                        <li class="list__item__red">PayPay画面にてお支払い完了後は自動的にアクリ屋の「ご注文の完了」画面に遷移しますので、しばらくお待ちください。「ご注文の完了」画面に遷移する前にブラウザやアプリを閉じますとご注文手続きが正常に完了しません。</li>
+                        <li class="list__item">アクリ屋からPayPayの画面に遷移後は、5分以内にお支払いを完了してください。5分を超えた場合はエラーとなります。</li>
+                        <li class="list__item">スマホでお支払い後に、ブラウザによってはPayPayのタブが残る場合があります。そのタブでは戻るなどはせず、閉じてください。</li>
+                        <li class="list__item">シークレットブラウザ、プライベートモードでのご利用はできません。</li>
+                        <li class="list__item">一部の端末ではご利用いただけない場合があります。</li>
+                        <li class="list__item">PayPayのご利用方法について詳しくは<a href="https://paypay.ne.jp/guide/net-service/" target="_blank">「ネットサービスで支払をする」</a>（外部サイト）をご参照ください。</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </section>
+            <!--与信について-->
+            <!--お支払方法ごとの与信について-->
+            <section id="01_new" class="c-section">
+              <h2 class="c-heading--md-border">お支払方法ごとの与信（枠確保）について</h2>
+              <p>ご注文から発送までにお日にちがかかる場合、お支払い方法ごとに定められた与信有効期間（ご利用枠の確保期間）に基づき、弊社にて再与信（与信の再確保）を行わせていただく場合がございます。詳細につきましては下記をご確認ください。</p>
+              <section>
+                <ul class="l-article--column-vertical">
+                  <li class="article__content c-flame--sm-gray">
+                    <h4 class="c-heading--sm">クレジットカード（与信有効期間：25日間）</h4>
+                    <ul class="case__list c-list--disc">
+                      <li class="list__item">与信期限の2日前までに、弊社にてクレジットカードの再与信を行わせていただきます。</li>
+                      <li class="list__item"><strong>再与信を行った際にカード会社から利用通知メール・速報等が届く場合がございますが、実際の決済（請求）は商品出荷時となりますので、二重請求になることはございません。</strong></li>
+                      <li class="list__item">万が一、再与信時にご利用可能額超過や有効期限切れ等のエラーが発生した場合は、弊社よりご連絡のうえ、お支払い方法の変更や再注文をお願いする場合がございます。</li>
+                    </ul>
+                  </li>
+                  <li class="article__content c-flame--sm-gray">
+                    <h4 class="c-heading--sm">Amazon Pay（与信有効期間：30日間）</h4>
+                    <ul class="case__list c-list--disc">
+                      <li class="list__item">与信期限の2日前までに、弊社にてAmazon Payの再与信を行わせていただきます。</li>
+                      <li class="list__item"><strong>再与信を行った際にカード等の利用通知が届く場合がございますが、決済確定（請求）は商品出荷時となりますので、二重請求にはなりません。</strong></li>
+                      <li class="list__item">万が一、再与信時にエラーが発生した場合は、弊社よりご連絡のうえ、お支払い方法の変更や再注文をお願いする場合がございます。</li>
+                    </ul>
+                  </li>
+                  <li class="article__content c-flame--sm-gray">
+                    <h4 class="c-heading--sm">PayPay / コンビニ後払い（与信有効期間：60日間）</h4>
+                    <ul class="case__list c-list--disc">
+                      <li class="list__item">有効期間は60日間となりますが、システムの仕様上、<strong>再与信（与信の自動延長）を行うことができません</strong>。</li>
+                      <li class="list__item">ご注文から発送までに60日以上を要する場合は、弊社より別途ご案内（お支払い方法の変更や再注文のご連絡）をさせていただきます。予めご了承ください。</li>
+                    </ul>
+                  </li>
+                </ul>
+              </section>
+            </section>
+            <!--請求書の発行-->
+            <section id="02" class="c-section">
+              <h2 class="c-heading--md-border">注文請書の発行</h2>
+              <p>注文請書の発行は、ご購入後にメールでご案内致します。<br>ご注文後に『オーダー確定のご連絡』メールで案内させて頂く発行用ホームページに、【ご注文番号】・【パスワード】を入力頂くとお客様専用の注文請書画面が表示されます。<br>お手数ですがカラープリンターにて印刷の上、ご利用下さい。</p>
+              <ul class="c-list--sm-note">
+                <li class="list__item">アクリ屋会員の方は、ご自身のログインIDとパスワードで確認することができます。ご注文番号は不要です。</li>
+                <li class="list__item">学校・研究機関様等の締め支払いの場合は、別途郵送にてお送りさせて頂きます。</li>
+              </ul>
+              <p><a href="/guide/use/bill/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>発行方法はこちら</a></p>
+            </section>
+            <!--領収書の発行-->
+            <section id="03" class="c-section">
+              <h2 class="c-heading--md-border">領収書の発行</h2>
+              <p>お支払い方法によって下記のお取り扱いになります。<br>お支払い方法にかかわらず、領収書の再発行は一切承っておりませんので、予めご了承下さいますようお願い致します。</p>
+              <section>
+                <h3 class="c-heading--sm-block">お支払い方法別の領収書について</h3>
+                <ul class="l-article--column-vertical">
+                  <li class="article__content c-flame--sm-gray">
+                    <h4 class="c-heading--sm">銀行振込・郵便振替</h4>
+                    <ul class="case__list c-list--disc">
+                      <li class="list__item">ATM利用の際の「ご利用明細書」が領収書としてご利用いただけます。</li>
+                      <li class="list__item">WEB上の取引画面又は電子通知メールが領収書相当となります。詳しくはご利用ネットバンキングへお問い合わせください。</li>
+                    </ul>
+                  </li>
+                  <li class="article__content c-flame--sm-gray">
+                    <h4 class="c-heading--sm">代金引換</h4>
+                    <ul class="case__list c-list--disc">
+                      <li class="list__item">商品の梱包に貼り付けられておりますヤマト運輸の「領収書」が正規領収書となります。</li>
+                    </ul>
+                  </li>
+                  <li class="article__content c-flame--sm-gray">
+                    <h4 class="c-heading--sm">クレジットカード・AmazonPay・PayPay</h4>
+                    <ul class="case__list c-list--disc">
+                      <li class="list__item">「納品書兼領収書」を出荷案内メールと一緒に送付いたします。</li>
+                      <li class="list__item">5万円以上のご利用であっても収入印紙の貼付は義務付けられておりませんので、収入印紙の貼付はございません。</li>
+                      <li class="list__item">領収書の品名はご購入商品名が表記されます。品名変更はお受けいたしておりません。</li>
+                    </ul>
+                  </li>
+                  <li class="article__content c-flame--sm-gray">
+                    <h4 class="c-heading--sm">コンビニ支払い（前払い）</h4>
+                    <ul class="case__list c-list--disc">
+                      <li class="list__item">「納品書兼領収書」を出荷案内メールと一緒に送付いたします。</li>
+                      <li class="list__item">法人様にてお買い求めの際は、コンビニ支払い（前払い）の「お支払い明細」の宛名は、ご担当者氏名になります。</li>
+                      <p class="c-text--sm-note">セブン-イレブンではオーダー・セミオーダーなどの受注生産品とメーカー直送商品及び、法人様からのご注文に付きましてはご利用いただけません。受注生産品・メーカー直送商品及び、法人様の場合には他のコンビニ会社を選択下さい。</p>
+                    </li>
+                  </ul>
+                </li>
+                <li class="article__content c-flame--sm-gray">
+                  <h4 class="c-heading--sm">コンビニ後払い</h4>
+                  <ul class="case__list c-list--disc">
+                    <li class="list__item">コンビニでお支払い後にお渡ししている払込受領証が、正式な領収書となります。</li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <!--学校及び公的研究機関様の校費・研究費の売掛取引-->
+          <section id="04" class="c-section">
+            <h2 class="c-heading--md-border">学校及び公的研究機関様の校費・研究費の売掛取引</h2>
+            <p>弊社では継続的なお取引を希望される学校法人・公的研究機関様の売掛取引（請求書後払い）に付きまして、<br>下記内容とさせて頂いております。</p>
+            <div class="c-flame--md-gray">
+              <h3 class="section__caption c-heading--sm-center">売掛取引（請求書後払い）お取引条件</h3>
+              <ul class="c-list--disc">
+                <li class="list__item">申込書にご記入・ご捺印の上、FAXにて返信下さい。内容を弊社にて確認をさせて頂きます。</li>
+                <li class="list__item">「学校案内」を1通ご郵送下さるようお願い致します。（ホームページで確認できる場合は申込書にアドレスをご記入下さい）</li>
+                <li class="list__item">お振込み手数料はお客様にてご負担願います。（お振込手数料をお支払い頂けない場合は翌月にご請求させて頂きます）</li>
+                <li class="list__item">銀行振込の支払サイトは60日以内でお願い致します。</li>
+                <li class="list__item">手形・小切手によるお支払いはお受けできませんので、ご了承願います。</li>
+                <li class="list__item">お支払を遅延された場合、遅延損害金（年率6%）を請求させて頂く場合がございます。</li>
+                <li class="list__item">前回のお取引より一年以上経過の際、再度、申込書のご提出をお願いする場合がございます。</li>
+                <li class="list__item">お支払いが滞った場合、次回のお取引より前払いのお振込とさせて頂きます。</li>
+                <li class="list__item">申込書にご記入頂いたメールアドレスにて登録となります。メールアドレスが異なる方の場合は、再度お申し込みが必要になります。</li>
+              </ul>
+            </div>
+            <section class="p-flow">
+              <h3 class="c-heading--sm-block">お申し込みの流れ</h3>
+              <ol class="c-list u-margin--bottom-32">
+                <li class="list__item">
+                  <h4 class="c-heading--xs"><i class="c-icon--number--primary">1</i>ご連絡フォームよりお申し込み</h4>
+                  <p>下記のリンクフォームに必要事項をご記入頂き、申込みボタンを押して下さい。</p>
+                </li>
+                <li class="list__item">
+                  <h4 class="c-heading--xs"><i class="c-icon--number--primary">2</i>申込書のプリント</h4>
+                  <p>ホームページに申込書が表示されますので、プリントをお願い致します。</p>
+                </li>
+                <li class="list__item">
+                  <h4 class="c-heading--xs"><i class="c-icon--number--primary">3</i>お客様より申込書のご返送</h4>
+                  <p>申込書を漏れなくご記入頂き、FAXにてご返送下さい。<br>学校案内は郵送にてお送り下さい。</p>
+                </li>
+                <li class="list__item">
+                  <h4 class="c-heading--xs"><i class="c-icon--number--primary">4</i>売掛取引の事前確認</h4>
+                  <p>お客様の記載内容を事前確認させて頂きます。<br>なお、確認には通常1～3営業日を頂いておりますので予めご了承下さい。</p>
+                </li>
+                <li class="list__item">
+                  <h4 class="c-heading--xs"><i class="c-icon--number--primary">5</i>弊社よりご連絡</h4>
+                  <p>確認が完了し、お取引が可能となりましたら弊社よりEメールにて売掛取引開始のご連絡させて頂きます。</p>
+                </li>
+                <li class="list__item">
+                  <h4 class="c-heading--xs"><i class="c-icon--number--primary">6</i>商品購入の手順</h4>
+                  <p>ホームページのショッピングカートから商品購入の場合、お支払い方法は『締め支払い』を選択して下さい。<br>それ以外のご注文方法の場合には、ご注文の際に売掛取引の旨をお伝え下さい。</p>
+                </li>
+                <li class="list__item">
+                  <h4 class="c-heading--xs"><i class="c-icon--number--primary">7</i>弊社より請求書郵送</h4>
+                  <p>ご請求は、お客様の締め日に、弊社からご請求書を郵送させて頂きます。</p>
+                </li>
+              </ol><a href="/guide/payment/trade/" class="c-button--lg-primary">校費・研究費の売掛取引<br class="u-display--none-lg">（請求書後払い）お申込み</a>
+            </section>
+          </section>
+        </div>
+        <script type="application/ld+json">
+        {
+          "@context": "http:\/\/schema.org",
+          "@type": "website",
+          "name": "アクリル板材料の加工とアクリル製品の専門店 | アクリ屋ドットコム",
+          "inLanguage": "jp",
+          "publisher": {
+            "@type": "Organization",
+            "name": "株式会社さくら樹脂"
+          },
+          "headline": "アクリル板材料の加工とアクリル製品の専門店",
+          "description": "アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。",
+          "url": "https:\/\/acry-ya.com\/"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "http:\/\/schema.org",
+          "@type": "Organization",
+          "name": "株式会社さくら樹脂",
+          "description": "株式会社さくら樹脂は、アクリル材料加工・アクリル製品のネットショップ「アクリ屋ドットコム」の運営を主体に、その他、工業用樹脂部品の受託製造を行っています。製品は、精密で精度の要求される工業製品を制作する加工技術をベースに、最新設備を駆使し、各種の樹脂加工のノウハウを持つ専門の職人が制作致します。",
+          "url ": "https:\/\/www.acry-ya.com\/guide\/payment\/",
+          "telephone": "+81 45-547-6372",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "樽町4-13-2",
+            "addressLocality": "港北区",
+            "addressRegion": "神奈川県",
+            "postalCode": "222-0001",
+            "addressCountry": "JP"
+          }
+        }
+        </script>
+      </main><?php echo $footer; ?>
+    </div>
+  </div><?php echo $body_end; ?>
+</body>
+</html>

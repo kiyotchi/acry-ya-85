@@ -1,0 +1,252 @@
+<html>
+<head>
+<title>株式会社さくら樹脂＿お見積フォーム</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta name="keywords" content="樹脂加工,プラスチック加工,POM加工,塩ビ加工,ジュラコン加工,旋盤加工,マシニング加工,短納期対応,小ロット対応">
+<meta name="description" content="樹脂加工の小ロット短納期対応：株式会社さくら樹脂はPOM加工,塩ビ加工,ジュラコン加工,旋盤加工,マシニング加工等の樹脂加工専門工場です。">
+<link href="ccs/newccs.css" rel="stylesheet" type="text/css">
+<link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/input_check.js"></script>
+<link href="../../../css/newccs.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<body bgcolor="#ffffff" leftmargin="1" topmargin="1">
+<table width="765" height="1080" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="25" background="../img/sakuraj/sakura-header800.jpg">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="center"><table width="700"  border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><table width="130"  border="0" cellpadding="1" cellspacing="1" bgcolor="#FF959F">
+          <tr>
+            <td align="center" bgcolor="#FFFFFF" class="caption-12gray">お見積りフォーム</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td><form action="/cgibin/clipmail/c3/clipmail.cgi" method="post" enctype="multipart/form-data" name="sendform" id="sendform">
+          <input type="hidden" name="need" value="担当者様名 email 担当者様ひらがな 法人名 法人名ひらがな 電話番号 郵便番号 都道府県 住所 FAX ご使用用途 製作数
+材料 色 製作内容の詳細 ご使用用途 " />
+          <input type="hidden" name="match" value="email email2" />
+          <input type="hidden" name="subject" value="見積の依頼（株式会社さくら樹脂ホームページより）">
+          <br>
+          <table width="700" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#999999" class="caption-12gray">
+            <tr align="center" bgcolor="#999999">
+              <td height="35" colspan="2"><span class="title-11pt-gray"><font color="#FFFFFF">法人様用 見積依頼シート</font></span></td>
+            </tr>
+            <tr align="center" bgcolor="#FCFCFA">
+              <td height="40" colspan="2"><input name="Button" type="button" onClick="MM_openBrWindow('/sakuraj/questionanswer.htm','','scrollbars=yes,width=650,height=700')" value="お見積に関するＱ＆Ａ（事前にご確認下さい）"></td>
+            </tr>
+            <tr align="center" bgcolor="#FFFF99">
+              <td colspan="2">黄色の背景項目は必須入力になります</td>
+            </tr>
+            <tr align="center" bgcolor="#FFFF99">
+              <td height="2" colspan="2" nowrap bgcolor="#DED8BE"><strong>製作内容ほか</strong></td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■ご使用用途</td>
+              <td height="2"><input name="ご使用用途" type="text" onchange="check_hankaku(this.value)" size="60"></td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■製作数</td>
+              <td height="2"><input name="製作数" type="text" id="製作数" value="" size="25">
+    （例： 20、50、100）<br>
+    製作数によって価格が変わりますので、希望数量（ロット）を記載下さい。（複数可）</td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■材料名と色</td>
+              <td height="2"> 材料名
+                  <input name="材料" type="text" id="1" value="" size="8" maxlength="6" onchange="check_hankaku(this.value)">
+                  　　　 色
+                  <input name="色" type="text" id="1" value="" size="8" maxlength="6" onchange="check_hankaku(this.value)">
+                  　
+　        
+                  <a href="/sakuraj/full_order-sozai.html" target="_blank"><u class="caption-12orange">取扱い材料一覧</u></a> </td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td valign="top">■製作内容の詳細<br>
+    （構造・材質等）</td>
+              <td>なるべく詳しく記入下さい。不明な点があると、お見積できない場合があります。
+                  <textarea name="製作内容の詳細" cols="70" rows="10" id="製作内容の詳細" style="font-size: 10pt" onchange="check_hankaku(this.value)"></textarea></td>
+            </tr>
+            <tr bgcolor="#FCFCFA">
+              <td height="40" valign="top">■図面の添付</td>
+              <td height="40"><span class="caption-12orange">図面を必ず添付下さい。別途FAX可。</span><br>
+                ※添付書類は「pdf ・ ai（ver11以下) ・ dxf ・ jpg ・ zip ・ lzh」の形式（拡張子）でお願い致します（Macは拡張子を付けて下さい）。<br>
+                  <span class="caption-12orange">※ファイルを３つ以上お送り頂く際は、1つのフォルダにまとめた後に圧縮して添付下さい。</span><br>
+    添付書類１
+    <input type=file name="clip-1" size="15" maxlength="60">
+    <br>
+    添付書類２
+    <input type=file name="clip-2" size="15" maxlength="60">
+    <br>
+    添付書類３
+    <input type=file name="clip-3" size="15" maxlength="60">
+    <br>
+    合計3MB以内（圧縮可）<br>
+    添付の図面数
+    <select name="添付図面の数" id="添付図面の数">
+      <option value="1" selected>1 
+                      <option value="2">2 
+                      <option value="3">3 
+                      <option value="4">4 
+                      <option value="5">5 
+                      <option value="6">6 
+                      <option value="7">7 
+                      <option value="FAXで送る">FAXで送る 
+                    </select>
+              </td>
+            </tr>
+            <tr align="center" bgcolor="#DED8BE">
+              <td colspan="2" nowrap><strong>お客様情報</strong></td>
+              </tr>
+            <tr bgcolor="#FFFF99">
+              <td width="102" nowrap>■Ｅメールアドレス</td>
+              <td><input type="text" name="email"  id="email" size="30" maxlength="50">
+        携帯のアドレスは、なるべくお避け下さい </td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■確認用<span class="caption-12green"></span>Ｅメールアドレス<span class="caption-12green"> </span></td>
+              <td><input name="email2" type="text" id="email2" size="30" maxlength="50">
+        同じアドレスをもう一度入力下さい</td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■担当者様名(漢字）</td>
+              <td nowrap><input name="担当者様名" type="text" id="担当者様名"  onchange="check_hankaku(this.value)" size="18">
+        （例：山田太郎）</td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■担当者様名(ひらがな）</td>
+              <td><input name="担当者様ひらがな" type="text" id="担当者様ひらがな" onchange="check_hankaku(this.value)" size="26">
+        （例：やまだたろう）</td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■法人名</td>
+              <td nowrap><input name="法人名" type="text"  onchange="check_hankaku(this.value)" size="32">
+        （会社名・団体名など）　　 </td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■法人名（ひらがな）</td>
+              <td nowrap><input name="法人名ひらがな" type="text" id="法人名ひらがな" onChange="check_hankaku(this.value)" size="32">        </td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■郵便番号</td>
+              <td height="2"><input type="text" name="郵便番号" size="10" maxlength="8"></td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■都道府県</td>
+              <td height="0"><select name="都道府県">
+                  <option value="" selected>以下から選択
+                      <option>北海道
+                      <option>青森県
+                      <option>岩手県
+                      <option>宮城県
+                      <option>秋田県
+                      <option>山形県
+                      <option>福島県
+                      <option>茨城県
+                      <option>栃木県
+                      <option>群馬県
+                      <option>埼玉県
+                      <option>千葉県
+                      <option>東京都
+                      <option>神奈川県
+                      <option>新潟県
+                      <option>富山県
+                      <option>石川県
+                      <option>福井県
+                      <option>山梨県
+                      <option>長野県
+                      <option>岐阜県
+                      <option>静岡県
+                      <option>愛知県
+                      <option>三重県
+                      <option>滋賀県
+                      <option>京都府
+                      <option>大阪府
+                      <option>兵庫県
+                      <option>奈良県
+                      <option>和歌山県
+                      <option>鳥取県
+                      <option>島根県
+                      <option>岡山県
+                      <option>広島県
+                      <option>山口県
+                      <option>徳島県
+                      <option>香川県
+                      <option>愛媛県
+                      <option>高知県
+                      <option>福岡県
+                      <option>佐賀県
+                      <option>長崎県
+                      <option>熊本県
+                      <option>大分県
+                      <option>宮崎県
+                      <option>鹿児島県
+                      <option>沖縄県
+                      </select>
+              </td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■ご住所</td>
+              <td height="1"><input type="text" name="住所" size="50" onChange="check_hankaku(this.value)"></td>
+            </tr>
+            <tr>
+              <td nowrap bgcolor="#FFFF99">■電話番号<span class="caption-12green"> </span></td>
+              <td bgcolor="#FFFF99"><input type="text" name="電話番号" size="18" value="" maxlength="13">
+              </td>
+            </tr>
+            <tr bgcolor="#FFFF99">
+              <td nowrap>■ＦＡＸ</td>
+              <td><input name="FAX" type="text" id="FAX" value="" size="18" maxlength="13"></td>
+            </tr>
+            <tr align="center">
+              <td colspan="2" bgcolor="#FFFFFF"><input type="submit"value="送信" id="send" >
+        　
+          <input type="reset" value="リセット">
+          <br>
+          <br>
+          <span class="caption-10gray-hight">ご連絡頂いた個人情報は、本ご依頼内容に関する対応にのみ利用します。<br>
+        このページは128bit-SSL暗号化の安全性の高いセキュア通信が提供されています。</span> </td>
+            </tr>
+          </table>
+        </form></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr valign="top">
+    <td bgcolor="#FFFFFF"><table width="765" border="0" cellpadding="5" cellspacing="1" bgcolor="#999999">
+      <tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><table width="400" border="0" cellpadding="0" cellspacing="0" class="caption-09gray">
+            <tr>
+              <td colspan="11" align="center">Copyright(C)  Sakura Plastics Corporation All rights reserved.<br>
+                  <a href="/sakuraj/">株式会社さくら樹脂</a><br>
+            〒222-0001 神奈川県横浜市港北区樽町4-13-2<br>
+            TEL：045-547-6342 FAX：045-547-5945</td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3172569-1";
+urchinTracker();
+</script>
+</body>
+</html>

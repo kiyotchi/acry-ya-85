@@ -1,0 +1,1227 @@
+<?php
+$ogpUrl = $product->thumbnailPicture->picture_url;
+if (!empty($val = data_get($product, 'ogpPicture.url'))) {
+    $ogpUrl = $val;
+}
+$twitterUrl = $ogpUrl;
+if (!empty($val = data_get($product, 'twitterCard.url'))) {
+    $twitterUrl = $val;
+}
+?>
+@extends('layouts.base')
+@section('title', $title)
+@section('headCss')
+    <link rel="stylesheet" href="/assets/stylesheets/projects/product.css">
+    <link rel="stylesheet" href="/assets/rating/css/style.css">
+@endsection
+@section('description', $product->meta_description)
+@section('keywords', $product->productTopCategory->product_category_name.','.$product->product_name)
+
+@section('headStart')
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56FGQ5X');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- End Google Tag Manager (noscript) -->
+    <script>
+        var afterResetProductFormAddFunction = null;
+    </script>
+    <!-- PVpost -->
+    <script>
+        const UvPost = <?= json_encode( $UvPost, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT ) ?>;
+    </script>
+    <!-- /PVpost -->
+
+@endsection
+
+
+@section('bodyStart')
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56FGQ5X"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+@endsection
+
+
+@section('ogpUrl', $ogpUrl)
+@section('twitterUrl', $twitterUrl)
+@section('bodyId', 'p-product')
+@section('headEnd')
+    <script src="product.js"></script>
+    @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_ADD_HEAD_TAG]->html_part)
+        {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_ADD_HEAD_TAG]->html_part !!}
+    @endisset
+    <style>
+        .unavailable {
+            color: #ccc;
+        }
+
+        .c-section .list__item .unavailable {
+            background-color: #ccc !important;
+        }
+    </style>
+@endsection
+@section('bodyEnd')
+    <script>
+        async function pageStartar2() {
+            await (
+                (function () {
+                    document.{{ $product->productSetting->form_html_tag_id }}.reset();
+                })()
+            );
+            afterResetProductFormReset();
+        }
+
+        window.addEventListener('pageshow', function () {
+            if (typeof (firstscript) == 'undefined') {
+                pageStartar2();
+            }
+        });
+    </script>
+    <script>
+        var reproductionSelectorsSend = {!! is_string($reproductionSelectorsSend)
+            ? $reproductionSelectorsSend
+            : json_encode($reproductionSelectorsSend, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT)
+            !!};
+    </script>
+    </script>
+    <script type="text/javascript" defer="defer" src="/assets/javascripts/selectors/reproductionSelectors.js"></script>
+@endsection
+
+
+
+@section('content')
+
+    <?php
+    $priceDisplayExclusion = require __DIR__ . '/../../../config/price_display_exclusion.php';
+    ?>
+
+
+
+            <!-- 再構築情報 -->
+    <script>
+        @if ( $product->versions_string != '' )
+        var reproductionSelectors = {!! $product->versions_string !!};
+        @else
+        var reproductionSelectors = false;
+        @endif
+    </script>
+    <!-- /再構築情報 -->
+
+
+    <div class="main__sub--white js-products reduild-target-area">
+        <nav class="c-pankuzu--scroll">
+            @include('common.notice')
+            <ul class="pankuzu__list">
+                <li><a href="{{ url('/') }}">HOME</a></li>
+                <li><a href="{{ route('products.list') }}">商品一覧</a></li>
+                <li>
+                    <a href="{{ route('products.list', ['category_id'=>$product->productTopCategory->product_category_id]) }}">{{ $product->productTopCategory->product_category_name }}</a>
+                </li>
+                <li>{{ $title }}</li>
+            </ul>
+        </nav>
+
+        <!-- .p-overview-->
+        <form name="{{ $product->productSetting->form_html_tag_id }}"
+              id="{{ $product->productSetting->form_html_tag_id }}" class="p-overview--standard c-form"
+              method="post" action="/cgibin/cart-n/ex/cart.cgi">
+
+            <!-- 商品情報パート-->
+            <div class="overview__information">
+                @include('products.components.product_title')
+                <!-- フォーム-->
+                <div class="overview__form">
+                    @if( !empty($product->productSetting->is_destination_valid) )
+                        <dl class="form__item form__delivery">
+                            <dt>届け先:</dt>
+                            <dd>
+                                <div class="form__select">
+                                    <select name="{{ $product->productSetting->destination_html_tag_id }}"
+                                            id="{{ $product->productSetting->destination_html_tag_id }}"
+                                            onChange="{!! $product->productSetting->price_calculation_function !!}">
+                                        <option value="" disabled>お届け先を選んでください</option>
+                                        @if( !empty($cookie['souhu_info']) )
+                                            <option value="個人" {{(($cookie['souhu_info'] == "個人") ? 'selected' : '')}}>
+                                                個人宅
+                                            </option>
+                                            <option value="法人" {{(($cookie['souhu_info'] == "法人") ? 'selected' : '')}}>
+                                                法人宛
+                                            </option>
+                                        @else
+                                            <option value="個人" {{(($product->productSetting->destination_initial == 1) ? 'selected' : '')}}>
+                                                個人宅
+                                            </option>
+                                            <option value="法人" {{(($product->productSetting->destination_initial == 2) ? 'selected' : '')}}>
+                                                法人宛
+                                            </option>
+                                        @endif
+                                    </select>
+                                </div>
+                            </dd>
+                        </dl>
+                    @endif
+                    @if( !empty($product->productSetting->is_color_valid) )
+                        <dl class="form__item form__color">
+                            <dt>{{ $product->productSetting->color_display_name }}:</dt>
+                            <dd>
+                                <div class="form__select">
+                                    <select class="js-selectLink"
+                                            name="{{ $product->productSetting->color_html_tag_id }}" size="1"
+                                            id="{{ $product->productSetting->color_html_tag_id }}">
+                                        <option value="" disabled>
+                                            {{ $product->productSetting->color_display_name }}を選んでください
+                                        </option>
+                                        @foreach($colors as $color)
+                                            <option value="{{ $color['color_name'] }}"
+                                                    data-id="{{ $color['color_id'] }}"
+                                                    class="{{ $color['class_available'] }}" {{ $color['selected'] }}>
+                                                {{ $color['color_name'] }}@if( $color['class_available'] == 'unavailable' )
+                                                    （選択不可）
+                                                @endif
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </dd>
+                        </dl>
+                    @endif
+                    @if( !empty($product->productSetting->is_plate_thickness_valid) )
+                        <dl class="form__item form__thick">
+                            <dt>{{ $product->productSetting->plate_thickness_display }}:</dt>
+                            <dd class="inline__input form__inline">
+                                <div class="inline__input form__select">
+                                    <select class="input__thickness js-selectLink"
+                                            name="{{ $product->productSetting->plate_thickness_html_tag_id }}" size="1"
+                                            id="{{ $product->productSetting->plate_thickness_html_tag_id }}">
+                                        <option value=""
+                                                disabled>{{ $product->productSetting->plate_thickness_display }}を選んでください
+                                        </option>
+                                        @foreach($plate_thicknesses as $plate_thickness)
+                                            <option value="{{ $plate_thickness['plate_thickness'] }}"
+                                                    data-id="{{ $plate_thickness['plate_thickness_id'] }}"
+                                                    class="{{ $plate_thickness['class_available'] }}" {{ $plate_thickness['selected'] }}>
+                                                {{ $plate_thickness['plate_thickness'] }}@if( $plate_thickness['class_available'] == 'unavailable' )
+                                                    （選択不可）
+                                                @endif
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <span class="inline__unit">mm</span>
+                            </dd>
+                        </dl>
+                    @endif
+                    @if( !empty($product->productSetting->is_size_valid) )
+                        @if($product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_NUMERIC )
+                            <dl class="form__item form__size">
+                                <dt>{{ $product->productSetting->specification_size_numerical_display }}:</dt>
+                                <dd>
+                                    <div class="form__select">
+                                        <select class="input__size js-selectLink"
+                                                name="{{ $product->productSetting->specification_size_numerical_html_tag_id }}"
+                                                id="{{ $product->productSetting->specification_size_numerical_html_tag_id }}">
+                                            <option value="" disabled>
+                                                {{ $product->productSetting->specification_size_numerical_display }}
+                                                を選んでください
+                                            </option>
+                                            @foreach($sizes as $size)
+                                                <option value="{{ $size['size_code'] }}"
+                                                        data-id="{{ $size['size_id'] }}"
+                                                        class="{{ $size['class_available'] }}" {{ $size['selected'] }}>
+                                                    {{ $size['size_name'] }}@if( $size['class_available'] == 'unavailable' )
+                                                        （選択不可）
+                                                    @endif
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </dd>
+                            </dl>
+                        @endif
+                        @if($product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_STRING)
+                            <dl class="form__item form__size">
+                                <dt>{{ $product->productSetting->specification_size_string_display }}:</dt>
+                                <dd>
+                                    <div class="form__select">
+                                        <select class="input__size js-selectLink"
+                                                name="{{ $product->productSetting->specification_size_string_html_tag_id }}"
+                                                id="{{ $product->productSetting->specification_size_string_html_tag_id }}">
+                                            <option value="" disabled>
+                                                {{ $product->productSetting->specification_size_string_display }}
+                                                を選んでください
+                                            </option>
+                                            @foreach($sizes as $size)
+                                                <option value="{{ $size['size_code'] }}"
+                                                        data-id="{{ $size['size_id'] }}"
+                                                        class="{{ $size['class_available'] }}" {{ $size['selected'] }}>
+                                                    {{ $size['size_name'] }}@if( $size['class_available'] == 'unavailable' )
+                                                        （選択不可）
+                                                    @endif
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </dd>
+                            </dl>
+                        @endif
+                        @if($product->productSetting->specify_size === \App\ValueObject\SizeType::SIZE_OF_FREE)
+                            <dl class="form__item form__width">
+                                <dt>横:</dt>
+                                <dd class="inline__input form__inline">
+                    <span class="inline__input form__input">
+                      <input type="text"
+                             name="{{ $product->productSetting->free_input_width_html_tag_id }}"
+                             @if( !empty($cookie['width']) )
+                                 value="{{$cookie['width']}}"
+                             @else
+                                 value=""
+                             @endif
+                             placeholder="{{ $product->productSetting->free_input_width_display }}"
+                             id="{{ $product->productSetting->free_input_width_html_tag_id }}"
+                             onchange="{!! $product->productSetting->price_calculation_function !!}"/>
+                    </span>
+                                    <span class="inline__unit">mm</span>
+                                </dd>
+                            </dl>
+                            <dl class="form__item form__height">
+                                <dt>縦:</dt>
+                                <dd class="form__inline">
+                    <span class="inline__input form__input">
+                      <input type="text"
+                             @if( !empty($cookie['height']) )
+                                 value="{{$cookie['height']}}"
+                             @else
+                                 value=""
+                             @endif
+                             name="{{ $product->productSetting->free_input_height_html_tag_id }}"
+                             placeholder="{{ $product->productSetting->free_input_height_display }}"
+                             id="{{ $product->productSetting->free_input_height_html_tag_id }}"
+                             onchange="{!! $product->productSetting->price_calculation_function !!}"/>
+                    </span>
+                                    <span class="inline__unit">mm</span>
+                                </dd>
+                            </dl>
+                            @if( !empty($product->productSetting->is_free_input_depth_valid) )
+                                <dl class="form__item form__height">
+                                    <dt>奥行:</dt>
+                                    <dd class="inline__input form__inline">
+                      <span class="inline__input form__input">
+                        <input type="text"
+                               name="{{ $product->productSetting->free_input_depth_html_tag_id }}"
+                               value=""
+                               placeholder="{{ $product->productSetting->free_input_depth_display }}"
+                               id="{{ $product->productSetting->free_input_depth_html_tag_id }}"
+                               onchange="{!! $product->productSetting->price_calculation_function !!}"/>
+                      </span>
+                                        <span class="inline__unit">mm</span>
+                                    </dd>
+                                </dl>
+                            @endif
+                        @endif
+                    @endif
+                    @if( !empty($product->productSetting->is_product_option_valid) && !empty($options) )
+                        <dl class="form__item form__thick">
+                            <dt>{{ $product->productOption->option_name }}:</dt>
+                            <dd>
+                                <div class="form__select">
+                                    <select class="input__options js-selectLink"
+                                            name="{{ $product->productOption->html_tag_name }}"
+                                            id="{{ $product->productOption->html_tag_id }}">
+                                        <option value="" disabled>
+                                            {{ $product->productOption->option_name }}を選んでください
+                                        </option>
+                                        @foreach($options as $option)
+                                            <option value="{{ $option['value'] }}"
+                                                    data-id="{{ $option['product_option_content_id'] }}"
+                                                    class="{{ $option['class_available'] }}" {{ $option['selected'] }}>
+                                                {{ $option['option_name'] }}@if( $option['class_available'] == 'unavailable' )
+                                                    （選択不可）
+                                                @endif
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </dd>
+                        </dl>
+                    @endif
+                    @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_ADD_INFORMATION]->html_part)
+                        {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_ADD_INFORMATION]->html_part !!}
+                    @endisset
+                    @if( !empty($product->productSetting->is_quantity_valid) )
+                        <dl class="form__item form__num">
+                            <dt>数量:</dt>
+                            <dd>
+                    <span class="form__number">
+                      <button type="button" class="number__button--plus c-button--md-white"><i class="c-icon--plus"></i></button>
+                      <input type="text"
+                             id="{{ $product->productSetting->quantity_html_tag_id }}"
+                             name="{{ $product->productSetting->quantity_html_tag_id }}"
+                             @if( !empty($cookie['suu']) )
+                                 value="{{$cookie['suu']}}"
+                             placeholder="{{$cookie['suu']}}"
+                             @else
+                                 value="1"
+                             placeholder="1"
+                             @endif
+                             data-max="9999"
+                             data-min="1"
+                             maxlength="4">
+                      <button type="button" class="number__button--minus c-button--md-white"><i
+                                  class="c-icon--minus"></i></button>
+                      <span class="form__effect"></span>
+                    </span>
+                            </dd>
+                        </dl>
+                    @endif
+                    @if( !empty($product->productSetting->is_stock_valid) && isset($stocks[$product->delivery_schedule_id]) )
+                        <dl class="form__item form__num">
+                            <dt>在庫数:</dt>
+                            <dd>
+                                <span id="{{ $product->productSetting->stock_html_tag_id }}">{{ $stocks[$product->delivery_schedule_id] }}</span>
+                            </dd>
+                        </dl>
+                    @endif
+                </div>
+                <!-- 金額-->
+                <div class="overview__price">
+                    <dl class="price__item">
+                        <dt>単価:</dt>
+                        <dd>
+                            <b id="unit_price"
+                               class="c-price--md">{{ number_format($product->price) }}</b><span>円（税抜）</span>
+                            <input type="hidden" id="price" name="price" value="{{ $product->price }}"/>
+                            <input type="hidden" id="base_price" value="{{ $product->price }}"/>
+                        </dd>
+                    </dl>
+                    @isset( $product->tax_price )
+                        <dl class="price__item">
+                            <dt>合計:</dt>
+                            <dd>
+                                <b id="total"
+                                   class="c-price--md js-products__price">{{ number_format($product->price) }}</b><span>円（税抜）</span>
+                                <input type="hidden" id="total_value" name="total" value="{{ $product->price }}"/>
+                            </dd>
+                        </dl>
+                    @else
+                        <dl class="price__item">
+                            <dt>合計:</dt>
+                            <dd>
+                                <b id="total" class="c-price--md js-products__price">0</b><span>円（税抜）</span>
+                                <input type="hidden" id="total_value" name="total" value="0"/>
+                            </dd>
+                        </dl>
+                    @endisset
+                    <dl class="price__item">
+                        <dt></dt>
+                        <dd>
+                            <b id="total_tax"
+                               class="c-price--lg js-products__price">{{ number_format($product->tax_price) }}</b><span>円（税込）</span>
+                            <input type="hidden" id="total_value_tax" name="total_tax"
+                                   value="{{ $product->tax_price }}"/>
+                        </dd>
+                    </dl>
+                </div>
+                <!-- フリースペース1-->
+                <!-- <div class="overview__free">
+                  <p class="c-text--sm">フリースペース1です。フリースペース1です。フリースペース1です。フリースペース1です。フリースペース1です。</p>
+                </div> -->
+                <!-- 購入情報-->
+                <div class="overview__order">
+                    @if( !empty($product->productSetting->is_auto_calculation_valid) )
+                        @isset( $product->tax_price )
+                            <dl class="order__item">
+                                <dt>定価:</dt>
+                                <dd>
+                                    <span id="fixed_price">{{ number_format($product->price) }}</span>円
+                                </dd>
+                            </dl>
+                        @endisset
+                    @endif
+                    @isset($product->discount_rate_id)
+                        <dl class="order__item">
+                            <dt class="c-text--sm-danger">割引率:</dt>
+                            <dd class="c-text--sm-danger">
+                                <span id="discount_rate">0</span>%
+                            </dd>
+                        </dl>
+                    @endisset
+                    @include('products.components.delivery_schedule')
+                    @if( !empty($product->productSetting->is_large_delivery_valid) )
+                        <div id="global" class="js-modal">
+                            <dl class="order__item">
+                                <dt><a data-target="oogataDetail"
+                                       class="c-label--md-oogata js-modal__trigger--open">大型便</a>
+                                    <div id="oogataDetail" class="c-window--md js-modal__content">
+                                        <p class="c-heading--md">大型便について</p>
+                                        <p>運送上の都合で、代金引換と到着時間の指定はご利用頂けません。<br>このマークがついている製品と、その他の製品を同時購入されると到着日が異なる場合がございます。
+                                        </p>
+                                    </div>
+                                </dt>
+                            </dl>
+                            <div id="oogata"></div>
+                        </div>
+                    @endif
+                    @if( !empty($product->productSetting->is_delivery_charge_valid) )
+                        <div id="haisou" class="js-modal">
+                            <dl class="order__item" id="{{ $product->productSetting->delivery_private_html_tag_id }}">
+                                <dt><a data-target="kojinDetail" class="c-label--md-kojin js-modal__trigger--open">個人宅配送料</a>
+                                    <div id="kojinDetail" class="c-window--md js-modal__content">
+                                        <p class="c-heading--md">個人宅配送料とは</p>
+                                        <p>
+                                            製品サイズの幅・奥行・高さ（又は、縦・横）の合計が1750mmを超えるサイズで、お届け先が個人宅の場合、基本料金とは別に加算されます。</p>
+                                    </div>
+                                </dt>
+                                <dd>
+                                    <span id="private_price">0</span>円（税抜）
+                                    <input type="hidden"
+                                           id="{{ $product->productSetting->delivery_private_price_html_tag_id }}"
+                                           name="{{ $product->productSetting->delivery_private_price_html_tag_id }}"
+                                           value="0"/>
+                                </dd>
+                            </dl>
+                            <dl class="order__item" id="{{ $product->productSetting->delivery_faraway_html_tag_id }}">
+                                <dt><a data-target="enpouDetail"
+                                       class="c-label--md-enpou js-modal__trigger--open">遠方配送料</a>
+                                    <div id="enpouDetail" class="c-window--md js-modal__content">
+                                        <p class="c-heading--md">遠方配送料について</p>
+                                        <div class="l-article--column-1">
+                                            <p class="c-heading--xs">届け先が<span
+                                                        style="color:#EA494B; font-weight: bold;">法人宛</span>の場合
+                                            </p>
+                                            <p>
+                                                製品サイズの幅・奥行・高さ（又は、縦・横）の合計が1750mmを超えるサイズで、お届け先が本州を除く四国・九州地方の場合、基本料金とは別に加算されます。</p>
+                                            <p class="c-text--sm-note--danger">
+                                                北海道・沖縄・離島の送料は別途お見積いたします。</p>
+                                        </div>
+                                        <div class="l-article--column-1">
+                                            <p class="c-heading--xs">届け先が<span
+                                                        style="color:#EA494B; font-weight: bold;">個人宅</span>の場合
+                                            </p>
+                                            <p>
+                                                製品サイズの幅・奥行・高さ（又は、縦・横）の合計が1750mmを超えるサイズで、お届け先が本州を除く北海道・四国・九州地方の場合、基本料金とは別に加算されます。</p>
+                                            <p class="c-text--sm-note--danger">
+                                                沖縄・離島の送料は別途お見積いたします。</p>
+                                        </div>
+                                    </div>
+                                </dt>
+                                <dd>
+                                    <span id="faraway_price">0</span>円（税抜）本州除く
+                                    <input type="hidden"
+                                           id="{{ $product->productSetting->delivery_faraway_price_html_tag_id }}"
+                                           name="{{ $product->productSetting->delivery_faraway_price_html_tag_id }}"
+                                           value="0"/>
+                                </dd>
+                            </dl>
+                        </div>
+                    @endif
+                    <input type="hidden" name="product_id" id="product_id" value="{{ $product->product_id }}">
+                    <input type="hidden" name="itemno" id="itemno" value="{{ $product->product_code }}">
+                    <input type="hidden" name="itemna" id="itemna" value="{{ $product->product_name_displayed_cart }}">
+                    <input type="hidden" name="opt1" id="opt1" value="">
+                    @if( !empty($product->productSetting->is_quantity_valid) && $product->productSetting->quantity_html_tag_id == 'suu' )
+                        <input type="hidden" name="suryo" value="" id="suryo">
+                    @elseif( empty($product->productSetting->is_quantity_valid) )
+                        <input type="hidden" name="suryo" value="1" id="suryo">
+                    @endif
+                    <input type="hidden" name="sipri" id="sipri" value="::{{ $product->tax_price }}">
+                    @for( $i=0; $i < $product->productSetting->cart_parameter_add_quantity; $i++)
+                        <input type="hidden" name="itemno" value="" id="itemno_{{ $i }}">
+                        <input type="hidden" name="itemna" value="" id="itemna_{{ $i }}">
+                        <input type="hidden" name="suryo" value="" id="suryo_{{ $i }}">
+                        <input type="hidden" name="sipri" value="::0" id="sipri_{{ $i }}">
+                    @endfor
+                    <input type="hidden" name="url" id="url" value="{!! $current_url !!}">
+                    <img src="" name="img_color" id="img_color" style="display:none;">
+                    @empty( $product->is_sold_out_notice_valid )
+                        <div class="order__action js-modal">
+                            @if( !empty($product->productSetting->add_cart_function) )
+                                <div id="cartInfo">
+                  <span class="form__input">
+                    <p class="c-text--xs-danger" id="cartInfo_text"></p>
+                  </span>
+                                </div>
+                                <button id="add_to_cart" type="button" class="action__button c-button--xl-cart cart"><i
+                                            class="button__icon--before"><img src="/assets/images/icon/icon_cart_w.svg"></i>カートに入れる
+                                </button>
+                            @else
+                                <div id="cartInfo">
+                  <span class="form__input">
+                    <p class="c-text--xs-danger" id="cartInfo_text"></p>
+                  </span>
+                                </div>
+                                <button id="add_to_cart" type="submit" class="action__button c-button--xl-cart cart"><i
+                                            class="button__icon--before"><img src="/assets/images/icon/icon_cart_w.svg"></i>カートに入れる
+                                </button>
+                            @endif
+                        </div>
+                    @else
+                        <div class="order__alert c-flame--xs-danger">
+                            <p class="c-text--sm-center"><a class="js-anchorScroll"
+                                                            href="#tagOutOfStock">欠品情報があります</a></p>
+                        </div>
+                        <div class="order__action js-modal">
+                            <button type="button" data-target="alertWindow"
+                                    class="action__button c-button--xl-cart js-modal__trigger--open"><i
+                                        class="button__icon--before"><img src="/assets/images/icon/icon_cart_w.svg"></i>カートに入れる
+                            </button>
+                            <div id="alertWindow" class="c-window--md c-form js-modal__content">
+                                <img src="/assets/images/icon/icon_danger_r.svg" class="u-width--20">
+                                <p class="c-heading--md-center">欠品情報があります。</p>
+                                <p class="c-text--md-center">
+                                    @empty( $product->sold_out_notice )
+                                        この商品には欠品情報があります。ご確認の上、商品の注文を行ってください。
+                                        <!--<br>詳しくは<a href="#">こちら</a>をご覧ください。-->
+                                    @else
+                                        {{ $product->sold_out_notice }}
+                                    @endempty
+                                </p>
+                                <div class="js-disabledSwitch">
+                                    <p class="c-text--xl-center u-margin--bottom-24">
+                                        <label class="form__checkbox">
+                                            <input type="checkbox" id="" name="" value=""
+                                                   class="js-disabledSwitch__trigger"><i class="checkbox__button"></i>確認しました。
+                                        </label>
+                                    </p>
+                                    @if( !empty($product->productSetting->add_cart_function) )
+                                        <button id="add_to_cart" form="form1" type="button"
+                                                class="c-button--xl-cart js-disabledSwitch__content cart">カートに入れる
+                                        </button>
+                                    @else
+                                        <button id="add_to_cart" form="form1" type="submit"
+                                                class="c-button--xl-cart js-disabledSwitch__content cart">カートに入れる
+                                        </button>
+                                    @endempty
+                                </div>
+                            </div>
+                        </div>
+                    @endempty
+                </div>
+                @include('products.components.relation_link')
+                <!-- フリースペース2-->
+                <!-- <div class="overview__free">
+                  <p class="c-text--sm">フリースペース2です。フリースペース2です。フリースペース2です。フリースペース2です。フリースペース2です。</p>
+                </div> -->
+            </div>
+
+            <!-- 商品紹介パート-->
+            <div class="overview__promotion">
+                <div class="overview__mainVisual js-imageSwitch js-products__mainVisual">
+                    @isset($product->picture)
+                        <div class="mainVisual__slider js-imageSwitch__target">
+                            @foreach ($product->picture as $picture)
+                                <figure class="slider__item @if($loop->first) is-active @endif">
+                                    <div class="item__frame js-imageSwitch__item">
+                                        <img src="{{ $picture->picture_url }}" name="product_pic_{{$loop->index}}"
+                                             id="product_pic_{{$loop->index}}">
+                                    </div>
+                                    <figcaption class="item__caption c-text--sm-center"
+                                                name="product_caption_{{$loop->index}}"
+                                                id="product_caption_{{$loop->index}}">{{ $picture->pivot["description"] }}</figcaption>
+                                </figure>
+                            @endforeach
+                        </div>
+                    @endisset
+                    @isset($product->product_summary)
+                        <div class="mainVisual__description c-heading--sm-primary">{!! nl2br($product->product_summary) !!}</div>
+                    @endisset
+                </div>
+                @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_FEATURE]->html_part)
+                    {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_FEATURE]->html_part !!}
+                @endisset
+            </div>
+        </form>
+    </div>
+
+    <div class="main__sub--gray">
+        <!-- .p-spec-->
+        @if(!empty($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_SPECIFICATION]->html_part) or !empty($product->history) )
+            <section class="p-spec c-section">
+                @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_SPECIFICATION]->html_part)
+                    <h2 class="section__title c-heading--lg-border">製品仕様</h2>
+                    {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_SPECIFICATION]->html_part !!}
+                @endisset
+                @if( !empty($product->history) )
+                    {!! $product->history !!}
+                @endif
+            </section>
+        @endif
+        <!-- .p-notes-->
+
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_PRECAUTION]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border">注意事項</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_PRECAUTION]->html_part !!}
+            </section>
+        @endisset
+        <!-- .p-notes-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_MAKER_SOLD_OUT]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border" id="tagOutOfStock">メーカー欠品情報</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_MAKER_SOLD_OUT]->html_part !!}
+            </section>
+        @endisset
+        <!-- .p-notes-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_PRECAUTION]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border">配送に関する注意事項</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_PRECAUTION]->html_part !!}
+            </section>
+        @endisset
+        <!-- .p-notes-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_SCHEDULE]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border">出荷目安について</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_SCHEDULE]->html_part !!}
+            </section>
+        @endisset
+
+        <!-- .p-tag-->
+        @if( count($product->productFeatureTag) )
+            <section id="tagSection" class="p-tag c-section">
+                @foreach($product->productFeatureTag as $item)
+                    <section class="tag__item c-flame--sm-white">
+                        <h3 class="item__title c-heading--sm">「{{ $item->product_feature_tag_name }}」について</h3>
+                        {!! $item->product_feature_tag_content !!}
+                    </section>
+                @endforeach
+            </section>
+        @endif
+
+        @if( !empty($product->productSetting->is_color_valid) && !empty($other_colors) )
+            <section class="p-size c-section">
+                <h2 class="section__title c-heading--md-border">
+                    その他の{{ $product->productSetting->color_display_name }}</h2>
+                <ul class="size__list">
+                    @foreach($other_colors as $color)
+                        <li class="list__item"><a
+                                    href="?color={{ $color['color_id'] }}&size={{ $request->size }}&thickness={{ $request->thickness }}&option={{ $request->option }}"
+                                    class="c-button--sm-size {{ $color['class_available'] }}">{{ $color['color_name'] }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+        @endif
+        @if( !empty($product->productSetting->is_plate_thickness_valid) && !empty($other_plate_thicknesses) )
+            <section class="p-size c-section">
+                <h2 class="section__title c-heading--md-border">
+                    その他の{{ $product->productSetting->plate_thickness_display }}</h2>
+                <ul class="size__list">
+                    @foreach($other_plate_thicknesses as $plate_thickness)
+                        <li class="list__item"><a
+                                    href="?color={{ $request->color }}&size={{ $request->size }}&thickness={{ $plate_thickness['plate_thickness_id'] }}&option={{ $request->option }}"
+                                    class="c-button--sm-size {{ $plate_thickness['class_available'] }}">{{ $plate_thickness['plate_thickness'] }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+        @endif
+        @if( !empty($product->productSetting->is_size_valid) && !empty($other_sizes) )
+            @if($product->productSetting->specify_size === 1 || $product->productSetting->specify_size === 2)
+                <section class="p-size c-section">
+                    @if($product->productSetting->specify_size === 1)
+                        <h2 class="section__title c-heading--md-border">
+                            その他の{{ $product->productSetting->specification_size_numerical_display }}</h2>
+                    @endif
+                    @if($product->productSetting->specify_size === 2)
+                        <h2 class="section__title c-heading--md-border">
+                            その他の{{ $product->productSetting->specification_size_string_display }}</h2>
+                    @endif
+                    <ul class="size__list">
+                        @foreach($other_sizes as $size)
+                            <li class="list__item"><a
+                                        href="?color={{ $request->color }}&size={{ $size['size_id'] }}&thickness={{ $request->thickness }}&option={{ $request->option }}"
+                                        class="c-button--sm-size {{ $size['class_available'] }}">{{ $size['size_name'] }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </section>
+            @endif
+        @endif
+        @if( !empty($product->productSetting->is_product_option_valid) && !empty($other_options) )
+            <section class="p-size c-section">
+                <h2 class="section__title c-heading--md-border">その他の{{ $product->productOption->option_name }}</h2>
+                <ul class="size__list">
+                    @foreach($other_options as $option)
+                        <li class="list__item"><a
+                                    href="?color={{ $request->color }}&size={{ $request->size }}&thickness={{ $request->thickness }}&option={{ $option['product_option_content_id'] }}"
+                                    class="c-button--sm-size {{ $option['class_available'] }}">{{ $option['option_name'] }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+        @endif
+    </div>
+
+    <div class="main__sub--white">
+        <!-- .p-relation-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_RELATED_CONTENT]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border">関連コンテンツ</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_RELATED_CONTENT]->html_part !!}
+            </section>
+        @endisset
+
+        <!-- .p-relation-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_CASE_STUDY]->html_part)
+            <section class="p-case c-section">
+                <h2 class="section__title c-heading--lg-border">活用事例</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_CASE_STUDY]->html_part !!}
+            </section>
+        @endisset
+
+
+        <!-- 埋め込み版レビュー -->
+        <script>
+            var customer_feedback_pc_word = '{{$product->customer_feedback_pc_word}}';
+        </script>
+        @if( $product->customer_feedback_pc_word != '' && $reviews['allCount'] >0  )
+            <a name="reviews-area" id="reviews-area"></a>
+            <section class="p-voice c-section">
+                <h2 class="section__title c-heading--lg-border">お客様の声 <br class="br-sp">（製品ご使用後のご感想）</h2>
+                <div class="customer-review-header">
+                    <!-- 星平均 -->
+                    <div class="star-avarage">
+                        <div class="detail-rating" data-avarage="<?= $reviews['avarage'] ?>">
+                            <div class="detail-rating-avarage-star"></div>
+                        </div>
+                        <div class="avarage">星5つ中の<span class="disp-average"><?= $reviews['avarage'] ?></span></div>
+                        <div class="count"><?= number_format($reviews['allCount']) ?>件</div>
+                    </div>
+                    <!-- /星平均 -->
+                    <!-- 星別合計 -->
+                    <div class="star-list">
+                        <table class="star-table">
+                            <tbody>
+                            @php
+                                $starCnt = 5;
+                            @endphp
+                            @foreach($reviews['stars'] as $star => $point )
+                                <tr class="list-item">
+                                    <td>
+                                        <div
+                                                class="list-rating list-rating{{$starCnt}} count"
+                                                data-star="{{$starCnt}}"
+                                                data-target-point="{{$starCnt}}"
+                                        >
+                                            <div class="detail-rating-avarage-star"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="count"
+                                              data-target-point="{{$starCnt}}">(<?= number_format($point) ?>)</span>
+                                    </td>
+                                    <td>
+                              <span
+                                      class="star-percentage star-percentage-{{$starCnt}}"
+                                      data-progress-all="{{$reviews['allCount']}}"
+                                      data-progress-this="{{$point}}"
+                                      data-progress-star="{{$starCnt}}"
+                              ></span>
+                                    </td>
+                                </tr>
+                                @php
+                                    $starCnt --;
+                                @endphp
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /星別合計 -->
+                </div>
+
+                <!-- レビュー並び替え -->
+                <div class="review-sort">
+                    <p class="review-sort-heading">並び替え</p>
+                    <div class="review-sort-inner">
+                        <form class="">
+                            <select class="review-sort-select" name="">
+                                <option value="新着順">新着順</option>
+                                <option value="古い順">古い順</option>
+                                <option value="評価が高い順">評価が高い順</option>
+                                <option value="評価が低い順">評価が低い順</option>
+                                <option value="写真付">写真付</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <!-- /レビュー並び替え -->
+
+                <!-- レビューリスト -->
+                <div class="customer-review-list">
+                    @foreach( $reviews['firstPage'] as $num => $reviewItem )
+                        <div class="customer-review-item">
+                            <img class="user-icon" src="/assets/images/icon/icon_user.svg">
+                            <p class="review-date">
+                                    <?= date('Y年m月d日', strtotime($reviewItem->created_at)) ?>
+                            </p>
+                            <div class="item-row review-star">
+                                <span class="text">製品評価</span>
+                                <div class="review-rating review-rating<?= $num ?>" data-star="{{$reviewItem->star}}"
+                                     data-revire-val="star">
+                                    <div class="detail-rating-avarage-star"></div>
+                                </div>
+                            </div>
+
+                            <div class="item-row">
+                                <p class="review-name" data-revire-val="name">{{$reviewItem->name}}様</p>
+                                <p class="review-productname"
+                                   data-revire-val="productname">{{$reviewItem->keyword1}}</p>
+                            </div>
+                            <p class="review-title" data-revire-val="title">{{$reviewItem->title}}</p>
+                            <div class="review-content" data-revire-val="content">
+                                {!! nl2br(e($reviewItem->content)) !!}
+                            </div>
+                            <a href="javascript:void(0);" class="fold-btn">▼続きを読む</a>
+                            <div class="review-img-area <?php if(empty($reviewItem->file)): ?>rating-hidden<?php endif; ?>">
+                                <img
+                                        class="js-modal--image review-img"
+                                        @if( $reviewItem['file'] != '')
+                                            src="/storage/reviewimages{{env('FRONT_REVIEW_IMAGES_DIR')}}{{$reviewItem['file']}}"
+                                        @else
+                                            src=""
+                                        @endif;
+                                        data-revire-val="image"
+                                >
+                            </div>
+
+                            <div class="review-good" data-review-count="<?= $reviewItem->id ?>">
+                                <p
+                                        data-good-count-area="<?= $reviewItem->id ?>"
+                                        class="<?php if( $reviewItem->good_count == 0): ?>rating-hidden<?php endif; ?>"
+                                >
+                            <span
+                                    class="review-good-count c-text-weightBold"
+                                    data-good-count="<?= $reviewItem->id ?>"
+                            >
+                              <?= $reviewItem->good_count ?>
+                            </span>人のお客様が参考になったと回答
+                                </p>
+                                <p>
+                                    レビューは参考になりましたか？
+                                    <a
+                                            href="javascript:void(0)"
+                                            data-send-good="<?= $reviewItem->id ?>"
+                                            class="<?php if( $reviewItem->good === true ): ?>review-good-disabled<?php else: ?>review-good-enable<?php endif; ?>"
+                                    >
+                                        参考になった
+                                    </a>
+                                </p>
+                            </div>
+
+                        </div>
+                    @endforeach
+                </div>
+                <!-- /レビューリスト -->
+
+                <!-- ページネーション -->
+                <div class="listNavigation__pagenation c-pagenation rating-pagination">
+                </div>
+                <!--
+                ページ数: <span data-allpagecount="1"><?= $reviews['pageCount'] ?></span>ページ　
+                -->
+                現在表示の評価: <span data-current-start="1">全て表示</span>
+                <a href="javascript:void(0);" class="rating-hidden" data-star-reset="1">[選択解除]</a>　
+                <!--
+                <span data-current-sort="1">新着順</span>　
+                -->
+                <a href="/review?s[keyword]={{$product->customer_feedback_pc_word}}"
+                   target="_blank">すべてのレビューを参照します</a>
+                <!-- /ページネーション -->
+            </section>
+                <?php //レビュー操作系 ?>
+        @endif
+        <script src="/assets/rating/js/progressbar.js?version=20211030"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js?version=20211030"></script>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css?version=20211030">
+        <script src="/assets/rating/js/rating-detail.js?version=20211030"></script>
+        <script src="/assets/rating/js/review-ajax.js?version=20211030"></script>
+        <!-- /埋め込み版レビュー -->
+
+
+            <?php /*
+        @if($product->customer_feedback_url_pc)
+            <section class="p-voice c-section">
+                <h2 class="section__title c-heading--lg-border">お客様の声 （製品ご使用後のご感想）旧版</h2>
+                <script type="text/javascript">
+					if ((navigator.userAgent.indexOf('iPhone') > 0 ||
+						navigator.userAgent.indexOf('iPad') > 0 ||
+						navigator.userAgent.indexOf('iPod') > 0) ||
+						navigator.userAgent.indexOf('Android') > 0) {
+						document.write('<IFRAME NAME="uri" SRC="{{ $product->customer_feedback_url_sp }}" WIDTH=800 HEIGHT=220 SCROLLING="yes" FRAMEBORDER=0></IFRAME>');
+					} else {
+						document.write('<IFRAME NAME="uri" SRC="{{ $product->customer_feedback_url_pc }}" WIDTH=800 HEIGHT=220 SCROLLING="yes" FRAMEBORDER=0></IFRAME>');
+					}
+                </script>
+            </section>
+        @endif
+        */ ?>
+    </div>
+
+
+
+
+    @isset( $product->relatedProduct[0] )
+        <section class="p-relation c-section--noPadding">
+            <h2 class="section__title c-heading--lg-border">関連商品</h2>
+            <div class="l-list--card relation__list">
+                <div class="list__contnet c-cardGroup--5">
+                    @foreach($product->relatedProduct as $item)
+                            <?php
+                            $extName = false;
+                            foreach ($priceDisplayExclusion as $one) {
+                                $one = preg_quote($one, '/');
+                                if (preg_match('/' . $one . '/', $item->product_name)) {
+                                    $extName = true;
+                                    break;
+                                }
+                            }
+                            ?>
+                        <a href="{{ route('products.detail', ['id'=>$item->product_id]) }}" class="c-card--sm">
+                            <div class="card__head">
+                                @if( !empty($item->thumbnailPicture["picture_url"]) )
+                                    <div class="card__image">
+                                        <img src="{{ $item->thumbnailPicture["picture_url"] }}">
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="card__body">
+                                <p class="card__category c-text--xs">{{ $item->productTopCategory->product_category_name }}</p>
+                                <p class="card__title c-heading--xs">{{ $item->product_name }}</p>
+                                @if( isset( $item->price ) && $extName === false )
+                                    <p class="card__price c-price--md">{{ number_format($item->tax_price) }}
+                                        <span>円（税込）</span></p>
+                                @endif
+                                @if( !empty($item->productFeatureTag) )
+                                    <div class="card__tag">
+                                        @foreach($item->productFeatureTag as $tag)
+                                            <p class="c-label--sm-black">{{ $tag->product_feature_tag_name }}</p>
+                                        @endforeach
+                                    </div>
+                                @endif
+                                    <?php if (
+                                    $item->customer_feedback_pc_word != ''
+                                    && isset($relatedReview[$item->customer_feedback_pc_word])
+                                    && $relatedReview[$item->customer_feedback_pc_word]['allCount'] > 0
+                                ):
+                                    ?>
+                                <div class="item-rating">
+                                    <div id="rating-id{{ $item->product_id }}" class="item-rating js-rating"
+                                         data-avarage="<?= $relatedReview[$item->customer_feedback_pc_word]['avarage'] ?>">
+                                        <div class="detail-rating-avarage-star"></div>
+                                    </div>
+                                    <span class="item-rating-review"><?= number_format($relatedReview[$item->customer_feedback_pc_word]['allCount']) ?>件のレビュー</span>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endisset
+
+        <?php
+        $jsonLD = [
+            '@context' => 'http://schema.org',
+            '@type' => 'website',
+            'name' => 'アクリル板材料の加工とアクリル製品の専門店 | アクリ屋ドットコム',
+            'inLanguage' => 'jp',
+            'publisher' => [
+                '@type' => 'Organization',
+                'name' => '株式会社さくら樹脂',
+            ],
+            'headline' => 'アクリル板材料の加工とアクリル製品の専門店',
+            'description' => 'アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。',
+            'url' => 'https://acry-ya.com/'
+        ];
+        ?>
+    <script type="application/ld+json">
+            <?= json_encode($jsonLD, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?>
+    </script>
+
+        <?php
+        $jsonLD = [
+            '@context' => 'http://schema.org',
+            '@type' => 'Organization',
+            'name' => '株式会社さくら樹脂',
+            'description' => "株式会社さくら樹脂は、アクリル材料加工・アクリル製品のネットショップ「アクリ屋ドットコム」の運営を主体に、その他、工業用樹脂部品の受託製造を行っています。製品は、精密で精度の要求される工業製品を制作する加工技術をベースに、最新設備を駆使し、各種の樹脂加工のノウハウを持つ専門の職人が制作致します。",
+            'url' => 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+            'telephone' => '+81 45-547-6372',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => '樽町4-13-2',
+                'addressLocality' => '港北区',
+                'addressRegion' => '神奈川県',
+                'postalCode' => '222-0001',
+                'addressCountry' => "JP"
+            ]
+        ];
+        ?>
+    <script type="application/ld+json">
+            <?= json_encode($jsonLD, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?>
+    </script>
+
+        <?php
+        $jsonLD = [
+            '@context' => 'http://schema.org',
+            '@type' => 'Product',
+            'name' => $title,
+            'description' => $product->meta_description,
+            'image' => [],
+            'brand' => [
+                '@type' => 'Thing',
+                'name' => '株式会社さくら樹脂'
+            ],
+            /*
+            'sku' => [ //商品のsku
+                'sku-blue-s',
+                'sku-blue-m',
+                'sku-blue-l'
+             ],
+            */
+            //価格情報
+            /*
+            'offers' => [
+                '@type' => 'Offer',
+                'priceCurrency' => 'JPY',
+                'price' => $product->tax_price,
+                'priceValidUntil' => date('Y-m-d', strtotime('+1 month')), //価格の有効期限
+                'availability' => 'InStock', //InStock（在庫あり）OutOfStock（在庫なし）PreOrder（予約）
+                'url' => 'https://'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+            ],
+            */
+            //価格情報
+            'offers' => [
+                '@type' => 'AggregateOffer',
+                'priceCurrency' => 'JPY',
+                'lowPrice' => ((isset($product->tax_price)) ? $product->tax_price : 2000),
+            ],
+            'aggregateRating' => [ //商品の評価
+                '@type' => 'AggregateRating',
+                'ratingValue' => $reviews['avarage'], //平均点
+                'reviewCount' => $reviews['allCount'], //評価した人数
+            ],
+            /**
+             * 'review' => [ //以下レビューの書き方
+             * [
+             * '@type' => 'Review',
+             * 'author' => [
+             * '@type' => 'Person',
+             * 'name' => 'レビュアーの名前',
+             * 'sameAs' => 'https://facebook.com/tanaka' //レビュアーのサイトやSNS
+             * ],
+             * 'datePublished' => '2019-04-01', //レビューした日時
+             * 'description' => 'レビュー文章',
+             * 'reviewRating' => [
+             * '@type' => 'Rating',
+             * 'bestRating' => '10', //最高得点
+             * 'worstRating' => '1', //最低点
+             * 'ratingValue' => '6' //評価した点数
+             * ]
+             * ],
+             * ]
+             **/
+        ];
+        if ($product->customer_feedback_pc_word == '') {
+            unset($jsonLD['aggregateRating']);
+        }
+        if ($reviews['allCount'] == 0) {
+            unset($jsonLD['aggregateRating']);
+        }
+        if (
+            $product->tax_price === null
+            || $product->tax_price == ''
+            || $product->tax_price == 0
+        ) {
+            unset($jsonLD['offers']['price']);
+            $jsonLD['@type'] = 'AggregateOffer';
+            $jsonLD['offers']['lowPrice'] = 2000;
+            $jsonLD['offers']['priceCurrency'] = 'JPY';
+        }
+        foreach ($product->picture as $picture) {
+            $jsonLD['image'][] = $picture->picture_url;
+        }
+        ?>
+    <script type="application/ld+json">
+            <?= json_encode($jsonLD, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?>
+    </script>
+
+        <?php
+        $jsonLD = [
+            '@context' => 'http://schema.org',
+            '@type' => 'WebSite',
+            'url' => 'https://acry-ya.com/',
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => 'https://www.acry-ya.com/products/search/?cat=&word={query_string}',
+                'query-input' => 'required name=query_string'
+            ]
+        ]
+        ?>
+    <script type="application/ld+json">
+            <?= json_encode($jsonLD, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?>
+    </script>
+
+        <?php
+        $jsonLD = [
+            '@context' => 'http://schema.org',
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => [
+                [
+                    '@type' => 'ListItem',
+                    'position' => 1,
+                    'item' => [
+                        '@id' => url('/'),
+                        'name' => 'HOME'
+                    ]
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 2,
+                    'item' => [
+                        '@id' => route('products.list'),
+                        'name' => '商品一覧'
+                    ]
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 3,
+                    'item' => [
+                        '@id' => route('products.list', ['category_id' => $product->productTopCategory->product_category_id]),
+                        'name' => $product->productTopCategory->product_category_name
+                    ]
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 4,
+                    'item' => [
+                        '@id' => 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+                        'name' => $title
+                    ]
+                ]
+            ]
+        ];
+        ?>
+    <script type="application/ld+json">
+            <?= json_encode($jsonLD, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) ?>
+    </script>
+
+
+
+@endsection

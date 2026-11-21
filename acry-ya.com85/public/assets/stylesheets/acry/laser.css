@@ -1,0 +1,11 @@
+/*===========================================
+    c-button
+===========================================*/
+#p-product [class*="c-button-"][class*="-samplepdf"] {
+  background-color: #e95464;
+  color: #fff;
+}
+
+[class*="c-heading"][class*="-underline"]{
+  border-bottom: 6px double #999;
+}

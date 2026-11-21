@@ -1,0 +1,10 @@
+/*===========================================
+    気泡
+===========================================*/
+a#kihou{
+  color:#e4007f;
+}
+
+#orderCaution[class*="c-list"] .list__item__danger {
+    font-weight: normal;
+}

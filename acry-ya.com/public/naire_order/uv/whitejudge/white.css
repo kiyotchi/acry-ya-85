@@ -1,0 +1,209 @@
+/* ------------ レイアウト ------------ */
+.whitecheck-wrapper {
+	padding: 20px;
+	background: #fff;
+	border-radius: 10px;
+	border: 1px solid #ddd;
+	margin-top: 20px;
+}
+
+.whitecheck-title {
+	font-size: 26px;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.whitecheck-desc {
+	color: #666;
+	margin-bottom: 20px;
+}
+
+/* ------------ ファイル入力＆プレビュー ------------ */
+.whitecheck-flex {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.whitecheck-dropzone {
+	border: 2px dashed #ccc;
+	padding: 20px;
+	text-align: center;
+	width: 49%;
+	min-width: 260px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.whitecheck-dropzone:hover {
+	border-color: #3b82f6;
+}
+
+.whitecheck-previewbox {
+	border: 2px solid #eee;
+	padding: 20px;
+	text-align: center;
+	width: 49%;
+	min-width: 260px;
+}
+
+.whitecheck-preview-label {
+	color: #666;
+	margin-bottom: 10px;
+}
+
+.whitecheck-preview {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.whitecheck-file {
+	display: none;
+}
+
+.whitecheck-blue {
+	color: #0070ff;
+	text-decoration: underline;
+}
+
+/* ------------ 結果 ------------ */
+.whitecheck-result {
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* ------------ ボタン類 ------------ */
+.whitecheck-dl,
+.whitecheck-clear {
+	display: block;
+	width: 260px;
+	margin: 15px auto 0;
+	padding: 10px;
+	text-align: center;
+	border-radius: 6px;
+	font-size: 16px;
+}
+
+.whitecheck-dl {
+	background: #ffae76;
+	color: #fff;
+}
+
+.whitecheck-dl:hover {
+	opacity: 0.6;
+}
+
+.whitecheck-clear {
+	background: #ddd;
+	color: #333;
+}
+
+.whitecheck-clear:hover {
+	opacity: 0.6;
+}
+
+.whitecheck-select {
+	display: block;
+	width: 260px;
+	margin: 15px auto 0;
+	padding: 10px;
+	text-align: center;
+	border-radius: 6px;
+	font-size: 16px;
+}
+
+.whitecheck-select {
+	background: #2ea3f7;
+	color: #fff;
+}
+
+.whitecheck-select:hover {
+	opacity: 0.6;
+}
+
+.hidden {
+	display: none !important;
+}
+
+@media screen and (max-width: 600px) {
+	.whitecheck-dropzone {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.whitecheck-previewbox {
+		width: 100%;
+	}
+}
+
+#dropZone,
+#resultZone {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* 必要なら調整 */
+	text-align: center;
+}
+
+[class*="c-flame"][class*="-acrylic"] {
+	border: solid 1px #cfcfcf;
+}
+
+[class*="c-flame"][class*="-acrylic"][class*="-dash"] {
+	border: solid 8px #cfcfcf;
+	border-style: dashed;
+}
+
+.whitecheck-dl,
+.whitecheck-select,
+.whitecheck-clear {
+	position: relative;
+	display: block;
+	width: 260px;
+	margin: 20px auto 0;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+	border-radius: 6px;
+	border: none;
+	transition: all 0.25s ease;
+	box-shadow:
+		6px 6px 12px rgba(0, 0, 0, 0.08),
+		-6px -6px 12px rgba(255, 255, 255, 0.9);
+	background: linear-gradient(145deg, #ff9a5e, #ff9a5e);
+	/* dl用例 */
+}
+
+/* 押したとき */
+.whitecheck-dl:active,
+.whitecheck-select:active,
+.whitecheck-clear:active {
+	transform: translateY(2px);
+	box-shadow:
+		3px 3px 6px rgba(0, 0, 0, 0.12),
+		-3px -3px 6px rgba(255, 255, 255, 0.7);
+}
+
+/* クリアボタン用（グレー系） */
+.whitecheck-clear {
+	background: linear-gradient(145deg, #e0e0e0, #e0e0e0);
+	color: #444;
+	box-shadow:
+		6px 6px 12px rgba(0, 0, 0, 0.06),
+		-6px -6px 12px rgba(255, 255, 255, 1);
+}
+
+/* 青い選択ボタン用 */
+.whitecheck-select {
+	background: linear-gradient(145deg, #1e90ff, #1e90ff);
+	box-shadow:
+		6px 6px 14px rgba(30, 144, 255, 0.25),
+		-6px -6px 14px rgba(255, 255, 255, 0.9);
+}

@@ -1,0 +1,11 @@
+/*===========================================
+    p-next-day-delivery
+===========================================*/
+@media screen and (max-width: 600px) {
+  #p-guide-next-day-delivery .p-order .order__card .card__body {
+    width: 100%;
+    overflow: scroll;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImd1aWRlLW5leHQtZGF5LWRlbGl2ZXJ5LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7NkNBRTZDO0FBQzdDO0VBQ0U7SUFDRSxZQUFZO0lBQ1osaUJBQWlCO0dBQ2xCO0NBQ0YiLCJmaWxlIjoicHJvamVjdHMvZ3VpZGUtbmV4dC1kYXktZGVsaXZlcnkuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4gICAgcC1uZXh0LWRheS1kZWxpdmVyeVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSovXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA2MDBweCkge1xuICAjcC1ndWlkZS1uZXh0LWRheS1kZWxpdmVyeSAucC1vcmRlciAub3JkZXJfX2NhcmQgLmNhcmRfX2JvZHkge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG92ZXJmbG93OiBzY3JvbGw7XG4gIH1cbn1cbiJdfQ== */

@@ -1,0 +1,100 @@
+[class*="c-card-"][class*="-color"] .card__information dl dt {
+    width: 8em;
+    margin-right: 0em;
+    font-weight: bold;
+}
+
+[class*="c-card-"][class*="-color"] .card__information dl dd {
+  width: calc(100% - (-1em));
+  word-wrap: break-word;
+}
+
+[class*="c-list"][class*="-touka"] > .list__item:before {
+  font-weight: bold;
+  content: '　　：';
+}
+
+[class*="c-text"][class*="-sm"][class*="-touka"] {
+  width: 100%;
+  padding: 0.5em 0;
+  border-bottom: solid 1px #ddd;
+  font-size: 0.866rem;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 600px){
+  [class*="c-table"] {
+    display: table;
+    table-layout: fixed;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+}
+
+/*===========================================
+    p-material-colorEtc
+===========================================*/
+#p-material-colorEtc .p-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 600px) {
+  #p-material-colorEtc .p-detail {
+    flex-direction: column-reverse;
+  }
+}
+
+#p-material-colorEtc .p-detail .detail__image {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 601px), print {
+  #p-material-colorEtc .p-detail .detail__image {
+    width: 360px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #p-material-colorEtc .p-detail .detail__image {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+#p-material-colorEtc .p-detail .detail__image img {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (min-width: 601px), print {
+  #p-material-colorEtc .p-detail .detail__information {
+    width: calc(100% - 360px - 3rem);
+    margin-right: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #p-material-colorEtc .p-detail .detail__information {
+    width: 100%;
+  }
+}
+
+#p-material-colorEtc .p-sample .sample__button {
+  text-align: center;
+}
+
+#p-material-colorEtc [class*="c-card-"][class*="-color"] .card__information dl dd {
+  width: calc(100% - 6em);
+  word-wrap: break-word;
+}
+
+/*===========================================
+    p-material-colorPolyca
+===========================================*/
+#p-material-colorPolyca [class*="c-card-"][class*="-color"] .card__information dl dt {
+    width: 9em;
+    margin-right: 1em;
+    font-weight: bold;
+}

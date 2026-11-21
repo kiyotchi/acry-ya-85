@@ -1,0 +1,1 @@
+<?php /**PATH /var/www/acry-ya.com/resources/views/top/topInfo.blade.php ENDPATH**/ ?>

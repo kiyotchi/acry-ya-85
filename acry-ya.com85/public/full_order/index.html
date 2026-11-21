@@ -1,0 +1,703 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'static.php'; ?>
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56FGQ5X');</script>
+  <!-- End Google Tag Manager -->
+  <?php echo $head_start; ?>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=10, user-scalable=yes">
+  <meta meta http-equiv="Expires" content="604800">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description"
+    content="アクリル、ポリカーボネート製品をオーダーメイドでお受け致します。コレクションケース、キャンバス額、装置カバー等、法人、個人問わず1個から量産までご対応致します。鏡面磨き、マシニング、旋盤、接着、レーザー加工等豊富な加工方法を用いて全国に出荷致します。">
+  <meta name="keywords" content="アクリル板,アクリルケース,アクリル加工,販売,通販,価格,当日出荷,当日発送,ポスターフレーム,フォトフレーム,樹脂,アクリ屋">
+
+  <title>
+    <?= $staticOGP['title'] ?? 'フルオーダー（特注）の見積' ?>｜アクリ屋ドットコム
+  </title>
+
+  <meta property="og:title" content="<?= $staticOGP['title'] ?? 'フルオーダー（特注）の見積' ?>｜アクリ屋ドットコム">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/full_order">
+  <meta property="og:image" content="<?= $staticOGP['ogp'] ?? '/assets/images/ogp.jpg' ?>">
+  <meta property="og:site_name" content="アクリ屋ドットコム">
+  <meta property="og:description"
+    content="<?= $staticOGP['description'] ?? 'アクリル、ポリカーボネート製品をオーダーメイドでお受け致します。コレクションケース、キャンバス額、装置カバー等、法人、個人問わず1個から量産までご対応致します。鏡面磨き、マシニング、旋盤、接着、レーザー加工等豊富な加工方法を用いて全国に出荷致します。' ?>">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="アクリ屋ドットコム">
+  <meta name="twitter:description"
+    content="<?= $staticOGP['description'] ?? 'アクリル、ポリカーボネート製品をオーダーメイドでお受け致します。コレクションケース、キャンバス額、装置カバー等、法人、個人問わず1個から量産までご対応致します。鏡面磨き、マシニング、旋盤、接着、レーザー加工等豊富な加工方法を用いて全国に出荷致します。' ?>">
+  <meta name="twitter:image" content="<?= $staticOGP['twitter'] ?? '/assets/images/ogp.jpg' ?>">
+  <meta itemprop="image" content="<?= $staticOGP['ogp'] ?? '/assets/images/ogp.jpg' ?>">
+
+  <!--meta(property='fb:app_id', content='')-->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/stylesheets/base.css">
+  <link rel="stylesheet" href="/assets/stylesheets/layout.css">
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <link rel="stylesheet" href="/assets/stylesheets/projects/full-order.css">
+  <link rel="stylesheet" href="/assets/stylesheets/acry-ya.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <script src="https://jpostal-1006.appspot.com/jquery.jpostal.js" defer></script>
+  <script src="/assets/javascripts/common.js"></script>
+  <script src="/assets/javascripts/function.js" defer></script>
+  <script src="/assets/javascripts/plugins/cookie.js" defer></script>
+  <script src="/assets/javascripts/plugins/add-comma.js" defer></script>
+  <script src="/assets/javascripts/plugins/form-address.js" defer></script>
+</head>
+<!--  レビューの準備 -->
+<?php $reviewData = $StaticClasses->Review->run('フルオーダー（特注）'); ?>
+
+<body id="p-fullOrder">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56FGQ5X" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="wrapper" class="l-column js-menu">
+    <?php echo $header; ?>
+    <?php echo $sidemenu; ?>
+
+    <div class="column__right">
+      <div class="l-loading js-loading"><img src="/assets/images/loading.png"
+          class="loading__image is-animated fx-infinite">
+      </div>
+      <div class="l-banner"><img src="/assets/images/banner/bn_souryomuryo_sp.jpg"></div>
+      <main class="l-main">
+        <div class="main__sub--white">
+          <nav class="c-pankuzu--scroll">
+            <ul class="pankuzu__list">
+              <li><a href="/">HOME</a></li>
+              <li>フルオーダー</li>
+            </ul>
+          </nav>
+          <?php echo $notice; ?>
+          <h1 class="main__title c-heading--xl">フルオーダー</h1>
+          <div class="l-article--column-1">
+            <div class="feature__image c-image--fullWidth">
+              <img src="/assets/images/projects/full_order/img_fullorder_main_visual.jpg">
+            </div>
+          </div>
+          <div class="l-article--column-2-vertical p-action c-section">
+            <div class="article__content action__button"><a href="/full_order/web/"
+                class="c-button--xl-primary">フォームでのお見積もり依頼<i class="button__icon--after c-icon--arrow-r-white"></i></a>
+            </div>
+            <div class="article__content action__button u-display--none-sm"><a
+                href="/full_order/fax/print/fax-mitsumori.pdf" class="c-button--xl-primary">FAX見積もり依頼シート<i
+                  class="button__icon--after c-icon--arrow-r-white"></i></a></div>
+          </div>
+          <!--フルオーダー（特注）について-->
+          <section id="about" class="c-section">
+            <h2 class="c-heading--md-border">フルオーダー（特注）の紹介</h2>
+            <div class="l-article--column-1">
+              <div class="l-article--column-3-vertical">
+                <div class="article__content c-flame--sm-border">
+                  <h3 class="c-heading--sm">加工できる材料</h3><img src="/assets/images/projects/full_order/img_01.jpg">
+                  <p>加工は樹脂材料のみです。<br>木や金属など、他の素材は扱えません。</p>
+                  <div class="js-modal"><a data-target="fullOrderResinList"
+                      class="section__more c-link js-modal__trigger--open"><i class="c-icon--triangle-r"></i>取扱い樹脂一覧</a>
+                    <div id="fullOrderResinList" class="c-window--md js-modal__content">
+                      <table class="c-table">
+                        <thead>
+                          <tr>
+                            <th>材料名</th>
+                            <th>形状</th>
+                            <th>最大厚<br>最大径<br>(mm)</th>
+                            <th>最大サイズ<br>(mm)</th>
+                            <th>色</th>
+                            <th>資料</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th rowspan="3">アクリル（PMMA）</th>
+                            <td>板</td>
+                            <td>200</td>
+                            <td>2000x1000</td>
+                            <td>クリアー・標準色・蛍光色・集光色・UVカットほか</td>
+                            <td><a href="/material/acrylic/color/">色見本</a></td>
+                          </tr>
+                          <tr>
+                            <td>パイプ</td>
+                            <td>1000</td>
+                            <td>1000<br>(2000)</td>
+                            <td>クリアー・受注色</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>70</td>
+                            <td>1000</td>
+                            <td>クリアー・受注色</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">ポリカーボネート（PC)</th>
+                            <td>板</td>
+                            <td>15</td>
+                            <td>3000x2000</td>
+                            <td>クリアー・標準色ほか</td>
+                            <td><a href="/material/polycarbonate/color/color_1/">色見本</a></td>
+                          </tr>
+                          <tr>
+                            <td>中空板</td>
+                            <td>32</td>
+                            <td>3000x2000</td>
+                            <td>クリアー・蛍光色・型模様ほか</td>
+                            <td><a href="/material/polycarbonate/color/color_2/">色見本</a></td>
+                          </tr>
+                          <tr>
+                            <th rowspan="3">塩化ビニール（PVC）</th>
+                            <td>板</td>
+                            <td>110</td>
+                            <td>2000x1000</td>
+                            <td>クリアー・カラー・制電・耐熱他</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>200</td>
+                            <td>2000</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>パイプ</td>
+                            <td>520</td>
+                            <td>4000</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="3">ペット（PET)</th>
+                            <td>板</td>
+                            <td>100 </td>
+                            <td>2440x1220 </td>
+                            <td>クリアー・グレー他 </td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒 </td>
+                            <td>200</td>
+                            <td>2000</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>パイプ</td>
+                            <td>22</td>
+                            <td>2000</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">ポリアセタール（POM)<br>(ジュラコン）</th>
+                            <td>板</td>
+                            <td>100</td>
+                            <td>1000x1000<br>1200x600</td>
+                            <td>ナチュラル(白)・ブラック他 </td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>200 </td>
+                            <td>2000 </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">超高分子ポリエチレン<br>(UPE)</th>
+                            <td>板</td>
+                            <td>120</td>
+                            <td>2000x1000</td>
+                            <td>ナチュラル(白)</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>200</td>
+                            <td>1000</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">ポリエチレン（PE)</th>
+                            <td>板</td>
+                            <td>100</td>
+                            <td>1000x500</td>
+                            <td>ナチュラル(白)</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>300</td>
+                            <td>1000</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">ポリプロピレン(PP)</th>
+                            <td>板</td>
+                            <td>100</td>
+                            <td>2000x1000 </td>
+                            <td>ナチュラル(白)</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>300</td>
+                            <td>1000</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">ABS</th>
+                            <td>板</td>
+                            <td>100</td>
+                            <td>2000x1000</td>
+                            <td>ナチュラル(アイボリー)・白・黒</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>300</td>
+                            <td>1000 </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">MCナイロン</th>
+                            <td>板</td>
+                            <td>150</td>
+                            <td>1000x1000<br>1200x600</td>
+                            <td>各種</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>450</td>
+                            <td>1000 </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">テフロン(PTFE)</th>
+                            <td>板</td>
+                            <td>75</td>
+                            <td>1220x1220 </td>
+                            <td>ナチュラル(白)</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒</td>
+                            <td>250</td>
+                            <td>1000 </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">ベーク</th>
+                            <td>板</td>
+                            <td>50</td>
+                            <td>1000x1000</td>
+                            <td>紙・布・ナチュラル(茶)・黒 </td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒 </td>
+                            <td>110 </td>
+                            <td>1000 </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="2">ピーク(PEEK)</th>
+                            <td>板</td>
+                            <td>50</td>
+                            <td>1000x500</td>
+                            <td>ナチュラル</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>丸棒 </td>
+                            <td>100 </td>
+                            <td>2000</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="article__content c-flame--sm-border">
+                  <h3 class="c-heading--sm">最大サイズ</h3><img src="/assets/images/projects/full_order/img_19.jpg">
+                  <div class="l-article--column-2">
+                    <div class="article__content">
+                      <dl>
+                        <dt>板</dt>
+                        <dd>2ｍ×1ｍ<br>
+                          <div class="c-text--sm">※板の種類により異なります。</div>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="article__content">
+                      <dl>
+                        <dt>立体</dt>
+                        <dd>1.8ｍ×0.9ｍ×0.9ｍ<br>
+                          <div class="c-text--sm">※3辺合計3m以内が目安となります。</div>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div class="article__content c-flame--sm-border">
+                  <h3 class="c-heading--sm">加工方法</h3><img src="/assets/images/projects/full_order/img_04.jpg">
+                  <p>加工方法は切断・磨き・切削・接着・曲げ・溶接・絞りのみです。<br>型をとる大量生産の成形品（例：立体のマスコットなど）はお受け出来ません。</p>
+                </div>
+                <div class="article__content c-flame--sm-border">
+                  <h3 class="c-heading--sm">図面の作成</h3><img src="/assets/images/projects/full_order/img_20.jpg">
+                  <p>お見積もり・製作は、図面をもとに行います。<br>写真、型紙や現物に合わせての製作は致しかねます。</p>
+                  <ol>
+                    <li>
+                      <div class="js-modal"><a data-target="illustExample"
+                          class="section__more c-link js-modal__trigger--open"><i
+                            class="c-icon--triangle-r"></i>イラスト例</a>
+                        <div id="illustExample" class="c-window--md js-modal__content"><img
+                            src="/assets/images/projects/full_order/img_05.jpg"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="js-modal"><a data-target="drawingExample"
+                          class="section__more c-link js-modal__trigger--open"><i class="c-icon--triangle-r"></i>図面例</a>
+                        <div id="drawingExample" class="c-window--md js-modal__content"><img
+                            src="/assets/images/projects/full_order/img_06.jpg"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="js-modal"><a data-target="engravingPrintingExample"
+                          class="section__more c-link js-modal__trigger--open"><i
+                            class="c-icon--triangle-r"></i>彫刻・印刷例</a>
+                        <div id="engravingPrintingExample" class="c-window--md js-modal__content">
+                          <!--レーザー彫刻・機械彫刻-->
+                          <section class="c-section">
+                            <h2 class="c-heading--md-border">レーザー彫刻・機械彫刻</h2>
+                            <div class="c-card--step-horizontal">
+                              <div class="card__head">
+                                <div class="card__discription">
+                                  <ol class="c-list--icon">
+                                    <li class="list__item"><i
+                                        class="c-icon--number--primary">1</i>彫刻する板の四角い枠を原寸で描き、縦横寸法を表示します。
+                                      <p class="c-text--sm-note">アートボードサイズで指定しないで下さい。</p>
+                                    </li>
+                                    <li class="list__item"><i
+                                        class="c-icon--number--primary">2</i>彫刻する図や文字を原寸で板の希望位置に配置します。</li>
+                                    <li class="list__item"><i
+                                        class="c-icon--number--primary">3</i>テキスト（文字）の場合は必ずアウトラインに変換して下さい。</li>
+                                    <li class="list__item"><i
+                                        class="c-icon--number--primary">4</i>見積フォームの図面の添付からデータをお送り下さい。</li>
+                                  </ol>
+                                </div>
+                              </div>
+                              <div class="card__body">
+                                <div class="card__image"><img src="/assets/images/projects/full_order/img_07.jpg"></div>
+                                <figcaption class="c-text--sm-center">縦70mm横120mmの板にロゴマークを入れる場合の例</figcaption>
+                              </div>
+                            </div>
+                            <div class="section__sub">
+                              <h3 class="c-heading--sm-block">注意</h3>
+                              <div class="l-article--column-1">
+                                <ul class="c-list--disc">
+                                  <li class="list__item">データは全て原寸で作成して下さい。</li>
+                                  <li class="list__item">テキスト（文字）はアウトラインに変換して下さい。</li>
+                                  <li class="list__item">他のアプリケーションで作成した配置画像は彫刻できません。</li>
+                                  <li class="list__item">イラストレーター上の線を使用せず、塗りのみでデザインして下さい。【図1】。</li>
+                                  <li class="list__item">アウトラインは重ならないようにして下さい【図2】。</li>
+                                  <li class="list__item">Macでデータを作成された場合は、ファイル名に拡張子（.ai）を入れて圧縮して下さい。</li>
+                                  <li class="list__item">
+                                    データに不備があった場合は、修正後に再度お送り頂く場合がございます。また、デザインよっては彫刻できない場合があります。予めご了承願います。 </li>
+                                </ul>
+                              </div>
+                              <div class="l-article--column-2-vertical">
+                                <div class="article__content c-flame--sm-gray">
+                                  <p class="c-heading--sm-center">【図1】 塗り・線での表現</p>
+                                  <figure><img src="/assets/images/projects/full_order/img_08.jpg">
+                                    <figcaption class="c-text--sm-center">デザインを塗りで表現＝OK</figcaption>
+                                  </figure>
+                                  <figure><img src="/assets/images/projects/full_order/img_09.jpg">
+                                    <figcaption class="c-text--sm-center">デザインを線で表現＝NG</figcaption>
+                                  </figure>
+                                </div>
+                                <div class="article__content c-flame--sm-gray">
+                                  <p class="c-heading--sm-center">【図2】 アウトラインの重なり</p>
+                                  <figure><img src="/assets/images/projects/full_order/img_10.jpg">
+                                    <figcaption class="c-text--sm-center">アウトラインが重ならない＝OK</figcaption>
+                                  </figure>
+                                  <figure><img src="/assets/images/projects/full_order/img_11.jpg">
+                                    <figcaption class="c-text--sm-center">アウトラインが重なる＝NG</figcaption>
+                                  </figure>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                          <!--シルク印刷-->
+                          <section class="c-section">
+                            <h2 class="c-heading--md-border">シルク印刷</h2>
+                            <div class="c-card--step-horizontal">
+                              <div class="card__head">
+                                <div class="card__discription">
+                                  <ol class="c-list--icon">
+                                    <li class="list__item"><i
+                                        class="c-icon--number--primary">1</i>印刷する板の四角い枠を原寸で描き、縦横寸法を表示します。
+                                      <p class="c-text--sm-note">右図のような寸法表示を入れると確実です</p>
+                                    </li>
+                                    <li class="list__item"><i
+                                        class="c-icon--number--primary">2</i>カラーはCMYK・もしくはDICで指定して下さい。
+                                      <p class="c-text--sm-note">指定色の場合はDIC</p>
+                                    </li>
+                                    <li class="list__item"><i
+                                        class="c-icon--number--primary">3</i>印刷する図や文字を原寸で板の希望ヶ所に配置します。</li>
+                                    <li class="list__item"><i class="c-icon--number--primary">4</i>テキストの場合はアウトラインに変換します。
+                                    </li>
+                                    <li class="list__item"><i
+                                        class="c-icon--number--primary">5</i>見積フォームの図面の添付からデータをお送り下さい。</li>
+                                  </ol>
+                                </div>
+                              </div>
+                              <div class="card__body">
+                                <div class="card__image"><img src="/assets/images/projects/full_order/img_12.png"></div>
+                                <figcaption class="c-text--sm-center">縦190mm横140mmの板にロゴマークを入れる場合の例</figcaption>
+                              </div>
+                            </div>
+                            <div class="section__sub">
+                              <h3 class="c-heading--sm-block">注意</h3>
+                              <div class="l-article--column-1">
+                                <ul class="c-list--disc">
+                                  <li class="list__item">他のアプリケーションで作成した配置画像は印刷できません。</li>
+                                  <li class="list__item">色は全てベタ色でグラデーションは印刷できません。</li>
+                                  <li class="list__item">色によって透明アクリル板への印刷は、印刷の仕上がりが淡くなります。</li>
+                                  <li class="list__item">幅1mm以下等の細線はカスレる場合があります。</li>
+                                  <li class="list__item">Ｍacでデータを作成された場合は、ファイル名に拡張子【 .ai 】を入れて圧縮して下さい。</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </li>
+                  </ol>
+                  <p>図面にはサイズや加工の詳細まで明記してください。<br>わずかな仕様の変更でも、価格が大きく変わる場合があります。</p>
+                  <p>弊社では製品の企画・デザインのご提案は行っておりません。お客様ご自身での設計をお願い致します。</p>
+                </div>
+                <div class="article__content c-flame--sm-border">
+                  <h3 class="c-heading--sm">梱包送料</h3><img src="/assets/images/projects/full_order/img_16.jpg">
+                  <p>10,000円以上のお買い上げで送料無料!<br><span
+                      class="c-text--sm">※サイズ・重量やお届け先の地域により、別途ご負担いただく場合がございます。</span><br>詳細はお見積もりにてご連絡致します。</p>
+                </div>
+                <div class="article__content c-flame--sm-border">
+                  <h3 class="c-heading--sm">出荷</h3><img src="/assets/images/projects/full_order/img_17.jpg">
+                  <p>ご出荷はご注文の確定から、3日～2週間が目安です。<br><span
+                      class="c-text--sm">※数量や仕様、時期により異なる場合がございます。</span><br>詳細はお見積もりにてご連絡致します。</p>
+                </div>
+                <div class="article__content c-flame--sm-border">
+                  <h3 class="c-heading--sm">施工</h3><img src="/assets/images/projects/full_order/img_18.jpg">
+                  <p>施工は行っておりません。<br>弊社ではご注文品の製作とお届けまでとなります。<br>取り付けなど、現場施工は行っておりません。</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--お見積もり手順-->
+          <section id="manual" class="c-section">
+            <h2 class="c-heading--md-border">お見積からお届けまでの手順</h2>
+            <ol class="c-cardGroup--1">
+              <li class="c-card--step-sm-vertical">
+                <div class="card__head">
+                  <p class="card__step-secondary">STEP 01 | お客様</p>
+                  <p class="card__title c-heading--sm">お見積もりのご依頼</p>
+                </div>
+                <div class="card__body">
+                  <div class="card__discription">
+                    <p>お客様にて見積依頼シートに必要事項をご記入頂き、図面と共にホームページ又はFAXにてお申し込み頂きます。</p>
+                  </div>
+                </div>
+              </li>
+              <li class="c-card--step-sm-vertical">
+                <div class="card__head">
+                  <p class="card__step">STEP 02 | アクリ屋</p>
+                  <p class="card__title c-heading--sm">お見積のご連絡</p>
+                </div>
+                <div class="card__body">
+                  <div class="card__discription">
+                    <p>
+                      弊社にてご依頼内容確認後、見積金額・注文確定からの製作日数（納期）をメール又はFAXにてご連絡致します。不明な点は弊社より問い合わせさせて頂く場合があります。<br>尚、加工内容、形状によっては製作できない場合もあります。
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="c-card--step-sm-vertical">
+                <div class="card__head">
+                  <p class="card__step-secondary">STEP 03 | お客様</p>
+                  <p class="card__title c-heading--sm">ご注文のご連絡</p>
+                </div>
+                <div class="card__body">
+                  <div class="card__discription">
+                    <p>お客様にて見積内容をご確認の上、注文のご連絡をお願い致します。</p>
+                    <ol class="c-list--icon">
+                      <li class="list__item"><i
+                          class="c-icon--number--primary">1</i>ホームページより見積のご依頼を頂きました場合、WEB上の見積書下欄の注文ボタンからお申し込み下さい。<br>詳しいご注文方法は<a
+                          href="/guide/order/#03" target="_blank">WEBお見積からのご注文</a>をご確認ください。</li>
+                      <li class="list__item"><i
+                          class="c-icon--number--primary">2</i>FAXより見積のご依頼を頂きました場合、見積書下欄の発注書に必要事項をご記入の上、FAXにてお申し込み下さい。
+                      </li>
+                    </ol>
+                    <p class="c-text--sm-note">お支払い方法が「銀行振込・コンビニ支払い」の場合は、先払いになります。</p>
+                  </div>
+                </div>
+              </li>
+              <li class="c-card--step-sm-vertical">
+                <div class="card__head">
+                  <p class="card__step">STEP 04 | アクリ屋</p>
+                  <p class="card__title c-heading--sm">ご注文の確定</p>
+                </div>
+                <div class="card__body">
+                  <div class="card__discription">
+                    <p>弊社にてお客様からのご注文を確認させて頂きます。</p>
+                    <ol class="c-list--icon">
+                      <li class="list__item"><i
+                          class="c-icon--number--primary">1</i>お支払い方法が「銀行振込・コンビニ支払い」の場合は、お客様からの入金を確認させて頂きましてから、注文の確定とさせて頂きます。
+                      </li>
+                      <li class="list__item"><i
+                          class="c-icon--number--primary">2</i>お支払い方法が「代金引換・クレジットカード」の場合は、弊社にて注文を確認させて頂きましてから、注文の確定とさせて頂きます。
+                      </li>
+                    </ol>
+                    <ol class="c-list--sm-note">
+                      <li class="list__item">コンビニ支払い・クレジットカードはWEB上からのオーダーのみ対応しております。</li>
+                      <li class="list__item">お支払いにコンビニ支払いのセブン-イレブンはご利用頂けません。他のコンビニ会社を選択下さい。</li>
+                    </ol>
+                  </div>
+                </div>
+              </li>
+              <li class="c-card--step-sm-vertical">
+                <div class="card__head">
+                  <p class="card__step">STEP 05 | アクリ屋</p>
+                  <p class="card__title c-heading--sm">製品の製作とお届け</p>
+                </div>
+                <div class="card__body">
+                  <div class="card__discription">
+                    <p>製品の製作を開始致します。製品完成の後、検査梱包の上、お客様へ発送致します。出荷の際には、メールにてご連絡致します。</p>
+                  </div>
+                </div>
+              </li>
+              <li class="c-card--step-sm-vertical">
+                <div class="card__head">
+                  <p class="card__step-secondary">STEP 06 | お客様</p>
+                  <p class="card__title c-heading--sm">製品のお受取り</p>
+                </div>
+                <div class="card__body">
+                  <div class="card__discription">
+                    <p>お客様に製品が届きます。受取りと製品の確認をお願い致します。</p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </section>
+          <div class="l-article--column-2-vertical p-action c-section">
+            <div class="article__content action__button"><a href="/full_order/web/"
+                class="c-button--xl-primary">フォームでのお見積もり依頼<i class="button__icon--after c-icon--arrow-r-white"></i></a>
+            </div>
+            <div class="article__content action__button u-display--none-sm"><a
+                href="/full_order/fax/print/fax-mitsumori.pdf" class="c-button--xl-primary">FAX見積もり依頼シート<i
+                  class="button__icon--after c-icon--arrow-r-white"></i></a></div>
+          </div>
+
+          <!-- レビュー表示 -->
+          <?= $reviewData['list'] ?>
+          <!-- /レビュー表示 -->
+
+        </div>
+        <script type="application/ld+json">
+          {
+            "@context": "http:\/\/schema.org",
+            "@type": "website",
+            "name": "アクリル板材料の加工とアクリル製品の専門店 | アクリ屋ドットコム",
+            "inLanguage": "jp",
+            "publisher": {
+              "@type": "Organization",
+              "name": "株式会社さくら樹脂"
+            },
+            "headline": "アクリル板材料の加工とアクリル製品の専門店",
+            "description": "アクリル、ポリカーボネート製品をオーダーメイドでお受け致します。コレクションケース、キャンバス額、装置カバー等、法人、個人問わず1個から量産までご対応致します。鏡面磨き、マシニング、旋盤、接着、レーザー加工等豊富な加工方法を用いて全国に出荷致します。",
+            "url": "https:\/\/acry-ya.com\/"
+          }
+          </script>
+        <script type="application/ld+json">
+          {
+            "@context": "http:\/\/schema.org",
+            "@type": "Organization",
+            "name": "株式会社さくら樹脂",
+            "description": "株式会社さくら樹脂は、アクリル材料加工・アクリル製品のネットショップ「アクリ屋ドットコム」の運営を主体に、その他、工業用樹脂部品の受託製造を行っています。製品は、精密で精度の要求される工業製品を制作する加工技術をベースに、最新設備を駆使し、各種の樹脂加工のノウハウを持つ専門の職人が制作致します。",
+            "url ": "https:\/\/www.acry-ya.com\/full_order\/",
+            "telephone": "+81 45-547-6372",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "樽町4-13-2",
+              "addressLocality": "港北区",
+              "addressRegion": "神奈川県",
+              "postalCode": "222-0001",
+              "addressCountry": "JP"
+            }
+          }
+          </script>
+
+        <!-- 製品用JSONLD -->
+        <?php if( $reviewData['aggregateRating'] !== false ): ?>
+        <?php
+            ///// STEP1. 手動で必要情報を書きます
+            $jsonLD = [
+                "@context" => "http://schema.org",
+                "@type" => "Product",
+                "name" => $staticOGP['product_name'] ?? "フルオーダー（特注）",
+                "description" => "アクリル、ポリカーボネート製品をオーダーメイドでお受け致します。コレクションケース、キャンバス額、装置カバー等、法人、個人問わず1個から量産までご対応致します。鏡面磨き、マシニング、旋盤、接着、レーザー加工等豊富な加工方法を用いて全国に出荷致します。",
+                "image" => [
+                    $staticOGP['product_img'] ?? "https://www.acry-ya.com/assets/images/projects/top/img_main_visual_01.jpg"
+                ],
+                "brand" => [
+                    "@type" => "Thing",
+                    "name" => "株式会社さくら樹脂"
+                ],
+            ];
+
+            ///// STEP2. レーティング情報を合体
+            $jsonLD['aggregateRating'] = $reviewData['aggregateRating'];
+
+            ///// STEP3. 出力▼▼
+          ?>
+        <script type="application/ld+json">
+            <?= json_encode( $jsonLD, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT ) ?>
+          </script>
+        <?php endif; ?>
+        <!-- /製品用JSONLD -->
+
+      </main>
+      <?php echo $footer; ?>
+    </div>
+  </div>
+  <?php echo $body_end; ?>
+</body>
+
+</html>

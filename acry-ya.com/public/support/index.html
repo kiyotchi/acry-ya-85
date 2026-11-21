@@ -1,0 +1,157 @@
+
+<?php include $_SERVER['DOCUMENT_ROOT'].'static.php'; ?><!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+  <head><?php echo $head_start; ?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=10, user-scalable=yes">
+    <meta meta http-equiv="Expires" content="604800">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="各種お問い合わせについて">
+    <meta name="keywords" content="アクリル板,アクリルケース,アクリル加工,販売,通販,価格,当日出荷,当日発送,ポスターフレーム,フォトフレーム,樹脂,アクリ屋">
+    <title>各種お問い合わせについて｜アクリ屋ドットコム</title>
+    <meta property="og:title" content="各種お問い合わせについて｜アクリ屋ドットコム">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/support">
+    <meta property="og:image" content="/assets/images/ogp.jpg">
+    <meta property="og:site_name" content="アクリ屋ドットコム">
+    <meta property="og:description" content="各種お問い合わせについて">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="アクリ屋ドットコム">
+    <meta name="twitter:description" content="アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。">
+    <meta name="twitter:image" content="/assets/images/ogp.jpg">
+    <meta itemprop="image" content="/assets/images/ogp.jpg">
+    <!--meta(property='fb:app_id', content='')-->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/stylesheets/base.css">
+    <link rel="stylesheet" href="/assets/stylesheets/layout.css">
+    <link rel="stylesheet" href="/assets/stylesheets/style.css">
+    <link rel="stylesheet" href="/assets/stylesheets/projects/support.css">
+    <link rel="stylesheet" href="/assets/stylesheets/acry-ya.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://jpostal-1006.appspot.com/jquery.jpostal.js" defer></script>
+    <script src="/assets/javascripts/common.js"></script>
+    <script src="/assets/javascripts/function.js" defer></script>
+    <script src="/assets/javascripts/plugins/cookie.js" defer></script>
+    <script src="/assets/javascripts/plugins/add-comma.js" defer></script>
+    <script src="/assets/javascripts/plugins/form-address.js" defer></script>
+  </head>
+  <body id="p-support">
+    <div id="wrapper" class="l-column js-menu">
+      <?php echo $header; ?>
+      <?php echo $sidemenu; ?>
+      <div class="column__right">
+        <div class="l-loading js-loading"><img src="/assets/images/loading.png" class="loading__image is-animated fx-infinite">
+        </div>
+        <div class="l-banner"><img src="/assets/images/banner/bn_souryomuryo_sp.jpg"></div>
+        <main class="l-main">
+          <div class="main__sub--white">
+            <nav class="c-pankuzu--scroll">
+              <ul class="pankuzu__list">
+                <li><a href="/">HOME</a></li>
+                <li>サポート</li>
+              </ul>
+            </nav><?php echo $notice; ?>
+            <h1 class="main__title c-heading--xl">サポート</h1>
+            <section class="p-site c-section">
+              <h2 class="section__title c-heading--lg-border">サイト内検索</h2>
+              <form action="https://search.yahoo.co.jp/search" target="_blank" class="site__siteSearch c-form"><span class="siteSearch__input form__input">
+                  <input type="text" id="" name="p" placeholder="サイト内検索">
+                  <input type="hidden" name="fr" value="ysin">
+                  <input type="hidden" name="ei" value="UTF-8">
+                  <input name="vs" type="hidden" value="https://www.acry-ya.com/"></span>
+                <button type="send" id="" name="" class="siteSearch__button c-button--md-primary"><i class="button__icon"><img src="/assets/images/icon/icon_search_w.svg"></i></button>
+              </form>
+            </section>
+            <section class="p-category c-section">
+              <div class="c-cardGroup--2-vertical">
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/support/img_01.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/support/contact/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>お問い合わせ</a></h3>
+                                <div class="card__information">
+                                  <p class="card__discription c-text--sm">商品や購入についてのご質問は、こちらからご連絡をお願いします。</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/support/img_02.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/support/free_order/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>フリー注文</a></h3>
+                                <div class="card__information">
+                                  <p class="card__discription c-text--sm">ショッピングカートがご利用できない場合や図面添付のご注文の場合は、こちらをご利用下さい。</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/support/img_06.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/support/fax/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>FAX注文に関するご案内</a></h3>
+                                <div class="card__information">
+                                  <p class="card__discription c-text--sm">インターネットからご注文が出来ない場合、FAXでのご注文もお受け致しております。</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/support/img_03.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/support/cancel/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>注文キャンセル依頼</a></h3>
+                                <div class="card__information">
+                                  <p class="card__discription c-text--sm">ご注文のキャンセルをご希望の方は、こちらからご連絡をお願いします。商品のキャンセル/交換/追加注文は、ご注文後1時間以内とさせて頂きます。</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="c-card--category">
+                              <div class="card__head"><img src="/assets/images/projects/support/img_04.svg"></div>
+                              <div class="card__body">
+                                <h3 class="card__title c-heading--sm-primary"><a href="/support/repair/" class="c-link"><i class="link__icon--before c-icon--triangle-r"></i>不良/破損/製品違いの交換・不足部品ご請求のお申込み</a></h3>
+                                <div class="card__information">
+                                  <p class="card__discription c-text--sm">受注生産・オーダーメイド品が中心のため、不良品・不足品・発送間違い・運送中の破損以外の【お客様都合による返品・交換】はお断りさせて頂きます。</p>
+                                </div>
+                              </div>
+                            </div>
+              </div>
+            </section>
+          </div>
+          <script type="application/ld+json">
+          {
+            "@context": "http:\/\/schema.org",
+            "@type": "website",
+            "name": "アクリル板材料の加工とアクリル製品の専門店 | アクリ屋ドットコム",
+            "inLanguage": "jp",
+            "publisher": {
+              "@type": "Organization",
+              "name": "株式会社さくら樹脂"
+            },
+            "headline": "アクリル板材料の加工とアクリル製品の専門店",
+            "description": "アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。",
+            "url": "https:\/\/acry-ya.com\/"
+          }
+          </script>
+          <script type="application/ld+json">
+          {
+            "@context": "http:\/\/schema.org",
+            "@type": "Organization",
+            "name": "株式会社さくら樹脂",
+            "description": "株式会社さくら樹脂は、アクリル材料加工・アクリル製品のネットショップ「アクリ屋ドットコム」の運営を主体に、その他、工業用樹脂部品の受託製造を行っています。製品は、精密で精度の要求される工業製品を制作する加工技術をベースに、最新設備を駆使し、各種の樹脂加工のノウハウを持つ専門の職人が制作致します。",
+            "url ": "https:\/\/www.acry-ya.com\/support\/",
+            "telephone": "+81 45-547-6372",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "樽町4-13-2",
+              "addressLocality": "港北区",
+              "addressRegion": "神奈川県",
+              "postalCode": "222-0001",
+              "addressCountry": "JP"
+            }
+          }
+          </script>
+        </main><?php echo $footer; ?>
+      </div>
+    </div><?php echo $body_end; ?>
+  </body>
+</html>

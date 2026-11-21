@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 104">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e5f4f3;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #009c81;
+      }
+
+      .cls-4 {
+        fill: #a5a4a7;
+      }
+    </style>
+  </defs>
+  <title>アセット 50</title>
+  <g id="レイヤー_2" data-name="レイヤー 2">
+    <g id="bg">
+      <g>
+        <circle class="cls-1" cx="52" cy="52" r="52"/>
+        <polygon class="cls-2" points="73.25 35.222 60.028 22 30.75 22 30.75 76.778 73.25 76.778 73.25 35.222"/>
+        <polygon class="cls-3" points="60.028 22 60.028 35.222 73.25 35.222 60.028 22"/>
+        <rect class="cls-4" x="43.714" y="41.5" width="20.286" height="1"/>
+        <rect class="cls-4" x="43.714" y="50" width="20.286" height="1"/>
+        <rect class="cls-4" x="43.714" y="58.5" width="20.116" height="1"/>
+        <rect class="cls-4" x="43.714" y="67" width="20.116" height="1"/>
+        <rect class="cls-4" x="38.066" y="41.191" width="2" height="2"/>
+        <polygon class="cls-3" points="39.029 42.732 36.993 40.696 37.7 39.989 39.029 41.318 41.875 38.472 42.582 39.179 39.029 42.732"/>
+        <rect class="cls-4" x="38.066" y="49.723" width="2" height="2"/>
+        <polygon class="cls-3" points="39.029 51.265 36.993 49.229 37.7 48.522 39.029 49.851 41.875 47.004 42.582 47.711 39.029 51.265"/>
+        <rect class="cls-4" x="38.066" y="58.255" width="2" height="2"/>
+        <polygon class="cls-3" points="39.029 59.797 36.993 57.761 37.7 57.054 39.029 58.383 41.875 55.537 42.582 56.244 39.029 59.797"/>
+        <rect class="cls-4" x="38.066" y="66.788" width="2" height="2"/>
+        <polygon class="cls-3" points="39.029 68.33 36.993 66.293 37.7 65.586 39.029 66.916 41.875 64.069 42.582 64.776 39.029 68.33"/>
+      </g>
+    </g>
+  </g>
+</svg>

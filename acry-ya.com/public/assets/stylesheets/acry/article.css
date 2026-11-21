@@ -1,0 +1,26 @@
+[class*="c-table"]tr.stopSell {
+  background-color: #1DAEE9;
+  color: #fff;
+}
+
+[class*="a-campaignInfo"] {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #fa7276;/*文字色*/
+    background: #FFF;
+    border: solid 6px #fa7276;/*線*/
+    border-radius: 0.3rem;/*角の丸み*/
+}
+[class*="a-campaignInfo"] p {
+    margin: 0;
+    padding: 0.5rem;
+    color: #fa7276;
+}
+
+[class*="l-article"] [class*="article__content"] img {
+    display: block;
+    width: 80%;
+margin: auto;
+}

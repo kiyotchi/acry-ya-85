@@ -1,0 +1,595 @@
+<?php
+    $ogpUrl = $product->thumbnailPicture->picture_url;
+    if (!empty($val = data_get($product, 'ogpPicture.url'))) {
+        $ogpUrl = $val;
+    }
+    $twitterUrl = $ogpUrl;
+    if (!empty($val = data_get($product, 'twitterCard.url'))) {
+        $twitterUrl = $val;
+    }
+?>
+@extends('layouts.base')
+@section('title', $title)
+@section('headCss')
+<link rel="stylesheet" href="/assets/stylesheets/projects/product.css">
+<link rel="stylesheet" href="/assets/rating/css/style.css">
+@endsection
+@section('description', $product->meta_description)
+@section('keywords', $product->productTopCategory->product_category_name.','.$product->product_name)
+
+@section('headStart')
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-56FGQ5X');</script>
+<!-- End Google Tag Manager -->
+@endsection
+
+@section('bodyStart')
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56FGQ5X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+@endsection
+
+
+@section('ogpUrl', $ogpUrl)
+@section('twitterUrl', $twitterUrl)
+@section('bodyId', 'p-product')
+@section('headEnd')
+    <script src="{{ route('products.const_js') }}"></script>
+    @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_ADD_HEAD_TAG]->html_part)
+        {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_ADD_HEAD_TAG]->html_part !!}
+    @endisset
+<script>
+var reproductionSelectorsSend = {!! is_string($reproductionSelectorsSend)
+    ? $reproductionSelectorsSend
+    : json_encode($reproductionSelectorsSend, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT)
+!!};
+</script>
+<script type="text/javascript" defer="defer" src="/assets/javascripts/selectors/reproductionSelectors.js"></script>
+@endsection
+@section('bodyEnd')
+<script>
+window.addEventListener('pageshow', function() {
+    console.log( typeof(firstscript) );
+    if( typeof(firstscript) == 'undefined' ){
+        //afterResetProductFormReset();
+        setTimeout(function() {
+            afterResetProductFormReset();
+        }, 500);
+    }
+});
+</script>
+@endsection
+@section('content')
+
+
+<?php
+$priceDisplayExclusion = require __DIR__.'/../../../config/price_display_exclusion.php';
+?>
+
+<!-- 再構築情報 -->
+<script>
+@if ( $product->versions_string != '' )
+  var reproductionSelectors = {!! $product->versions_string !!};
+@else
+  var reproductionSelectors = false;
+@endif
+</script>
+<!-- /再構築情報 -->
+
+
+    <div class="main__sub--white js-products reduild-target-area">
+        <nav class="c-pankuzu--scroll">
+          @include('common.notice')
+            <ul class="pankuzu__list">
+                <li><a href="{{ url('/') }}">HOME</a></li>
+                <li><a href="{{ route('products.list') }}">商品一覧</a></li>
+                <li><a href="{{ route('products.list', ['category_id'=>$product->productTopCategory->product_category_id]) }}">{{ $product->productTopCategory->product_category_name }}</a></li>
+                <li>{{ $title }}</li>
+            </ul>
+        </nav>
+        <!-- .p-overview-->
+            {!! $semi_order_html !!}
+    </div>
+    @if( isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_SPECIFICATION]->html_part)
+      || isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_PRECAUTION]->html_part)
+      || isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_MAKER_SOLD_OUT]->html_part)
+      || isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_PRECAUTION]->html_part)
+      || isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_SCHEDULE]->html_part)
+      || count($product->productFeatureTag) )
+    <div class="main__sub--gray">
+    <!-- .p-spec-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_SPECIFICATION]->html_part)
+            <section class="p-spec c-section">
+                <h2 class="section__title c-heading--lg-border">製品仕様</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_SPECIFICATION]->html_part !!}
+            </section>
+        @endisset
+    <!-- .p-notes-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_PRECAUTION]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border">注意事項</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_PRECAUTION]->html_part !!}
+            </section>
+        @endisset
+    <!-- .p-notes-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_MAKER_SOLD_OUT]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border" id="tagOutOfStock">メーカー欠品情報</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_MAKER_SOLD_OUT]->html_part !!}
+            </section>
+        @endisset
+    <!-- .p-notes-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_PRECAUTION]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border">配送に関する注意事項</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_PRECAUTION]->html_part !!}
+            </section>
+        @endisset
+    <!-- .p-notes-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_SCHEDULE]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border">出荷目安について</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_DELIVERY_SCHEDULE]->html_part !!}
+            </section>
+        @endisset
+    <!-- .p-tag-->
+        @if( count($product->productFeatureTag) )
+            <section id="tagSection" class="p-tag c-section">
+                @foreach($product->productFeatureTag as $item)
+                    <section class="tag__item c-flame--sm-white">
+                        <h3 class="item__title c-heading--sm">「{{ $item->product_feature_tag_name }}」について</h3>
+                        {!! $item->product_feature_tag_content !!}
+                    </section>
+                @endforeach
+            </section>
+        @endif
+    </div>
+    @endif
+    <div class="main__sub--white">
+        <!-- .p-relation-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_RELATED_CONTENT]->html_part)
+            <section class="p-notes c-section">
+                <h2 class="section__title c-heading--lg-border">関連コンテンツ</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_RELATED_CONTENT]->html_part !!}
+            </section>
+        @endisset
+
+        <!-- .p-relation-->
+        @isset($html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_CASE_STUDY]->html_part)
+            <section class="p-case c-section">
+                <h2 class="section__title c-heading--lg-border">活用事例</h2>
+                {!! $html_parts[\App\Services\HtmlPartService::PART_TYPE_ID_CASE_STUDY]->html_part !!}
+            </section>
+        @endisset
+
+
+
+        <!-- 埋め込み版レビュー -->
+        <script>
+        var customer_feedback_pc_word = '{{$product->customer_feedback_pc_word}}';
+        </script>
+        @if( $product->customer_feedback_pc_word != '' && $reviews['allCount'] >0  )
+        <a name="reviews-area" id="reviews-area"></a>
+        <section class="p-voice c-section">
+                <h2 class="section__title c-heading--lg-border">お客様の声 <br class="br-sp">（製品ご使用後のご感想）</h2>
+                <div class="customer-review-header">
+                  <!-- 星平均 -->
+                  <div class="star-avarage">
+                    <div class="detail-rating" data-avarage="<?= $reviews['avarage'] ?>">
+                      <div class="detail-rating-avarage-star"></div>
+                    </div>
+                    <div class="avarage">星5つ中の<?= $reviews['avarage'] ?></div>
+                    <div class="count"><?= number_format( $reviews['allCount'] ) ?>件</div>
+                  </div>
+                  <!-- /星平均 -->
+                  <!-- 星別合計 -->
+                  <div class="star-list">
+                    <table class="star-table">
+                      <tbody>
+                        @php
+                        $starCnt = 5;
+                        @endphp
+                        @foreach($reviews['stars'] as $star => $point )
+                        <tr class="list-item">
+                          <td>
+                            <div
+                              class="list-rating list-rating{{$starCnt}} count"
+                              data-star="{{$starCnt}}"
+                              data-target-point="{{$starCnt}}"
+                            >
+                              <div class="detail-rating-avarage-star"></div>
+                            </div>
+                          </td>
+                          <td>
+                            <span class="count" data-target-point="{{$starCnt}}">(<?= number_format($point) ?>)</span>
+                          </td>
+                          <td>
+                            <span
+                              class="star-percentage star-percentage-{{$starCnt}}"
+                              data-progress-all="{{$reviews['allCount']}}"
+                              data-progress-this="{{$point}}"
+                              data-progress-star="{{$starCnt}}"
+                            ></span>
+                          </td>
+                        </tr>
+                        @php
+                        $starCnt --;
+                        @endphp
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /星別合計 -->
+                </div>
+
+                <!-- レビュー並び替え -->
+                <div class="review-sort">
+                  <p class="review-sort-heading">並び替え</p>
+                  <div class="review-sort-inner">
+                    <form class="">
+                      <select class="review-sort-select" name="">
+                        <option value="新着順">新着順</option>
+                        <option value="古い順">古い順</option>
+                        <option value="評価が高い順">評価が高い順</option>
+                        <option value="評価が低い順">評価が低い順</option>
+                        <option value="写真付">写真付</option>
+                      </select>
+                    </form>
+                  </div>
+                </div>
+                <!-- /レビュー並び替え -->
+
+                <!-- レビューリスト -->
+                <div class="customer-review-list">
+                  @foreach( $reviews['firstPage'] as $num => $reviewItem )
+                    <div class="customer-review-item">
+                      <img class="user-icon" src="/assets/images/icon/icon_user.svg">
+                      <p class="review-date">
+                        <?= date('Y年m月d日', strtotime( $reviewItem->created_at ) ) ?>
+                      </p>
+                      <div class="item-row review-star">
+                        <span class="text">製品評価</span>
+                        <div class="review-rating review-rating<?= $num ?>" data-star="{{$reviewItem->star}}" data-revire-val="star">
+                          <div class="detail-rating-avarage-star"></div>
+                        </div>
+                      </div>
+                      <div class="item-row">
+                        <p class="review-name" data-revire-val="name">{{$reviewItem->name}}様</p>
+                        <p class="review-productname" data-revire-val="productname">{{$reviewItem->keyword1}}</p>
+                      </div>
+                      <p class="review-title" data-revire-val="title">{{$reviewItem->title}}</p>
+                      <div class="review-content" data-revire-val="content">
+                        {!! nl2br(e($reviewItem->content)) !!}
+                      </div>
+                      <a href="javascript:void(0);" class="fold-btn">▼続きを読む</a>
+                      <div class="review-img-area <?php if(empty($reviewItem->file)): ?>rating-hidden<?php endif; ?>">
+                        <img
+                          class="js-modal--image review-img"
+                          @if( $reviewItem['file'] != '')
+                            src="/storage/reviewimages{{env('FRONT_REVIEW_IMAGES_DIR')}}{{$reviewItem['file']}}"
+                          @else
+                            src=""
+                          @endif;
+                          data-revire-val="image"
+                        >
+                      </div>
+                      <div class="review-good" data-review-count="<?= $reviewItem->id ?>">
+                          <p
+                            data-good-count-area="<?= $reviewItem->id ?>"
+                            class="<?php if( $reviewItem->good_count == 0): ?>rating-hidden<?php endif; ?>"
+                          >
+                            <span
+                              class="review-good-count c-text-weightBold"
+                              data-good-count="<?= $reviewItem->id ?>"
+                            >
+                              <?= $reviewItem->good_count ?>
+                            </span>人のお客様が参考になったと回答
+                          </p>
+                          <p>
+                              レビューは参考になりましたか？
+                              <a
+                                href="javascript:void(0)"
+                                data-send-good="<?= $reviewItem->id ?>"
+                                class="<?php if( $reviewItem->good === true ): ?>review-good-disabled<?php else: ?>review-good-enable<?php endif; ?>"
+                              >
+                                参考になった
+                              </a>
+                          </p>
+                      </div>
+                    </div>
+                  @endforeach
+                </div>
+                <!-- /レビューリスト -->
+
+                <!-- ページネーション -->
+                <div class="listNavigation__pagenation c-pagenation rating-pagination">
+                </div>
+                <!--
+                ページ数: <span data-allpagecount="1"><?= $reviews['pageCount'] ?></span>ページ　
+                -->
+                現在表示の評価: <span data-current-start="1">全て表示</span>
+                <a href="javascript:void(0);" class="rating-hidden" data-star-reset="1">[選択解除]</a>　
+                <!--<span data-current-sort="1">新着順</span>　--->
+                <a href="/review?s[keyword]={{$product->customer_feedback_pc_word}}" target="_blank">すべてのレビューを参照します</a>
+                <!-- /ページネーション -->
+        </section>
+        <?php //レビュー操作系 ?>
+        @endif
+        <script src="/assets/rating/js/progressbar.js?version=20211030"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js?version=20211030"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css?version=20211030">
+        <script src="/assets/rating/js/rating-detail.js?version=20211030"></script>
+        <script src="/assets/rating/js/review-ajax.js?version=20211030"></script>
+        <!-- /埋め込み版レビュー -->
+
+        <?php /*
+        @if($product->customer_feedback_url_pc)
+            <section class="p-voice c-section">
+                <h2 class="section__title c-heading--lg-border">お客様の声 （製品ご使用後のご感想）</h2>
+                <script type="text/javascript">
+					if ((navigator.userAgent.indexOf('iPhone') > 0 ||
+						navigator.userAgent.indexOf('iPad') > 0 ||
+						navigator.userAgent.indexOf('iPod') > 0) ||
+						navigator.userAgent.indexOf('Android') > 0) {
+						document.write('<IFRAME NAME="uri" SRC="{{ $product->customer_feedback_url_sp }}" WIDTH=800 HEIGHT=220 SCROLLING="yes" FRAMEBORDER=0></IFRAME>');
+					} else {
+						document.write('<IFRAME NAME="uri" SRC="{{ $product->customer_feedback_url_pc }}" WIDTH=800 HEIGHT=220 SCROLLING="yes" FRAMEBORDER=0></IFRAME>');
+					}
+                </script>
+            </section>
+        @endif
+        */
+        ?>
+    </div>
+    @isset( $product->relatedProduct[0] )
+        <section class="p-relation c-section--noPadding">
+            <h2 class="section__title c-heading--lg-border">関連商品</h2>
+            <div class="l-list--card relation__list">
+                <div class="list__contnet c-cardGroup--5">
+                    @foreach($product->relatedProduct as $item)
+                        <?php
+                        $extName = false;
+                        foreach( $priceDisplayExclusion as $one ){
+                          $one = preg_quote($one, '/');
+                          if( preg_match( '/'.$one.'/', $item->product_name ) ){
+                            $extName = true;
+                            break;
+                          }
+                        }
+                        ?>
+                        <a href="{{ route('products.detail', ['id'=>$item->product_id]) }}" class="c-card--sm">
+                            <div class="card__head">
+                                @if( !empty($item->thumbnailPicture["picture_url"]) )
+                                    <div class="card__image">
+                                        <img src="{{ $item->thumbnailPicture["picture_url"] }}">
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="card__body">
+                                <p class="card__category c-text--xs">{{ $item->productTopCategory->product_category_name }}</p>
+                                <p class="card__title c-heading--xs">{{ $item->product_name }}</p>
+                                @if( isset( $item->price ) && $extName === false )
+                                <p class="card__price c-price--md">{{ number_format($item->tax_price) }}<span>円（税込）</span></p>
+                                @endif
+                                @if( !empty($item->productFeatureTag) )
+                                <div class="card__tag">
+                                    @foreach($item->productFeatureTag as $tag)
+                                        <p class="c-label--sm-black">{{ $tag->product_feature_tag_name }}</p>
+                                    @endforeach
+                                </div>
+                                @endif
+                                <?php if(
+                                      $item->customer_feedback_pc_word != ''
+                                      && isset($relatedReview[$item->customer_feedback_pc_word])
+                                      && $relatedReview[$item->customer_feedback_pc_word]['allCount'] > 0
+                                    ):
+                                ?>
+                                    <div class="item-rating">
+                                      <div id="rating-id{{ $item->product_id }}" class="item-rating js-rating" data-avarage="<?= $relatedReview[$item->customer_feedback_pc_word]['avarage'] ?>">
+                                        <div class="detail-rating-avarage-star"></div>
+                                      </div>
+                                      <span class="item-rating-review"><?= number_format($relatedReview[$item->customer_feedback_pc_word]['allCount']) ?>件のレビュー</span>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endisset
+
+
+
+    <?php
+    $jsonLD = [
+      '@context' => 'http://schema.org',
+      '@type' => 'website',
+      'name' => 'アクリル板材料の加工とアクリル製品の専門店 | アクリ屋ドットコム',
+      'inLanguage' => 'jp',
+      'publisher' => [
+        '@type' => 'Organization',
+        'name' => '株式会社さくら樹脂',
+      ],
+      'headline' => 'アクリル板材料の加工とアクリル製品の専門店',
+      'description' => 'アクリル板材料の加工とアクリル製品のことなら「アクリ屋ドットコム」。アクリル製品のセミオーダー加工や特注品のご注文も承っております。１万円以上は送料無料。',
+      'url' => 'https://acry-ya.com/'
+    ];
+    ?>
+    <script type="application/ld+json">
+    <?= json_encode( $jsonLD, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT ) ?>
+    </script>
+
+    <?php
+    $jsonLD = [
+      '@context' => 'http://schema.org',
+      '@type' => 'Organization',
+      'name' => '株式会社さくら樹脂',
+      'description' => "株式会社さくら樹脂は、アクリル材料加工・アクリル製品のネットショップ「アクリ屋ドットコム」の運営を主体に、その他、工業用樹脂部品の受託製造を行っています。製品は、精密で精度の要求される工業製品を制作する加工技術をベースに、最新設備を駆使し、各種の樹脂加工のノウハウを持つ専門の職人が制作致します。",
+      'url' => 'https://'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+      'telephone' => '+81 45-547-6372',
+      'address' => [
+         '@type'=> 'PostalAddress',
+         'streetAddress' => '樽町4-13-2',
+         'addressLocality' =>  '港北区',
+         'addressRegion' => '神奈川県',
+         'postalCode' => '222-0001',
+         'addressCountry'=> "JP"
+      ]
+    ];
+    ?>
+    <script type="application/ld+json">
+    <?= json_encode( $jsonLD, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT ) ?>
+    </script>
+
+    <?php
+    $jsonLD = [
+        '@context' => 'http://schema.org',
+        '@type' => 'Product',
+        'name' => $title,
+        'description' => $product->meta_description,
+        'image' => [],
+        'brand' => [
+            '@type' =>  'Thing',
+            'name' => '株式会社さくら樹脂'
+        ],
+        /*
+        'sku' => [ //商品のsku
+            'sku-blue-s',
+            'sku-blue-m',
+            'sku-blue-l'
+         ],
+        */
+        //価格情報
+        /*
+        'offers' => [
+            '@type' => 'Offer',
+            'priceCurrency' => 'JPY',
+            'price' => $item->tax_price,
+            'priceValidUntil' => date('Y-m-d', strtotime('+1 month')), //価格の有効期限
+            'availability' => 'InStock', //InStock（在庫あり）OutOfStock（在庫なし）PreOrder（予約）
+            'url' => 'https://'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+        ],
+        */
+        'offers' => [
+            '@type' => 'AggregateOffer',
+            'priceCurrency' => 'JPY',
+            'lowPrice' => ( (isset($product->tax_price))?$product->tax_price:2000 ),
+        ],
+        'aggregateRating' => [ //商品の評価
+          '@type' => 'AggregateRating',
+          'ratingValue' => $reviews['avarage'], //平均点
+          'reviewCount' => $reviews['allCount'], //評価した人数
+        ],
+        /**
+        'review' => [ //以下レビューの書き方
+          [
+            '@type' => 'Review',
+            'author' => [
+              '@type' => 'Person',
+              'name' => 'レビュアーの名前',
+              'sameAs' => 'https://facebook.com/tanaka' //レビュアーのサイトやSNS
+            ],
+            'datePublished' => '2019-04-01', //レビューした日時
+            'description' => 'レビュー文章',
+            'reviewRating' => [
+                '@type' => 'Rating',
+                'bestRating' => '10', //最高得点
+                'worstRating' => '1', //最低点
+                'ratingValue' => '6' //評価した点数
+            ]
+          ],
+        ]
+        **/
+    ];
+    if( $product->customer_feedback_pc_word == ''){
+      unset( $jsonLD['aggregateRating'] );
+    }
+    if( $reviews['allCount'] == 0 ){
+      unset( $jsonLD['aggregateRating'] );
+    }
+    if(
+      $product->tax_price === null
+      || $product->tax_price == ''
+      || $product->tax_price == 0
+    ){
+      unset( $jsonLD['offers']['price'] );
+      $jsonLD['@type'] = 'AggregateOffer';
+      $jsonLD['offers']['lowPrice']= 2000;
+      $jsonLD['offers']['priceCurrency'] = 'JPY';
+    }
+    foreach($product->picture as $picture){
+      $jsonLD['image'][] = $picture->picture_url;
+    }
+    ?>
+    <script type="application/ld+json">
+    <?= json_encode( $jsonLD, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT ) ?>
+    </script>
+
+    <?php
+    $jsonLD = [
+      '@context' =>  'http://schema.org',
+      '@type' =>  'WebSite',
+      'url' => 'https://acry-ya.com/',
+      'potentialAction' =>  [
+        '@type' =>  'SearchAction',
+        'target' =>  'https://test.acry-ya.com/products/search/?cat=&word={query_string}',
+        'query-input' =>  'required name=query_string'
+      ]
+    ]
+    ?>
+    <script type="application/ld+json">
+    <?= json_encode( $jsonLD, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT ) ?>
+    </script>
+
+    <?php
+    $jsonLD = [
+        '@context' =>  'http://schema.org',
+        '@type' =>  'BreadcrumbList',
+        'itemListElement' =>  [
+        [
+            '@type' =>  'ListItem',
+            'position' =>  1,
+            'item' =>  [
+                 '@id' =>  url('/'),
+                 'name' =>  'HOME'
+            ]
+        ],
+        [
+             '@type' =>  'ListItem',
+             'position' =>  2,
+             'item' =>  [
+                  '@id' =>  route('products.list'),
+                  'name' =>  '商品一覧'
+              ]
+         ],
+         [
+               '@type' =>  'ListItem',
+               'position' =>  3,
+               'item' =>  [
+                    '@id' =>  route('products.list', ['category_id'=>$product->productTopCategory->product_category_id]),
+                    'name' =>  $product->productTopCategory->product_category_name
+               ]
+          ],
+          [
+                '@type' =>  'ListItem',
+                'position' =>  4,
+                'item' =>  [
+                     '@id' => 'https://'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+                     'name' =>  $title
+                ]
+           ]
+      ]
+    ];
+    ?>
+    <script type="application/ld+json">
+    <?= json_encode( $jsonLD, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT ) ?>
+    </script>
+
+
+@endsection

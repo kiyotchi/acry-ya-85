@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 104">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e5f4f3;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #009c81;
+      }
+
+      .cls-4 {
+        fill: #efc75e;
+      }
+
+      .cls-5 {
+        fill: #504b5a;
+      }
+    </style>
+  </defs>
+  <title>アセット 59</title>
+  <g id="レイヤー_2" data-name="レイヤー 2">
+    <g id="bg">
+      <g>
+        <circle class="cls-1" cx="52" cy="52" r="52"/>
+        <g>
+          <rect class="cls-2" x="28" y="28" width="52" height="40"/>
+          <g>
+            <circle class="cls-3" cx="56.727" cy="44.727" r="8.727"/>
+            <rect class="cls-4" x="56.727" y="44.727" width="15.273" height="15.273"/>
+            <path class="cls-2" d="M56.727,53.455a8.728,8.728,0,0,0,8.728-8.728H56.727Z"/>
+          </g>
+          <g>
+            <rect class="cls-4" x="24" y="48" width="8" height="28"/>
+            <rect class="cls-2" x="28" y="51.5" width="4" height="1"/>
+            <rect class="cls-2" x="28" y="55.5" width="4" height="1"/>
+            <rect class="cls-2" x="28" y="59.5" width="4" height="1"/>
+            <rect class="cls-2" x="28" y="63.5" width="4" height="1"/>
+            <rect class="cls-2" x="28" y="67.5" width="4" height="1"/>
+            <rect class="cls-2" x="28" y="71.5" width="4" height="1"/>
+          </g>
+          <g>
+            <rect class="cls-3" x="36" y="52" width="8" height="24"/>
+            <polygon class="cls-4" points="44 52 36 52 40 44 44 52"/>
+            <polygon class="cls-5" points="40 44 38 48 42 48 40 44"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

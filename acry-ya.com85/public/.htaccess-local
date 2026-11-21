@@ -1,0 +1,77 @@
+#Options +ExecCGI
+AddHandler cgi-script .cgi .pl
+
+ErrorDocument 401 /401.html
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+<FilesMatch "\.(html|htm)$">
+  AddType application/x-httpd-php .html .htm
+</FilesMatch>
+
+<Files ~ "\.(html|php)$">
+Header set Pragma no-cache
+Header set Cache-Control no-cache
+Header set Expires "Thu, 01 Dec 1994 16:00:00 GMT"
+</Files>
+
+
+<Files ~ "\.(htm|html|php|jpe?g|egif|png|cgi)$">
+Header set Pragma no-cache
+Header set Cache-Control no-cache
+</Files>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_URI} (.+)/$
+    # RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+    
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    RewriteCond %{REQUEST_URI} (^/products/)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+</IfModule>
+
+## 有り無し統一
+#Options +FollowSymLinks
+#RewriteEngine on
+#RewriteCond %{HTTP_HOST} ^acry-ya\.com$
+#RewriteRule ^(.*)$ http://www.acry-ya.com/$1 [R=301,L]
+#RewriteRule ^index\.html$ http://www.acry-ya.com/ [R=301,L]
+##RewriteRule ^test/index\.html$ http://www.acry-ya.com/ [R=301,L]
+
+## Basic認証
+SetEnvIf X-Forwarded-For 150.249.195.176 allowip1
+SetEnvIf X-Forwarded-For 117.102.194.178 allowip2
+SetEnvIf X-Forwarded-For 36.3.201.103 allowip3
+SetEnvIf X-Forwarded-For 54.65.54.18 allowip4
+AuthUserFile /var/www/htpasswd/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Basic Auth"
+AuthType Basic
+Require valid-user
+Satisfy any
+order deny,allow
+allow from env=allowip1
+allow from env=allowip2
+allow from env=allowip3
+allow from env=allowip4
+deny from all

@@ -1,0 +1,149 @@
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.calendar-month {
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.calendar-month h3 {
+  text-align: center;
+  margin: 5px 0 10px;
+  font-size: x-large;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar-table th,
+.calendar-table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.3em;
+}
+
+.sunday {
+  color: red;
+}
+
+.saturday {
+  color: blue;
+}
+
+.holiday {
+  background: #ffc1e0;
+}
+
+.business {
+  background: #fff;
+}
+
+
+/* PC：均等割 */
+@media (min-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: repeat(var(--cols), 1fr);
+  }
+}
+
+/* SP：1列 */
+@media (max-width: 767px) {
+  .calendar-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calendar-nav {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.calendar-nav button {
+  padding: 5px 26px;
+  margin: 11px 5px;
+  cursor: pointer;
+  background-color: #fff;
+
+  border-radius: 5px;
+  background: linear-gradient(to bottom, #f5f5f5, #dcdcdc);
+  box-shadow: 0 3px 6px #ddd, inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: solid 1px #999;
+}
+
+.calendar-table th {
+  background: #f0f0f0;
+  /* 平日 */
+}
+
+.calendar-table th.sunday {
+  background: red;
+  color: #fff;
+  /* 日曜 */
+}
+
+.calendar-table th.saturday {
+  background: blue;
+  color: #fff;
+  /* 土曜 */
+}
+
+.calendar-table td.today {
+  position: relative;
+}
+
+.calendar-table td.today {
+  border: 5px solid #009A98;
+}
+
+.calendar-table td.other-month {
+  background: #fafafa;
+}
+
+.other-month {
+  background: #f5f5f5;
+  color: transparent;
+}
+
+.sq-box {
+  display: inline-block;
+  width: 2em;
+  /* 文字と同じサイズに設定 */
+  height: 1em;
+  background-color: #ffc1e0;
+  /* ここで好きな色に変更 */
+  vertical-align: middle;
+  /* 文字との高さを合わせる */
+  margin-right: 4px;
+  /* 少し隙間を空ける */
+  border-radius: 2px;
+  /* 少し角を丸くすると柔らかい印象に */
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* 図形と文字の間隔 */
+}
+
+.holiday-marker {
+  width: 16px;
+  height: 16px;
+  background-color: #3498db;
+  /* 青系の休みならこちら */
+  display: block;
+}
+
+.calendar-nav button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}

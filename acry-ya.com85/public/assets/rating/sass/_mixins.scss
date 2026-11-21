@@ -1,0 +1,232 @@
+//
+// Mixins
+// --------------------------------------------------
+
+@mixin reset-html5doctor {
+  /*!
+  * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
+  * Richard Clark (http://richclarkdesign.com)
+  * http://cssreset.com
+  */
+  html, body, div, span, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  abbr, address, cite, code,
+  del, dfn, em, img, ins, kbd, q, samp,
+  small, strong, sub, sup, var,
+  b, i,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section, summary,
+  time, mark, audio, video {
+      margin:0;
+      padding:0;
+      border:0;
+      outline:0;
+      font-size:100%;
+      vertical-align:baseline;
+      background:transparent;
+  }
+  body {
+      line-height:1;
+  }
+  article,aside,details,figcaption,figure,
+  footer,header,hgroup,menu,nav,section {
+      display:block;
+  }
+  nav ul {
+      list-style:none;
+  }
+  blockquote, q {
+      quotes:none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+      content:'';
+      content:none;
+  }
+  a {
+      margin:0;
+      padding:0;
+      font-size:100%;
+      vertical-align:baseline;
+      background:transparent;
+  }
+  /* change colours to suit your needs */
+  ins {
+      background-color:#ff9;
+      color:#000;
+      text-decoration:none;
+  }
+  /* change colours to suit your needs */
+  mark {
+      background-color:#ff9;
+      color:#000;
+      font-style:italic;
+      font-weight:bold;
+  }
+  del {
+      text-decoration: line-through;
+  }
+  abbr[title], dfn[title] {
+      border-bottom:1px dotted;
+      cursor:help;
+  }
+  table {
+      border-collapse:collapse;
+      border-spacing:0;
+  }
+  /* change border colour to suit your needs */
+  hr {
+      display:block;
+      height:1px;
+      border:0;
+      border-top:1px solid #cccccc;
+      margin:1em 0;
+      padding:0;
+  }
+  input, select {
+      vertical-align:middle;
+  }
+} // [end] mixin reset-html5doctor
+
+@mixin cf {
+  *zoom: 1;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+
+// Font
+// -------------------------
+@mixin fz($sizeValue: 16) {
+  //font-size: $sizeValue + px;
+  font-size: ($sizeValue * 0.0625) + rem;
+}
+@mixin font($fontSize: 16,$fontWeight: null) {
+  //font-size: $sizeValue + px;
+  font-size: ($fontSize * 0.0625) + rem;
+  @if $fontWeight != null {
+    font-weight: $fontWeight;
+  }
+}
+
+// pie
+@mixin pie($pref: '') {
+  position: relative;
+  behavior: url('#{$pref}css/PIE.php');
+}
+
+
+// Placeholder Color
+// -------------------------
+@mixin placeholderColor($color) {
+    &:placeholder-shown {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color:$color;
+    }
+    &:-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color:$color;
+    }
+}
+
+
+// buttons
+// -------------------------
+@mixin btnSet{
+  text-decoration: none;
+  &:focus, &:disabled, &:visited, &:focus {
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+  }
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):active:focus {
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+  }
+  &:hover, &:active, &.touch {
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+  }
+}
+@mixin btnColor(
+  $btnBgColor: #333,
+  $btnBdColor: #333,
+  $btnColor: #fff,
+  $hoverBgColor: null,
+  $hoverBdColor: null,
+  $hoverColor: null,
+  $opacity: 0.7,
+  $btnBdWeight: 1px
+) {
+  background-color: $btnBgColor;
+  border: $btnBdWeight solid $btnBdColor;
+  color: $btnColor;
+  &:focus, &:disabled, &:visited, &:focus {
+    background-color: $btnBgColor;
+    border: $btnBdWeight solid $btnBdColor;
+    color: $btnColor;
+    outline: none;
+    box-shadow: none;
+  }
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):active:focus {
+    background-color: inherit;
+    border: $btnBdWeight solid inherit;
+    color: inherit;
+  }
+  &:hover, &:active, &.touch {
+    @if ($hoverBgColor != null and $hoverBdColor != null and $hoverColor != null) {
+      background-color: $hoverBgColor;
+      border: $btnBdWeight solid $hoverBdColor;
+      color:$hoverColor;
+      opacity: 1;
+    } @else {
+      background-color: $btnBgColor;
+      border: $btnBdWeight solid $btnBdColor;
+      color:$btnColor;
+      opacity: $opacity;
+    }
+  }
+}
+
+
+// Font
+// -------------------------
+@mixin flexWidth($width: 50, $value: null) {
+  //font-size: $sizeValue + px;
+  max-width: $width;
+  @if ($value == null) {
+    flex: $width;
+  } @else {
+    flex: $value $width;
+  }
+}
+
+
+// content width
+// -------------------------
+@mixin contentWidth {
+  max-width: $maxWidth;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,73 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'static.php'; ?>
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <?php echo $head_start; ?>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=10, user-scalable=yes">
+  <meta meta http-equiv="Expires" content="604800">
+  <meta name="format-detection" content="telephone=no">
+  <title>3Dプレビュー作成中｜アクリ屋ドットコム</title>
+  <meta property="og:title" content="3Dプレビュー作成中｜アクリ屋ドットコム">
+  <meta property="og:type" content="website">
+  <!--meta(property='fb:app_id', content='')-->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <style type="text/css">
+  #p-loading .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #p-loading .item {
+    width: 30%;
+    text-align: center;
+  }
+
+  #p-loading img {
+    width: 30%;
+  }
+
+  #p-loading body * {
+      text-align: center;
+  }
+
+  @media screen and (min-width: 601px), print {
+      .l-main [class*="main__sub"] {
+          padding: 20rem 56px;
+      }
+  }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <script src="https://jpostal-1006.appspot.com/jquery.jpostal.js" defer></script>
+  <script src="/assets/javascripts/common.js"></script>
+  <script src="/assets/javascripts/function.js" defer></script>
+  <script src="/assets/javascripts/plugins/cookie.js" defer></script>
+  <script src="/assets/javascripts/plugins/add-comma.js" defer></script>
+  <script src="/assets/javascripts/plugins/form-address.js" defer></script>
+</head>
+
+<body id="p-loading">
+  <div class="">
+    <main class="l-main">
+      <div class="main__sub--white">
+        <?php echo $notice; ?>
+        <div class="container">
+          <div class="item">
+            <img src="/storage/images/shared_item/loading.gif">
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <?php echo $body_end; ?>
+</body>
+
+</html>

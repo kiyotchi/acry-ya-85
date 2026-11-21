@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/*===========================================
+    p-caseStudy
+===========================================*/
+#p-caseStudy .p-content .content__product {
+  padding: 2rem 0;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 0px #ddd;
+}
+
+#p-caseStudy .p-content .content__product .product__sub dl dt {
+    width: 5em;
+}
+#p-caseStudy .p-content .content__detail .detail__section > * {
+    margin-bottom: 20px;
+}
+
+[class*="c-dashinfo"] {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #ddd;
+}

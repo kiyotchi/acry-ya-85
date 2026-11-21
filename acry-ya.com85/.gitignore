@@ -110,5 +110,5 @@ Search-Replace-DB-master
 /public/cgibin/--memberadmin
 /public/cgibin/special/tmpl_comp
 /public/.htaccess
-/resources/views/common/sidemenu-top.blade.php
-/resources/views/top
+#/resources/views/common/sidemenu-top.blade.php
+#/resources/views/top

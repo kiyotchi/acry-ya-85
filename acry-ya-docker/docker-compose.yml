@@ -43,7 +43,7 @@ services:
       DB_PASSWORD_85: ${DB_PASSWORD_85:-acryya85}
       TZ: Asia/Tokyo
     ports:
-      - "${MYSQL_PORT:-33060}:3306"
+      - "${MYSQL_PORT:-3306}:3306"
     volumes:
       - ./db-data:/var/lib/mysql
       - ./mysql/conf/my.cnf:/etc/mysql/conf.d/zz-acryya.cnf:ro
@@ -81,8 +81,8 @@ services:
       DB_HOST: mysql
       DB_PORT: "3306"
       DB_DATABASE: acryya_system
-      DB_USERNAME: acryya58
-      DB_PASSWORD: ${DB_PASSWORD_58:-acryya58}
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MAIL_DRIVER: smtp
       MAIL_MAILER: smtp
       MAIL_HOST: mailpit
@@ -123,8 +123,8 @@ services:
       DB_HOST: mysql
       DB_PORT: "3306"
       DB_DATABASE: acryya_system
-      DB_USERNAME: acryya58
-      DB_PASSWORD: ${DB_PASSWORD_58:-acryya58}
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MAIL_DRIVER: smtp
       MAIL_MAILER: smtp
       MAIL_HOST: mailpit
@@ -167,8 +167,8 @@ services:
       DB_HOST: mysql
       DB_PORT: "3306"
       DB_DATABASE: acryya_system85
-      DB_USERNAME: acryya85
-      DB_PASSWORD: ${DB_PASSWORD_85:-acryya85}
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MAIL_DRIVER: smtp
       MAIL_MAILER: smtp
       MAIL_HOST: mailpit
@@ -209,8 +209,8 @@ services:
       DB_HOST: mysql
       DB_PORT: "3306"
       DB_DATABASE: acryya_system85
-      DB_USERNAME: acryya85
-      DB_PASSWORD: ${DB_PASSWORD_85:-acryya85}
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MAIL_DRIVER: smtp
       MAIL_MAILER: smtp
       MAIL_HOST: mailpit
@@ -268,9 +268,9 @@ services:
       - "${PMA_PORT:-8080}:80"
     environment:
       PMA_HOST: mysql
-      # acryya85 は acryya_system / acryya_system85 の両方にアクセスできる
-      PMA_USER: acryya85
-      PMA_PASSWORD: ${DB_PASSWORD_85:-acryya85}
+      # アプリと同じく root/root で接続する
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       UPLOAD_LIMIT: 64M
     networks:
       - appnet

@@ -83,7 +83,7 @@
 
 - PHP 7.2 の mysqlnd は MySQL 8 の `caching_sha2_password` を安定して扱えない（PHP 7.4.4 以降で正式対応）。
 - MySQL 8.4 は `mysql_native_password` がデフォルト無効。
-- → MySQL 8.4 で `mysql_native_password=ON` を有効にし、**5.8 用ユーザーだけ native password** にする。85 用ユーザーは `caching_sha2_password` のままでよい。本番 RDS も同じ構成（PHP 7.2 から MySQL 8.4 へ接続）と考えられる。
+- → MySQL 8.4 で `mysql_native_password=ON` を有効にし、ローカルで使う接続ユーザー（`root`、予備の `acryya58` / `acryya85`）はすべて `mysql_native_password` にする。本番 RDS も同じ構成（PHP 7.2 から MySQL 8.4 へ接続）と考えられる。
 
 ### 2.7 ポート
 
@@ -111,7 +111,7 @@ src-pgadmin-1   0.0.0.0:8001->80/tcp
 | admin58 | 8003 | ドキュメント通り |
 | front85 | **8000** | 他プロジェクト使用中なら停止するか `.env` で変更 |
 | admin85 | **8001** | 同上 |
-| MySQL | 33060 | ホスト 3306 との衝突回避 |
+| MySQL | 3306 | ホストから直接接続（root/root） |
 | Mailpit SMTP | 1025 | |
 | Mailpit UI | 8025 | |
 | phpMyAdmin | 8080 | 任意 |
@@ -146,7 +146,7 @@ Host (macOS / Docker Desktop)
 ├─ :8000  front85   ── Apache + PHP 8.5 ── /var/www/acry-ya.com85
 ├─ :8001  admin85   ── Apache + PHP 8.5 ── /var/www/admin.acry-ya.com85
 │
-├─ :33060 mysql     ── MySQL 8.4
+├─ :3306  mysql     ── MySQL 8.4（root/root）
 │     ├─ acryya_system     (dump2026.sql)
 │     └─ acryya_system85   (dump2026.sql の複製)
 │
@@ -449,7 +449,7 @@ services:
       DB_PASSWORD_85: ${DB_PASSWORD_85:-acryya85}
       TZ: Asia/Tokyo
     ports:
-      - "${MYSQL_PORT:-33060}:3306"
+      - "${MYSQL_PORT:-3306}:3306"
     volumes:
       - ./db-data:/var/lib/mysql
       - ./mysql/conf/my.cnf:/etc/mysql/conf.d/zz-acryya.cnf:ro
@@ -487,8 +487,8 @@ services:
       DB_HOST: mysql
       DB_PORT: "3306"
       DB_DATABASE: acryya_system
-      DB_USERNAME: acryya58
-      DB_PASSWORD: ${DB_PASSWORD_58:-acryya58}
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MAIL_DRIVER: smtp
       MAIL_MAILER: smtp
       MAIL_HOST: mailpit
@@ -530,8 +530,8 @@ services:
       DB_HOST: mysql
       DB_PORT: "3306"
       DB_DATABASE: acryya_system
-      DB_USERNAME: acryya58
-      DB_PASSWORD: ${DB_PASSWORD_58:-acryya58}
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MAIL_DRIVER: smtp
       MAIL_MAILER: smtp
       MAIL_HOST: mailpit
@@ -573,8 +573,8 @@ services:
       DB_HOST: mysql
       DB_PORT: "3306"
       DB_DATABASE: acryya_system85
-      DB_USERNAME: acryya85
-      DB_PASSWORD: ${DB_PASSWORD_85:-acryya85}
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MAIL_DRIVER: smtp
       MAIL_MAILER: smtp
       MAIL_HOST: mailpit
@@ -616,8 +616,8 @@ services:
       DB_HOST: mysql
       DB_PORT: "3306"
       DB_DATABASE: acryya_system85
-      DB_USERNAME: acryya85
-      DB_PASSWORD: ${DB_PASSWORD_85:-acryya85}
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MAIL_DRIVER: smtp
       MAIL_MAILER: smtp
       MAIL_HOST: mailpit
@@ -690,8 +690,9 @@ ADMIN58_PORT=8003
 FRONT85_PORT=8000
 ADMIN85_PORT=8001
 
-MYSQL_PORT=33060
+MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=root
+# 予備ユーザー（アプリは root で接続）
 DB_PASSWORD_58=acryya58
 DB_PASSWORD_85=acryya85
 
@@ -729,11 +730,15 @@ MySQL 公式イメージの entrypoint は、初回起動時に `/docker-entrypo
 set -e
 
 mysql -uroot -p"${MYSQL_ROOT_PASSWORD}" <<SQL
+# アプリは root で接続する。PHP 7.x でも接続できるよう認証方式を変更する
+ALTER USER 'root'@'%'
+    IDENTIFIED WITH mysql_native_password BY '${MYSQL_ROOT_PASSWORD}';
+
 ALTER USER '${MYSQL_USER}'@'%'
     IDENTIFIED WITH mysql_native_password BY '${MYSQL_PASSWORD}';
 
 CREATE USER IF NOT EXISTS 'acryya85'@'%'
-    IDENTIFIED WITH caching_sha2_password BY '${DB_PASSWORD_85}';
+    IDENTIFIED WITH mysql_native_password BY '${DB_PASSWORD_85}';
 
 CREATE DATABASE IF NOT EXISTS \`acryya_system85\`
     CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -771,14 +776,17 @@ default-time-zone = +09:00
 sql_mode = NO_ENGINE_SUBSTITUTION
 ```
 
-> `--mysql-native-password=ON` は MySQL 8.4 のコマンドラインオプション。8.0 系を使う場合は `--default-authentication-plugin=mysql_native_password` に読み替える。`mysql_native_password` は将来の MySQL で削除予定のため、5.8 退役後に 85 ユーザーだけにする。
+> `--mysql-native-password=ON` は MySQL 8.4 のコマンドラインオプション。8.0 系を使う場合は `--default-authentication-plugin=mysql_native_password` に読み替える。`mysql_native_password` は将来の MySQL で削除予定のため、本番移行時には認証方式を見直す。
 
 ### 7.2 DB の使い分け
 
 | アプリ | DB | ユーザー | 認証 |
 |---|---|---|---|
-| front58 / admin58 | `acryya_system` | `acryya58` | `mysql_native_password` |
-| front85 / admin85 | `acryya_system85` | `acryya85` | `caching_sha2_password` |
+| front58 / admin58 | `acryya_system` | `root` | `mysql_native_password` |
+| front85 / admin85 | `acryya_system85` | `root` | `mysql_native_password` |
+
+ローカル開発では接続を簡略化するため、全アプリが `root` / `root` で接続する。
+`acryya58` / `acryya85` は予備ユーザーとして残している（`00-users.sh` が作成）。
 
 `ローカルインフラ構成.md` は「各環境とも同じ DB を見る」としているが、**アップグレード検証では 58 と 85 で DB を分ける**ことを推奨する。
 
@@ -788,7 +796,7 @@ sql_mode = NO_ENGINE_SUBSTITUTION
 - 同じダンプから作るため、初期データは同一。画面比較が可能。
 - 移行完了後に `DB_DATABASE` を `acryya_system` に戻せば、最終的な同一 DB 運用に切り替えられる。
 
-同じ DB を見たい場合は、`front85` / `admin85` の `DB_DATABASE` を `acryya_system`、`DB_USERNAME` を `acryya58` に変更する（ただし 85 側の書き込みが 58 側に影響する）。
+同じ DB を見たい場合は、`front85` / `admin85` の `DB_DATABASE` を `acryya_system` に変更する（ユーザーは `root` のままでよい。ただし 85 側の書き込みが 58 側に影響する）。
 
 ### 7.3 ダンプのマイグレーション不整合
 
@@ -870,7 +878,7 @@ find "acry-ya.com/storage/logs" -type f -name '*.log' -mtime +7 -delete
 - Docker Desktop for Mac（Docker 29.x / Compose v2 以降を確認済み）
 - Docker Desktop の File Sharing に **`/Volumes/Untitled 1` が含まれていること**（プロジェクトが外付けボリューム上にあるため）
   - Settings → Resources → File Sharing で確認・追加
-- ホストの 8002 / 8003 / 8000 / 8001 / 33060 / 1025 / 8025 が空いていること
+- ホストの 8002 / 8003 / 8000 / 8001 / 3306 / 1025 / 8025 が空いていること
 
 ### 9.2 85 フォルダの作成（Phase 0）
 
@@ -955,11 +963,12 @@ docker compose exec admin85 chown -R www-data:www-data storage bootstrap/cache
 - `php artisan key:generate` は実行しない（既存の `APP_KEY` を維持）。
 - `php artisan storage:link` は実行しない（§8.1）。
 - `php artisan migrate` は実行しない（§7.3）。
-- 既存の `db-data/` を使い続ける場合、`acryya85` が `caching_sha2_password` のままだと
+- 既存の `db-data/` を使い続ける場合、`root` が `caching_sha2_password` のままだと
   PHP 7.x で `SQLSTATE[HY000] [2054]` になる。以下で変更する（新規ボリュームでは
   `00-users.sh` が最初から `mysql_native_password` で作成する）。
 
   ```sql
+  ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
   ALTER USER 'acryya85'@'%' IDENTIFIED WITH mysql_native_password BY 'acryya85';
   FLUSH PRIVILEGES;
   ```
@@ -1107,8 +1116,7 @@ docker compose exec -T mysql \
 
 - [ ] `docker compose ps` で MySQL が healthy
 - [ ] `acryya_system` と `acryya_system85` の両方が存在する
-- [ ] `acryya58` が `mysql_native_password` で接続できる
-- [ ] `acryya85` が `caching_sha2_password` で接続できる
+- [ ] `root` / `root` で `acryya_system` / `acryya_system85` に接続できる
 - [ ] Mailpit にメールが届く
 - [ ] `storage/logs/laravel.log` に致命的エラーがない
 - [ ] PHP 8.5 側で deprecation が大量に出ていない（出た場合はアップグレード計画で修正）

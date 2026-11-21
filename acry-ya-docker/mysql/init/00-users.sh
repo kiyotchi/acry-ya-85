@@ -10,6 +10,10 @@ set -e
 #      mysql_native_password にする（PHP 8.x からも接続可能）
 # ---------------------------------------------------------------------------
 mysql -uroot -p"${MYSQL_ROOT_PASSWORD}" <<SQL
+# アプリは root で接続する。PHP 7.x でも接続できるよう認証方式を変更する
+ALTER USER 'root'@'%'
+    IDENTIFIED WITH mysql_native_password BY '${MYSQL_ROOT_PASSWORD}';
+
 ALTER USER '${MYSQL_USER}'@'%'
     IDENTIFIED WITH mysql_native_password BY '${MYSQL_PASSWORD}';
 

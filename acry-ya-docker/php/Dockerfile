@@ -57,8 +57,12 @@ RUN set -eux; \
             --with-freetype \
             --with-jpeg; \
     fi; \
-    docker-php-ext-install -j"$(nproc)" \
-        pdo_mysql mbstring gd intl exif bcmath opcache
+    EXTS="pdo_mysql mbstring gd intl exif bcmath"; \
+    # PHP 8.5 以降は opcache が本体に組み込み済みのため install 不要
+    if [ "${PHP_VERSION%%.*}" = "7" ] || { [ "${PHP_VERSION%%.*}" = "8" ] && [ "$(echo "$PHP_VERSION" | cut -d. -f2)" -lt 5 ]; }; then \
+        EXTS="$EXTS opcache"; \
+    fi; \
+    docker-php-ext-install -j"$(nproc)" $EXTS
 
 # ---------------------------------------------------------------------------
 # Composer

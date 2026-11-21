@@ -3,6 +3,7 @@
   <component name="PHPUnit">
     <option name="directories">
       <list>
+        <option value="$PROJECT_DIR$/acry-ya.com/tests" />
         <option value="$PROJECT_DIR$/admin.acry-ya.com/tests" />
       </list>
     </option>

@@ -1,9 +1,11 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class TDDDiscountRateSeeder extends Seeder
+class TDDColorGroupSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +15,8 @@ class TDDDiscountRateSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('discount_rates')->insert([
-            'discount_rate_title' => '割引率タイトル01',
+        DB::table('color_groups')->insert([
+            'color_group_name' => 'カラーグループ1'
         ]);
     }
 }

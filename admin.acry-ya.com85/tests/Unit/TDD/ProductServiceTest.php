@@ -25,9 +25,9 @@ class ProductServiceTest extends TestCase
     public function testFindList()
     {
         $this->markTestSkipped();
-        $this->seed('ProductTypeTableSeeder');
-        $this->seed('TDDProductCategoryTableSeeder');
-        $this->seed('TDDProductTableSeeder');
+        $this->seed(\Database\Seeders\ProductTypeTableSeeder::class);
+        $this->seed(\Database\Seeders\TDDProductCategoryTableSeeder::class);
+        $this->seed(\Database\Seeders\TDDProductTableSeeder::class);
         $product_service = new ProductService();
         $product_name = "テスト";
         $product_code = "99999";
@@ -61,8 +61,8 @@ class ProductServiceTest extends TestCase
     public function testRegister()
     {
         #$this->markTestSkipped();
-        #$this->seed('ProductTypeTableSeeder');
-        #$this->seed('TDDProductCategoryTableSeeder');
+        #$this->seed(\Database\Seeders\ProductTypeTableSeeder::class);
+        #$this->seed(\Database\Seeders\TDDProductCategoryTableSeeder::class);
         $insert_data = array(
             'product_code' => '123456',
             'product_type_code' => 'standard',

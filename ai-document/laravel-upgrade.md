@@ -502,6 +502,10 @@ git tag baseline-5.8
 - [ ] `spatie/laravel-ignition` を dev に追加。
 - [ ] `composer update` → テスト → 画面確認。
 
+- [x] （実作業で判明）PHP 8.1 では、テストの `delete()` ヘルパーが `TestCase::delete()` と非互換でファタルになるため `deleteImage()` に改名（`TDDImageControllerTest`）。
+- [x] （実作業で判明）`PHP85_VERSION=8.1.31` に更新して 85 コンテナを再ビルド。`COMPOSER_NO_SECURITY_BLOCKING=1` が引き続き必要。
+- [x] `config/mail.php` は `MAIL_MAILER` を優先し、旧 `MAIL_DRIVER` もフォールバックで読む形にした。`FILESYSTEM_DISK` も同様に旧 `FILESYSTEM_DRIVER` をフォールバック。
+
 ### 完了条件
 
 - メール送信（レビュー投稿）が Mailpit に届く。

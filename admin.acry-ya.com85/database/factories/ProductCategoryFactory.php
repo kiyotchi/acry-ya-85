@@ -1,9 +1,18 @@
 <?php
 
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(App\Models\ProductCategory::class, function (Faker $faker) {
-    return [
-        'product_category_name' => 'test'
-    ];
-});
+use App\Models\ProductCategory;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class ProductCategoryFactory extends Factory
+{
+    protected $model = ProductCategory::class;
+
+    public function definition()
+    {
+        return [
+            'product_category_name' => 'test',
+        ];
+    }
+}

@@ -8,7 +8,7 @@ class RelatedProduct extends Pivot
 {
     use \App\Models\Concerns\SerializesDatesLegacy;
 
-    use \LaravelTreats\Model\Traits\HasCompositePrimaryKey;
+    use \App\Models\Concerns\HasCompositePrimaryKey;
 
     //
     protected $table = 'related_products';

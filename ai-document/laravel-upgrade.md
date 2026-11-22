@@ -413,6 +413,10 @@ git tag baseline-5.8
 - [ ] `array_pluck` / `array_sort` は `laravel/helpers` のまま（Phase 6 で置換）。
 - [ ] `$dates` はまだ使えるため変更しない。
 - [ ] `composer update` → テスト → 画面確認。
+- [x] （実作業で判明）PHP 7.3 以上が必須のため、`acry-ya-docker/.env` の `PHP85_VERSION` を `7.4.33` / `composer:2` に変更して 85 コンテナを再ビルド。Dockerfile の gd configure は PHP 7.4 以降で新形式に分岐を修正。
+- [x] （実作業で判明）Laravel 8 は EOL でセキュリティ勧告によりブロックされるため、`COMPOSER_NO_SECURITY_BLOCKING=1 composer update -W` で実行（`composer.json` には書かない。中間ステップのみ）。
+- [x] （実作業で判明）Laravel 8 でページネーションの既定ビューが Tailwind になるため、管理の `AppServiceProvider::boot()` に `Paginator::useBootstrap()` を追加（Bootstrap 4）。フロントは `defaultView()` 指定済みで影響なし。
+- [x] （実作業で判明）`HasCompositePrimaryKey` の移植版は PHP 7.4 のため型宣言なし。Phase 5（Laravel 10）で戻り値型を付与する。
 
 ### 完了条件
 

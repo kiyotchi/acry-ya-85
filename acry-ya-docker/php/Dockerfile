@@ -48,7 +48,7 @@ RUN set -eux; \
 #   opcache   : 高速化
 # ---------------------------------------------------------------------------
 RUN set -eux; \
-    if [ "${PHP_VERSION%%.*}" = "7" ]; then \
+    if [ "${PHP_VERSION%%.*}" = "7" ] && [ "$(echo "$PHP_VERSION" | cut -d. -f2)" -lt 4 ]; then \
         docker-php-ext-configure gd \
             --with-freetype-dir=/usr/include/ \
             --with-jpeg-dir=/usr/include/; \

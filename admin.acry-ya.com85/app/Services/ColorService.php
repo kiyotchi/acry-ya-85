@@ -30,7 +30,7 @@ class ColorService
      * @param int $color_group_id
      * @param array
      */
-    public function findList(int $paging_count = null, string $color_name = null, int $color_group_id = null)
+    public function findList(?int $paging_count = null, ?string $color_name = null, ?int $color_group_id = null)
     {
         $wheres = [];
         if (!is_null($color_name)) {

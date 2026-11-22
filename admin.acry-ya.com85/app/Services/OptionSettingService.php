@@ -68,7 +68,7 @@ class OptionSettingService
      * @param array $update_datas
      * @throws \Exception
      */
-    public function updateOptionSetting(int $product_option_id = null, array $update_datas)
+    public function updateOptionSetting(?int $product_option_id, array $update_datas)
     {
         if (is_null($product_option_id)) {
             $product_option = new ProductOption();

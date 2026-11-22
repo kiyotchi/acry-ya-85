@@ -97,6 +97,17 @@ return [
     |
     */
 
+    /*
+    |--------------------------------------------------------------------------
+    | Serializable Classes
+    |--------------------------------------------------------------------------
+    |
+    | キャッシュにオブジェクトを保存しないため false（Laravel 13 の既定）。
+    |
+    */
+
+    'serializable_classes' => false,
+
     'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache'),
 
 ];

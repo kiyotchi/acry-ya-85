@@ -33,10 +33,10 @@ class MaterialService
      */
     public function findList(
         int $paging_count,
-        string $material_name = null,
-        string $material_code = null,
-        int $color_id = null,
-        int $plate_thickness_id = null
+        ?string $material_name = null,
+        ?string $material_code = null,
+        ?int $color_id = null,
+        ?int $plate_thickness_id = null
     ) {
         $wheres = [];
         if (!is_null($material_name)) {

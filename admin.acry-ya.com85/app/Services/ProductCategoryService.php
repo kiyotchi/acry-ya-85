@@ -32,7 +32,7 @@ class ProductCategoryService
      * @param int $parent_category_id
      * @param array
      */
-    public function findList(int $paging_count = null, string $product_category_name = null, int $product_category_id = null)
+    public function findList(?int $paging_count = null, ?string $product_category_name = null, ?int $product_category_id = null)
     {
         $wheres = [];
         if (!is_null($product_category_name)) {

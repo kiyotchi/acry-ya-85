@@ -10,4 +10,5 @@ class ProductType extends Model
     protected $primaryKey = 'product_type_code';
     // 文字列型のためオートインクリメントは無効化する
     public $incrementing = false;
+    protected $keyType = 'string';
 }

@@ -248,7 +248,7 @@ git tag baseline-5.8
 - [ ] `beyondcode/laravel-dump-server` を削除。
 - [ ] `filp/whoops` を削除し、`facade/ignition` を dev に追加（任意）。
 - [ ] `xethron/migrations-generator` を削除（管理のみ）。
-- [ ] `nunomaduro/collision` を `^4.0` に変更。
+- [ ] `nunomaduro/collision` は `^3.0` のまま（`^4.0` は Symfony 5 必須で Laravel 6 と競合。Phase 2 で `^4.0`）。
 - [ ] `phpunit/phpunit` を `^8.0` に変更。
 - [ ] `minimum-stability` は `dev` のままでも可（Phase 5 で `stable`）。
 - [ ] `ProductType` モデルに `$keyType = 'string'` を追加（`incrementing = false` のため）。

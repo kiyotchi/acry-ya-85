@@ -9,6 +9,8 @@ use Str;
 
 class Review extends Model
 {
+    use \App\Models\Concerns\SerializesDatesLegacy;
+
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];

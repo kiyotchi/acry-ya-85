@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SizeType extends Model
 {
+    use \App\Models\Concerns\SerializesDatesLegacy;
+
     // 主キーがlaravel規約と異なるため修正
     protected $primaryKey = 'size_type_id';
 }

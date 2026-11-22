@@ -289,7 +289,7 @@ git tag baseline-5.8
 
 ### タスク
 
-- [ ] `UploadImageService::upload()` の `getClientSize()` を `getSize()` に変更。
+- [x] `UploadImageService::upload()` の `getClientSize()` を `getSize()` に変更。
   - `admin.acry-ya.com/app/Services/UploadImageService.php:62-63`
   - `getSize()` はアップロードされたファイルの実サイズを返す。`disk_free_space("/")` との比較はそのまま使える。
 - [ ] `laravel/framework` を `^7.0`、`laravel/ui` を `^2.0` に変更。
@@ -297,6 +297,9 @@ git tag baseline-5.8
 - [ ] `composer update` → テスト → 画面確認。
 - [ ] 画像アップロード（管理画面）を必ず確認する。
 - [ ] `php artisan view:clear` / `config:clear` を実行。
+- [x] （実作業で判明）`composer.json` の `vlucas/phpdotenv ^3.4` を削除（Laravel 7 は ^4.0 を要求）。`php` 要件を `^7.2.5` に変更、`facade/ignition` を `^2.0` に変更。
+- [x] （実作業で判明）`App\Exceptions\Handler` の `report` / `render` を `Throwable` 型に変更（Laravel 7 で必須。Phase 3 の項目を前倒し）。
+- [x] （実作業で判明）Eloquent の日付シリアライズが ISO-8601（UTC）に変更されるため、全モデルに `App\Models\Concerns\SerializesDatesLegacy` を追加して従来形式（`Y-m-d H:i:s`）を維持。
 
 ### 完了条件
 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class ProductsProductFeatureTag extends Pivot
 {
+    use \App\Models\Concerns\SerializesDatesLegacy;
+
     //
     protected $table = 'products_product_feature_tags';
 

@@ -14,7 +14,7 @@ class UpdateProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->longText('versions_string'); 
+            $table->longText('versions_string')->nullable();
         });
     }
 

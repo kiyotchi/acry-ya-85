@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DiscountRate extends Model
 {
+    use \App\Models\Concerns\SerializesDatesLegacy;
+
     use SoftDeletes;
 
     // 主キーがlaravel規約と異なるため修正

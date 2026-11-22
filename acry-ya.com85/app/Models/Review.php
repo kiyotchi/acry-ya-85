@@ -14,7 +14,9 @@ class Review extends Model
 
     use SoftDeletes;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = [
+        'deleted_at' => 'datetime',
+    ];
 
     // createメソッドでの書き込み許可
     protected $fillable = [

@@ -75,7 +75,7 @@ class UploadImageService
                     }
                     $picture = $pictures->first();
                     // ファイルUpload
-                    $file->storeAs(env('IMAGE_STORAGE') . '/' . $directory, $file_name);
+                    $file->storeAs(config('acryya.image_storage') . '/' . $directory, $file_name);
                     $picture_id = $picture->picture_id;
 
                 } else {
@@ -84,7 +84,7 @@ class UploadImageService
                         throw new DuplicateException('picture data already exists.', 303);
                     }
                     // ファイルUpload
-                    $file->storeAs(env('IMAGE_STORAGE') . '/' . $directory, $file_name);
+                    $file->storeAs(config('acryya.image_storage') . '/' . $directory, $file_name);
                     // 画像テーブルへ保存
                     $picture = new Picture();
                     $picture->fill(['directory' => $directory, 'picture_path' => $file_name])->save();

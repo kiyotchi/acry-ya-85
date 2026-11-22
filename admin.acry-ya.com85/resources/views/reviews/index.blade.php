@@ -121,7 +121,7 @@
                         </td>
                         <td>{{ data_get($item, 'updated_at') }}</td>
                         <td>
-                            <a href="{{ route('reviews.edit', ['id' => data_get($item, 'id')]) }}">編集</a><br>
+                            <a href="{{ route('reviews.edit', ['review' => data_get($item, 'id')]) }}">編集</a><br>
                         </td>
                     </tr>
                 @endforeach

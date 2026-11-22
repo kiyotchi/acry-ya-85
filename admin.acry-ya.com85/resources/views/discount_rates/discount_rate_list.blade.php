@@ -40,9 +40,7 @@
                         <td>{{$item['discount_rate_title']}}</td>
                         <td>{{$item['updated_at']}}</td>
                         <td>
-                            <a href={{ route('discount.rate.edit', [
-                            'discount_rate_id' => $item['discount_rate_id'],
-                            'discount_rate_item_id' => $discount_rate_items->where('discount_rate_id', $item['discount_rate_id'])])}}>編集</a>
+                            <a href={{ route('discount.rate.edit', ['id' => $item['discount_rate_id']]) }}>編集</a>
                         </td>
                     </tr>
                 @endforeach

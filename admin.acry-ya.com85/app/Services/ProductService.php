@@ -346,7 +346,7 @@ class ProductService
      */
     public function generateDeliveries()
     {
-        $file = new SplFileObject(env("DELIVERIES_PATH"));
+        $file = new SplFileObject(config('acryya.deliveries_path'));
         $file->setFlags(SplFileObject::READ_CSV);
         $deliveries = [];
         foreach ($file as $line) {
@@ -371,7 +371,7 @@ class ProductService
      */
     public function generateDeliveryDates()
     {
-        $file = new SplFileObject(env("DELIVERIES_PATH"));
+        $file = new SplFileObject(config('acryya.deliveries_path'));
         $file->setFlags(SplFileObject::READ_CSV);
         $delivery_dates = [];
         foreach ($file as $line) {

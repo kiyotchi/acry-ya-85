@@ -24,7 +24,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('reviews.update', ['id' => data_get($review, 'id')]) }}">
+        <form method="POST" action="{{ route('reviews.update', ['review' => data_get($review, 'id')]) }}">
             @csrf @method('PUT')
             <dl>
                 <dt>ID</dt>
@@ -117,7 +117,7 @@
         </form>
 
         <div class="procArea-delete">
-            <form method="POST" action="{{ route('reviews.destroy', ['id' => data_get($review, 'id')]) }}">
+            <form method="POST" action="{{ route('reviews.destroy', ['review' => data_get($review, 'id')]) }}">
                 @csrf @method('DELETE')
                 <input type="submit" value="削除">
             </form>

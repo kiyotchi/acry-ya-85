@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
 	 *
 	 * @return void
 	 */
-	public function register()
+	public function register(): void
 	{
 		$url = $this->app['url'];
 		$this->app->singleton('url', function() use ( $url ) {
@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
 	 *
 	 * @return void
 	 */
-	public function boot()
+	public function boot(): void
 	{
 		//
 		Paginator::defaultView('vendor.pagination.default');

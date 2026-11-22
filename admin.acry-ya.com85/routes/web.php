@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('logout', 'Auth\LoginController@logout');
 

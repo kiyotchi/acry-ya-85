@@ -132,7 +132,7 @@ class ImageService
      */
     public function uploadImage($file)
     {
-        $file_name = $file->store(env('IMAGE_STORAGE'));
+        $file_name = $file->store(config('acryya.image_storage'));
         return basename($file_name);
     }
 

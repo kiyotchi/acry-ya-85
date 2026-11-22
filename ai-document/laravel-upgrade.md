@@ -681,6 +681,19 @@ Laravel 11 の公式ガイドは「Laravel 10 アプリを 11 の新構造へ移
 - [ ] `config/session.php` の `same_site` を `'lax'` に（推奨）。
 - [ ] `config/logging.php` の `daily` に `days` を設定。
 
+### 実施記録（Phase 6）
+
+- [x] 11.1 spike: 旧 `bootstrap/app.php`・`Http/Kernel`・`Exceptions/Handler`・`config/*` のまま Laravel 11.57.1 で起動・動作することを確認（追加工数なし）。
+- [x] 11.2 `laravelcollective/html` を削除し `konekt/html ^6.8` に置換。`Form::` を使う管理画面の描画結果（HTML 長・input 数）は変更前と同一。
+- [x] 11.3 `laravel/helpers` を両アプリから削除（フロントは使用箇所なし）。管理は `array_pluck` 73 箇所 / `array_sort` 22 箇所（16 ビュー）を、ビューを変更せずに済むよう `app/helpers.php`（`function_exists` ガード付き、実体は `Arr::pluck` / `Arr::sort`）で提供し、`composer.json` の `autoload.files` で読み込む。将来 `Arr::` へ置換する場合はビュー側の機械置換で可能。
+- [x] 11.4 `config/acryya.php` を新設し、`app/` 配下の `env()` 直呼びをすべて `config()` に置換。`config:cache` 有効でも動作確認済み。
+- [x] 11.5 ComposerServiceProvider の `boot(Request $request)` を `boot(): void` に変更（`request()` を使用）。Provider / Console Kernel に `: void`、`Authenticate::redirectTo()` に `: ?string`（`return null` を追加）を付与。
+- [x] 11.6 `laravel/ui ^4.4`。管理の `Auth::routes(['register' => false])` で新規登録を無効化（`/register` は 404）。`App\User` の移動はしない。`password_resets` を維持。
+- [x] 11.7 `doctrine/dbal` は元から未導入。空 DB から `migrate:fresh --seed` が通ることを確認。
+- [x] 11.8 `session.same_site` を `lax` に。`logging.daily.days` は 14。
+- [x] （実作業で判明）Laravel 11 では `route()` に渡すパラメータ名がルート定義と一致しないと例外になる（Laravel 10 までは位置で補っていた）。`discount_rate_list.blade.php`（`id`）と `reviews/index|edit.blade.php`（`review`）を修正。
+- [x] PHP 8.3.26（`PHP85_VERSION`）。`composer audit` は Laravel 11 の勧告が残る（中間ステップ）。`COMPOSER_NO_SECURITY_BLOCKING=1` が引き続き必要。
+
 ### 完了条件
 
 - Laravel 11 でフロント / 管理の全主要画面が動作する。

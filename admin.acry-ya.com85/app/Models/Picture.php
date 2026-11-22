@@ -22,9 +22,9 @@ class Picture extends Model
         $picture_url = null;
         if( !empty($this->picture_path) ) {
             if( !empty($this->directory) ) {
-                $picture_url = env('SITE_URL') . '/' . env('DISPLAY_IMAGE_PATH') . $this->directory . '/' . $this->picture_path;
+                $picture_url = config('acryya.site_url') . '/' . config('acryya.display_image_path') . $this->directory . '/' . $this->picture_path;
             } else {
-                $picture_url = env('SITE_URL') . '/' . env('DISPLAY_IMAGE_PATH') . $this->picture_path;
+                $picture_url = config('acryya.site_url') . '/' . config('acryya.display_image_path') . $this->picture_path;
             }
         }
         return $picture_url;

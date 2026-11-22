@@ -10,14 +10,13 @@ use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
 {
-	private $request;
 
 	/**
 	 * Register services.
 	 *
 	 * @return void
 	 */
-	public function register()
+	public function register(): void
 	{
 		//
 	}
@@ -27,14 +26,12 @@ class ComposerServiceProvider extends ServiceProvider
 	 *
 	 * @return void
 	 */
-	public function boot( Request $request )
+	public function boot(): void
 	{
-		$this->request = $request;
-
 		// ヘッダー
 		view()->composer('common.header', function( $view ) {
-			$search_category_id = $this->request->cat;
-			$search_word = $this->request->word;
+			$search_category_id = request()->cat;
+			$search_word = request()->word;
 
 			$product_category_service = new ProductCategoryService();
 			$categories = $product_category_service->findAll();
@@ -109,7 +106,7 @@ class ComposerServiceProvider extends ServiceProvider
 
 			// アクリ屋ブログのカテゴリー取得
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, env('APP_URL')."/blog/wp-json/wp/v2/categories/");
+			curl_setopt($ch, CURLOPT_URL, config('app.url')."/blog/wp-json/wp/v2/categories/");
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

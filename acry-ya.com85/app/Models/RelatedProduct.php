@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class RelatedProduct extends Pivot
 {
+    use \App\Models\Concerns\SerializesDatesLegacy;
+
     //
     protected $table = 'related_products';
 

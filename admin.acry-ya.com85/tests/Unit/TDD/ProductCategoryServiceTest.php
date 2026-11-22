@@ -18,7 +18,7 @@ class ProductCategoryServiceTest extends TestCase
      */
     public function testFindAll()
     {
-        $test_model = factory(ProductCategory::class)->create();
+        $test_model = ProductCategory::factory()->create();
 
         $product_category_service = new ProductCategoryService();
         $test = $product_category_service->findAll();
@@ -33,7 +33,7 @@ class ProductCategoryServiceTest extends TestCase
      */
     public function testFindAllPaging()
     {
-        $test_model = factory(ProductCategory::class, 30)->create();
+        $test_model = ProductCategory::factory()->count(30)->create();
         $product_category_service = new ProductCategoryService();
         $test = $product_category_service->findAllPaging();
         // ページングのページ取得件数でチェック

@@ -248,7 +248,7 @@ git tag baseline-5.8
 - [ ] `beyondcode/laravel-dump-server` を削除。
 - [ ] `filp/whoops` を削除し、`facade/ignition` を dev に追加（任意）。
 - [ ] `xethron/migrations-generator` を削除（管理のみ）。
-- [ ] `nunomaduro/collision` を `^4.0` に変更。
+- [ ] `nunomaduro/collision` は `^3.0` のまま（`^4.0` は Symfony 5 必須で Laravel 6 と競合。Phase 2 で `^4.0`）。
 - [ ] `phpunit/phpunit` を `^8.0` に変更。
 - [ ] `minimum-stability` は `dev` のままでも可（Phase 5 で `stable`）。
 - [ ] `ProductType` モデルに `$keyType = 'string'` を追加（`incrementing = false` のため）。
@@ -289,7 +289,7 @@ git tag baseline-5.8
 
 ### タスク
 
-- [ ] `UploadImageService::upload()` の `getClientSize()` を `getSize()` に変更。
+- [x] `UploadImageService::upload()` の `getClientSize()` を `getSize()` に変更。
   - `admin.acry-ya.com/app/Services/UploadImageService.php:62-63`
   - `getSize()` はアップロードされたファイルの実サイズを返す。`disk_free_space("/")` との比較はそのまま使える。
 - [ ] `laravel/framework` を `^7.0`、`laravel/ui` を `^2.0` に変更。
@@ -297,6 +297,9 @@ git tag baseline-5.8
 - [ ] `composer update` → テスト → 画面確認。
 - [ ] 画像アップロード（管理画面）を必ず確認する。
 - [ ] `php artisan view:clear` / `config:clear` を実行。
+- [x] （実作業で判明）`composer.json` の `vlucas/phpdotenv ^3.4` を削除（Laravel 7 は ^4.0 を要求）。`php` 要件を `^7.2.5` に変更、`facade/ignition` を `^2.0` に変更。
+- [x] （実作業で判明）`App\Exceptions\Handler` の `report` / `render` を `Throwable` 型に変更（Laravel 7 で必須。Phase 3 の項目を前倒し）。
+- [x] （実作業で判明）Eloquent の日付シリアライズが ISO-8601（UTC）に変更されるため、全モデルに `App\Models\Concerns\SerializesDatesLegacy` を追加して従来形式（`Y-m-d H:i:s`）を維持。
 
 ### 完了条件
 
@@ -410,6 +413,10 @@ git tag baseline-5.8
 - [ ] `array_pluck` / `array_sort` は `laravel/helpers` のまま（Phase 6 で置換）。
 - [ ] `$dates` はまだ使えるため変更しない。
 - [ ] `composer update` → テスト → 画面確認。
+- [x] （実作業で判明）PHP 7.3 以上が必須のため、`acry-ya-docker/.env` の `PHP85_VERSION` を `7.4.33` / `composer:2` に変更して 85 コンテナを再ビルド。Dockerfile の gd configure は PHP 7.4 以降で新形式に分岐を修正。
+- [x] （実作業で判明）Laravel 8 は EOL でセキュリティ勧告によりブロックされるため、`COMPOSER_NO_SECURITY_BLOCKING=1 composer update -W` で実行（`composer.json` には書かない。中間ステップのみ）。
+- [x] （実作業で判明）Laravel 8 でページネーションの既定ビューが Tailwind になるため、管理の `AppServiceProvider::boot()` に `Paginator::useBootstrap()` を追加（Bootstrap 4）。フロントは `defaultView()` 指定済みで影響なし。
+- [x] （実作業で判明）`HasCompositePrimaryKey` の移植版は PHP 7.4 のため型宣言なし。Phase 5（Laravel 10）で戻り値型を付与する。
 
 ### 完了条件
 
@@ -494,6 +501,10 @@ git tag baseline-5.8
 - [ ] `laravelcollective/html` 6.3 で `Form::` が動作することを確認。
 - [ ] `spatie/laravel-ignition` を dev に追加。
 - [ ] `composer update` → テスト → 画面確認。
+
+- [x] （実作業で判明）PHP 8.1 では、テストの `delete()` ヘルパーが `TestCase::delete()` と非互換でファタルになるため `deleteImage()` に改名（`TDDImageControllerTest`）。
+- [x] （実作業で判明）`PHP85_VERSION=8.1.31` に更新して 85 コンテナを再ビルド。`COMPOSER_NO_SECURITY_BLOCKING=1` が引き続き必要。
+- [x] `config/mail.php` は `MAIL_MAILER` を優先し、旧 `MAIL_DRIVER` もフォールバックで読む形にした。`FILESYSTEM_DISK` も同様に旧 `FILESYSTEM_DRIVER` をフォールバック。
 
 ### 完了条件
 

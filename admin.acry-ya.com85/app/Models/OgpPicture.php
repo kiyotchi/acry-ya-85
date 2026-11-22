@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class OgpPicture extends Model
 {
+    use \App\Models\Concerns\SerializesDatesLegacy;
+
     protected $guarded = ['id'];
 
     public function getUrlAttribute()

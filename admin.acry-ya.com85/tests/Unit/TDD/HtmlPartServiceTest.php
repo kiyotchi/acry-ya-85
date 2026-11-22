@@ -24,9 +24,9 @@ class HtmlPartServiceTest extends TestCase
         parent::setUp();
         // product_html_part_type_tableの主キーを1からの連番にするためにマイグレーションし直し
         $this->artisan('migrate:fresh');
-        //$this->seed('TDDProductHtmlPartTypeTableSeeder');
-        //$this->seed('TDDProductHtmlPartTableSeeder');
-        $this->seed(\DatabaseSeeder::class);
+        //$this->seed(\Database\Seeders\TDDProductHtmlPartTypeTableSeeder::class);
+        //$this->seed(\Database\Seeders\TDDProductHtmlPartTableSeeder::class);
+        $this->seed(\Database\Seeders\DatabaseSeeder::class);
         $this->html_part_service = new HtmlPartService();
     }
 

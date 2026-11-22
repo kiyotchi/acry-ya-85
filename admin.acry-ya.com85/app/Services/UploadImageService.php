@@ -59,8 +59,8 @@ class UploadImageService
     {
         try {
             return DB::transaction(function () use ($file, $directory, $is_overwrite) {
-                if ($file->getClientSize() > disk_free_space("/")) {
-                    Log::warning('file size : ' . $file->getClientSize());
+                if ($file->getSize() > disk_free_space("/")) {
+                    Log::warning('file size : ' . $file->getSize());
                     // ディスク空き容量を超えたら保存しない
                     throw new DiskCapacityOverException('ディスク空き容量がありません。', 507);
                 }

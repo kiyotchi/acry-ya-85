@@ -22,7 +22,6 @@ class CreateRepairPartsTable extends Migration {
 			$table->bigInteger('thumbnail_picture_id')->unsigned()->nullable()->index('thumbnail_picture_id');
 			$table->bigInteger('price')->nullable()->comment('定価');
 			$table->bigInteger('delivery_schedule_id')->nullable()->comment('発送予定がまとめられたCSVファイルの1行目の連番をセットする');
-            $table->bigInteger('price')->nullable()->comment('定価');
 			$table->integer('display_order')->unsigned()->nullable()->comment('表示順');
 			$table->timestamps();
 			$table->index(['product_code','product_name'], 'idx_repair_parts_01');

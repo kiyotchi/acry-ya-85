@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class RepairPartGroupRepairPart extends Pivot
 {
+    use \App\Models\Concerns\SerializesDatesLegacy;
+
     //
     protected $table = 'repair_part_groups_repair_parts';
 

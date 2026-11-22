@@ -69,7 +69,7 @@ class TDDImageControllerTest extends TestCase
         $this->assertTrue(array_key_exists('picture_id', $json));
 
         //
-        $this->delete($json['picture_id']);
+        $this->deleteImage($json['picture_id']);
     }
 
     public function testStoreNonDir()
@@ -85,7 +85,7 @@ class TDDImageControllerTest extends TestCase
         $response->assertStatus(200);
         $json = $response->json();
         $this->assertTrue(array_key_exists('picture_id', $json));
-        $this->delete($json['picture_id']);
+        $this->deleteImage($json['picture_id']);
     }
 
     public function testStoreFailed()
@@ -152,7 +152,7 @@ class TDDImageControllerTest extends TestCase
         $response->assertStatus(200);
 
         $this->assertEquals(303, $json['error']['code']);
-        $this->delete($picture_id);
+        $this->deleteImage($picture_id);
     }
 
 
@@ -197,7 +197,7 @@ class TDDImageControllerTest extends TestCase
         $this->assertEquals($picture_id, $json['picture_id']);
         $this->assertTrue(array_key_exists('picture_id', $json));
 
-        $this->delete($picture_id);
+        $this->deleteImage($picture_id);
     }
 
     public function testStoreOverwriteUnknownResource()
@@ -242,7 +242,7 @@ class TDDImageControllerTest extends TestCase
         $this->assertTrue(array_key_exists('code', $json['error']));
         $this->assertTrue(array_key_exists('error_message', $json['error']));
         $this->assertEquals(404, $json['error']['code']);
-        $this->delete($picture_id);
+        $this->deleteImage($picture_id);
     }
 
     public function testDelete()
@@ -318,7 +318,7 @@ class TDDImageControllerTest extends TestCase
         var_dump($json);
     }
 
-    public function delete(int $picture_id)
+    public function deleteImage(int $picture_id)
     {
         $response = $this->withHeaders([
             'Authorization' => 'Bearer 1d1314e08dde9e907443226ac363a4c0071e183fe14b29ee23bb235253129136',

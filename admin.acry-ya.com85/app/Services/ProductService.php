@@ -47,12 +47,12 @@ class ProductService
      * @return Collection
      */
     public function findList(
-        string $product_name = null,
-        string $product_code = null,
-        int $is_display = null,
-        int $product_category_id = null,
-        string $product_type_code = null,
-        string $semi_html_part = null
+        ?string $product_name = null,
+        ?string $product_code = null,
+        ?int $is_display = null,
+        ?int $product_category_id = null,
+        ?string $product_type_code = null,
+        ?string $semi_html_part = null
     ) {
         // パラメーターがからの場合は全件検索する
         // 一つでもあれば条件検索

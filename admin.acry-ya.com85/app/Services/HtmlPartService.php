@@ -61,7 +61,7 @@ class HtmlPartService
      * @param string|null $html_part_title
      * @return mixed
      */
-    public function findList(int $html_part_type_id = null, string $html_part_title = null, string $html_part = null)
+    public function findList(?int $html_part_type_id = null, ?string $html_part_title = null, ?string $html_part = null)
     {
         $wheres = [];
         if (!is_null($html_part_type_id)) {

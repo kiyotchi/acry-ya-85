@@ -33,7 +33,7 @@ class SizeService
      * @param int $size_type
      * @param array
      */
-    public function findList(int $paging_count = null, int $size_type = null)
+    public function findList(?int $paging_count = null, ?int $size_type = null)
     {
         $wheres = [];
         if (!is_null($size_type)) {
@@ -55,7 +55,7 @@ class SizeService
      * @param int $size
      * @param array
      */
-    public function findList2(int $paging_count = null, int $size_group_id = null, string $size = null)
+    public function findList2(?int $paging_count = null, ?int $size_group_id = null, ?string $size = null)
     {
         $wheres = [];
         if (!is_null($size_group_id)) {

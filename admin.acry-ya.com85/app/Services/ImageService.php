@@ -427,7 +427,7 @@ class ImageService
     private function registerProductPicturePivot(
         int $product_id,
         int $picture_id,
-        string $description = null,
+        ?string $description,
         int $display_order
     ) {
         $data = array(
@@ -451,7 +451,7 @@ class ImageService
     private function updateProductPicturePivot(
         int $product_id,
         int $picture_id,
-        string $description = null,
+        ?string $description,
         int $display_order
     ) {
         ProductPictures::where('product_id', $product_id)
@@ -473,7 +473,7 @@ class ImageService
         int $product_id,
         int $picture_id,
         int $color_id,
-        string $description = null,
+        ?string $description,
         int $display_order
     ) {
         $data = array(
@@ -501,7 +501,7 @@ class ImageService
         int $picture_id,
         int $color_id,
         int $display_order,
-        string $description = null
+        ?string $description = null
     ) {
         ProductColorPictures::where('product_id', $product_id)
             ->where('color_id', $color_id)
@@ -523,7 +523,7 @@ class ImageService
         int $product_id,
         int $picture_id,
         int $size_id,
-        string $description = null,
+        ?string $description,
         int $display_order
     ) {
         $data = array(
@@ -550,7 +550,7 @@ class ImageService
         int $product_id,
         int $picture_id,
         int $product_option_content_id,
-        string $description = null,
+        ?string $description,
         int $display_order
     ) {
         $data = array(
@@ -580,7 +580,7 @@ class ImageService
         int $picture_id,
         int $size_id,
         int $display_order,
-        string $description = null
+        ?string $description = null
     ) {
         ProductSizePicture::where('product_id', $product_id)
             ->where('size_id', $size_id)
@@ -603,7 +603,7 @@ class ImageService
         int $picture_id,
         int $product_option_content_id,
         int $display_order,
-        string $description = null
+        ?string $description = null
     ) {
         ProductOptionContentsPicture::where('product_id', $product_id)
             ->where('product_option_content_id', $product_option_content_id)

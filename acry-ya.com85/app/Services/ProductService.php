@@ -46,7 +46,7 @@ class ProductService
 	 *
 	 * @return Collection
 	 */
-	public function findList( int $paging_count, string $product_name = null, string $product_code = null, array $product_category_ids = [], string $product_type_code = null )
+	public function findList( int $paging_count, ?string $product_name = null, ?string $product_code = null, array $product_category_ids = [], ?string $product_type_code = null )
 	{
 		// パラメーターがからの場合は全件検索する
 		// 一つでもあれば条件検索

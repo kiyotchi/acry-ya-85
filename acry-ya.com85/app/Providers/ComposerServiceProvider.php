@@ -112,7 +112,7 @@ class ComposerServiceProvider extends ServiceProvider
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 			$result = curl_exec($ch);
-			curl_close($ch);
+			// curl_close() は PHP 8.0 以降 no-op（8.5 で非推奨）のため呼ばない。ハンドルはスコープ終了時に解放される
 			$blog_categories = ( !empty($result) ) ? json_decode($result,true) : [] ;
 
 			return $view->with('categories', $categories)

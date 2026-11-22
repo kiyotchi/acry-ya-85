@@ -73,7 +73,7 @@ class HtmlPartService
 	 *
 	 * @return mixed
 	 */
-    public function findList(int $paging_count, int $html_part_type_id = null, string  $html_part_title = null)
+    public function findList(int $paging_count, ?int $html_part_type_id = null, ?string  $html_part_title = null)
     {
         $wheres = [];
         if (!is_null($html_part_type_id)) {

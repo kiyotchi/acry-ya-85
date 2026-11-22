@@ -423,8 +423,8 @@ class ReviewController extends Controller
                     break;
             }
 
-            imagedestroy($image);
-            imagedestroy($canvas);
+            // imagedestroy() は PHP 8.0 以降 no-op（8.5 で非推奨）。GD オブジェクトは unset で解放する
+            unset($image, $canvas);
 
             return str_replace(self::STORAGE_PATH, '/', $path);
         }

@@ -838,6 +838,17 @@ Laravel 11 の公式ガイドは「Laravel 10 アプリを 11 の新構造へ移
   ```
 - [ ] `composer audit` で致命的な脆弱性がないことを確認。
 
+### 実施記録（Phase 8）
+
+- [x] 13.1 Laravel 13.43.0 / tinker 3.2 / `laravel/ui 4.6.3` / `konekt/html 6.8.0` / PHPUnit 12.5 / collision 8.9。`composer audit` は脆弱性 0 件。
+- [x] 13.2 `VerifyCsrfToken` を `PreventRequestForgery` にリネームし `Http/Kernel` を更新。58 と同じく、トークン無し POST は 419、トークン付きは通過。Origin 検証は既定（トークンへフォールバック）で問題なし。`review/good` の除外も維持。
+- [x] 13.3 `cache.serializable_classes = false`、`session.serialization = json` を明示。キャッシュ/セッション prefix・cookie 名は既存の設定値（アンダースコア区切り）のまま。ログイン失敗時のエラー表示と old input が json セッションでも動作。
+- [x] 13.4 ページネーションはカスタムビュー参照のため影響なし。
+- [x] 13.5 PHP 8.5: `curl_close()` / `imagedestroy()` を削除（`unset` に置換）、暗黙 nullable 引数 49 箇所を `?Type $x = null` に修正、`PDO::MYSQL_ATTR_SSL_CA` を `Pdo\Mysql::ATTR_SSL_CA`（8.5 以降）に切替。
+- [x] （実作業で判明）暗黙 nullable を直すと「必須引数の前の任意引数」の deprecation が出る 6 メソッド（`ImageService` 5、`OptionSettingService` 1）は、実質必須のため `= null` を外した。
+- [x] 13.6 `morph*` / `Route::domain` / `Js::from` / `diffIn*` の使用なし（`upsert` は独自サービスメソッドで影響なし）。
+- [x] 13.7 PHP 8.5.0（`PHP85_VERSION`）。全アプリファイルの `php -l`（`error_reporting=-1`）で deprecation 0 件。主要画面の描画後もアプリログ・コンテナログに deprecation / warning なし。
+
 ### 完了条件
 
 - Laravel 13 / PHP 8.5 でフロント / 管理の全主要機能が動作する。

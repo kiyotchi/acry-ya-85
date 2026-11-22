@@ -556,6 +556,11 @@ git tag baseline-5.8
 - [ ] `DB::raw` を文字列キャストしている箇所がないか確認（grep では 11 箇所。`(string)` キャストがないか確認）。
 - [ ] `composer update` → テスト → 画面確認。
 
+- [x] （実作業で判明）`spatie/laravel-ignition` は Laravel 10 では `^2.0` が必要（`^1.0` は Laravel 9 まで）。
+- [x] （実作業で判明）`doctrine/dbal` は、マイグレーションに `->change()` が無いため追加していない。
+- [x] （実作業で判明）`PHP85_VERSION=8.2.29` に更新。`composer audit` は `laravel/framework` 10 の勧告が残る（中間ステップ。Laravel 13 で解消）。
+- [x] `HasCompositePrimaryKey` は Laravel 10 / PHP 8.2 でも型宣言なしのまま動作（互換エラーなし）。型付与は Phase 6 で再確認。
+
 ### 完了条件
 
 - 管理画面の日時表示（`deleted_at` など）が正しい。

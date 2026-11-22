@@ -16,7 +16,9 @@ class Material extends Model
     protected $primaryKey = 'material_id';
 
     // 日付が入っている場合は論理削除
-    protected $dates = ['deleted_at'];
+    protected $casts = [
+        'deleted_at' => 'datetime',
+    ];
 
     // createメソッドでの書き込み許可
     protected $fillable = [

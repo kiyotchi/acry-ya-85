@@ -730,6 +730,13 @@ Laravel 11 の公式ガイドは「Laravel 10 アプリを 11 の新構造へ移
 - [ ] Carbon 3 の `diffIn*` 使用箇所を確認（`getNewFlagAttribute` は `strtotime` のため影響なし）。
 - [ ] PHP 8.3 で deprecation がないかログを確認。
 
+### 実施記録（Phase 7）
+
+- [x] Laravel 12.73.0 / PHPUnit 11.5 / `laravel/ui ^4.6.1` / `konekt/html ^6.5`（collision `^8.0`）。PHP は 8.3.26 のまま。
+- [x] `composer audit` の脆弱性は 0 件（`COMPOSER_NO_SECURITY_BLOCKING` は Phase 7 から不要）。
+- [x] Carbon 3: アプリ・ビューに `diffIn*` / `diffFor*` の使用なし。
+- [x] PHP 8.3 の deprecation はログ・コンテナログに出ていない（主要画面を一括描画して確認）。
+
 ### 完了条件
 
 - テスト green。
